@@ -13,9 +13,13 @@
  */
 export type Cell = "yes" | "part" | "no";
 
+/** Which question the tool is built to answer. Drives the grouping on the page. */
+export type Group = "reviewer" | "duplicate" | "platform";
+
 export type Tool = {
   name: string;
   kind: string;
+  group: Group;
   ours?: boolean;
   dupPr: Cell;
   explains: Cell;
@@ -38,6 +42,7 @@ export const TOOLS: Tool[] = [
   {
     name: "Jinx",
     kind: "duplicate-PR detector",
+    group: "duplicate",
     ours: true,
     dupPr: "yes",
     explains: "yes",
@@ -50,6 +55,7 @@ export const TOOLS: Tool[] = [
   {
     name: "CodeRabbit",
     kind: "AI reviewer + triage",
+    group: "reviewer",
     dupPr: "part",
     explains: "yes",
     diffAware: "yes",
@@ -61,6 +67,7 @@ export const TOOLS: Tool[] = [
   {
     name: "Greptile",
     kind: "AI reviewer",
+    group: "reviewer",
     dupPr: "no",
     explains: "yes",
     diffAware: "yes",
@@ -72,6 +79,7 @@ export const TOOLS: Tool[] = [
   {
     name: "Graphite Diamond",
     kind: "AI reviewer",
+    group: "reviewer",
     dupPr: "no",
     explains: "yes",
     diffAware: "yes",
@@ -83,6 +91,7 @@ export const TOOLS: Tool[] = [
   {
     name: "GitHub Copilot review",
     kind: "AI reviewer",
+    group: "reviewer",
     dupPr: "no",
     explains: "yes",
     diffAware: "yes",
@@ -94,6 +103,7 @@ export const TOOLS: Tool[] = [
   {
     name: "Qodo Merge",
     kind: "AI reviewer",
+    group: "reviewer",
     dupPr: "no",
     explains: "yes",
     diffAware: "yes",
@@ -105,6 +115,7 @@ export const TOOLS: Tool[] = [
   {
     name: "contrib-guard",
     kind: "duplicate-PR bot",
+    group: "duplicate",
     dupPr: "yes",
     explains: "no",
     diffAware: "no",
@@ -116,6 +127,7 @@ export const TOOLS: Tool[] = [
   {
     name: "Simili-bot",
     kind: "duplicate-PR bot",
+    group: "duplicate",
     dupPr: "yes",
     explains: "part",
     diffAware: "no",
@@ -127,6 +139,7 @@ export const TOOLS: Tool[] = [
   {
     name: "GitHub, out of the box",
     kind: "platform",
+    group: "platform",
     dupPr: "no",
     explains: "no",
     diffAware: "no",
