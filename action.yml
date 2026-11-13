@@ -27,7 +27,8 @@ runs:
         python-version: "3.11"
     - shell: bash
       run: |
-        if [ "${{ inputs.embed }}" = "true" ]; then pip install --quiet "${{ github.action_path }}[embed]"; else pip install --quiet "${{ github.action_path }}"; fi
+        PKG="${{ github.action_path }}/packages/jinx-pr"
+        if [ "${{ inputs.embed }}" = "true" ]; then pip install --quiet "$PKG[embed]"; else pip install --quiet "$PKG"; fi
     - shell: bash
       env:
         INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}

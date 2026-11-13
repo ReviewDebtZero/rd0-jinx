@@ -1,0 +1,50 @@
+name: release
+
+# Publishes jinx-pr to PyPI. Never runs on its own: either you push a v* tag or
+# you trigger it by hand. Uses PyPI Trusted Publishing, so there is no API token
+# stored in this repository.
+#
+# One-time setup before the first run, at https://pypi.org/manage/account/publishing/
+#   PyPI project name : jinx-pr
+#   Owner             : ABCR-Labs
+#   Repository        : Jinx
+#   Workflow          : release.yml
+#   Environment       : pypi
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write # required for Trusted Publishing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - run: pip install build twine
+      - name: Build
+        run: python -m build
+        working-directory: packages/jinx-pr
+      - name: Check metadata
+        run: twine check dist/*
+        working-directory: packages/jinx-pr
+
+      # Install the built wheel somewhere clean and run the suite against it, so
+      # a broken artifact cannot reach PyPI.
+      - name: Verify the artifact
+        run: |
+          python -m venv /tmp/v
+          /tmp/v/bin/pip install packages/jinx-pr/dist/*.whl pytest
+          cd /tmp && tar -xzf "$GITHUB_WORKSPACE"/packages/jinx-pr/dist/*.tar.gz
+          cd /tmp/jinx_pr-* && /tmp/v/bin/python -m pytest -q
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: packages/jinx-pr/dist

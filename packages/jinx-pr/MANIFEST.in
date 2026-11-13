@@ -1,0 +1,6 @@
+# The sdist ships the tests, so it must also ship what they read.
+# conftest.py is not picked up by setuptools' sdist defaults, and the suite
+# imports it as a module (pythonpath includes `tests`), so include it by name.
+include tests/conftest.py
+recursive-include tests/fixtures *.json *.jsonl *.md
+recursive-include examples *.json *.jsonl

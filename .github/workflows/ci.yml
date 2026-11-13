@@ -1,0 +1,72 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The package declares requires-python >=3.9, so test the floor and the ceiling.
+        python-version: ["3.9", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: pip install "./packages/jinx-pr[dev]"
+      - name: Tests
+        run: python -m pytest -q
+        working-directory: packages/jinx-pr
+      - name: CLI smoke test
+        run: |
+          jinx check packages/jinx-pr/examples/new_pr.json \
+            --open-queue packages/jinx-pr/examples/open_prs.jsonl --top 2
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install ruff
+      - run: ruff check .
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install build twine
+      - name: Build sdist and wheel
+        run: python -m build
+        working-directory: packages/jinx-pr
+      - name: Check metadata
+        run: twine check dist/*
+        working-directory: packages/jinx-pr
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: packages/jinx-pr/dist/*
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+        working-directory: web
+      - run: npm run lint
+        working-directory: web
+      - run: npm run build
+        working-directory: web

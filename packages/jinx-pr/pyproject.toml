@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jinx-pr"
+version = "0.1.0"
+description = "Find likely duplicate pull requests in an open-PR queue, built for PRs opened by coding agents."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = []
+keywords = [
+  "pull-request",
+  "duplicate-detection",
+  "code-review",
+  "github-action",
+  "coding-agents",
+  "static-analysis",
+]
+authors = [
+  { name = "Harshul Jain" },
+  { name = "Saurabh Yergattikar" },
+  { name = "Tanya Sah" },
+  { name = "Parv Khatri" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Software Development :: Version Control :: Git",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/ABCR-Labs/Jinx"
+Source = "https://github.com/ABCR-Labs/Jinx"
+Issues = "https://github.com/ABCR-Labs/Jinx/issues"
+Changelog = "https://github.com/ABCR-Labs/Jinx/releases"
+
+[project.optional-dependencies]
+embed = ["sentence-transformers>=2.2"]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+jinx = "jinx_pr.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+jinx_pr = ["data/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]

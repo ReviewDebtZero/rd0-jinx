@@ -1,0 +1,29 @@
+# Repo-wide lint settings, pinned explicitly so results do not drift with the
+# ruff version.
+#
+# Two standards on purpose:
+#   packages/  is the code users install, and is held to the full rule set.
+#   research/  is one-off analysis scripts whose dense `a; b` line style is
+#              deliberate and whose output the papers cite. We lint them for
+#              correctness and resource bugs, not for style.
+line-length = 110
+extend-exclude = [".venv", "web", "research/paper/generated"]
+
+[lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "SIM", "C4", "PIE", "FURB", "PLW", "UP"]
+
+[lint.per-file-ignores]
+"research/**" = [
+  "E401",   # multiple imports on one line
+  "E402",   # module-level import not at top (scripts set sys.path first)
+  "E701",   # multiple statements on one line
+  "E702",   # `a; b` on one line, the dominant style in these scripts
+  "B905",   # zip(strict=) needs 3.10; the repo floor is 3.9
+  "E712",   # `== True` against pandas/numpy masks, where `is True` is wrong
+  "E731",   # lambda assignment, used as local shorthand in analysis code
+  "E741",   # ambiguous names (`l`, `I`) in short formulae
+  "PLW0603", # module-level globals in single-run scripts
+  "PLW2901", # `g = g.set_index(...)` on a groupby frame is idiomatic pandas
+
+  "UP",     # these scripts target the 3.9 floor, like the package
+]
