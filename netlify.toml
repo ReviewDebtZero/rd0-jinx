@@ -1,3 +1,8 @@
+# The site is a Next.js static export living in web/.
 [build]
-  publish = "site"
-  command = ""
+  base = "web"
+  command = "npm ci && npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"

@@ -1,7 +1,6 @@
 import json
 
 from conftest import make
-
 from jinx_pr import Detector
 from jinx_pr.cli import main
 from jinx_pr.features import hunk_overlap

@@ -4,7 +4,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from jinx_pr.cli import main
 
 FIX = Path(__file__).parent / "fixtures" / "aidev"

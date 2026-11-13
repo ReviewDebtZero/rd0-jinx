@@ -1,5 +1,9 @@
 {
-  "buildCommand": "",
-  "outputDirectory": "site",
-  "cleanUrls": true
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "cd web && npm ci && npm run build",
+  "outputDirectory": "web/out",
+  "installCommand": "echo 'deps installed in buildCommand'",
+  "framework": null,
+  "cleanUrls": true,
+  "trailingSlash": true
 }
