@@ -64,7 +64,7 @@ export function Install() {
             shape; the queue can be a JSON list or JSON lines.
           </p>
           <div className="mt-3 space-y-2">
-            <CopyLine command="pip install jinx-pr" />
+            <CopyLine command="pip install rd0-jinx" />
             <CopyLine command="jinx check new_pr.json --open-queue open_prs.jsonl" />
           </div>
 

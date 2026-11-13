@@ -8,8 +8,8 @@ import numpy as np
 import pandas as pd
 import torch
 
-sys.path.insert(0, "/home/ubuntu/research/prdupecheck/jinx_pr/src")
-from jinx_pr.templates import TemplateModel
+sys.path.insert(0, "/home/ubuntu/research/prdupecheck/rd0_jinx/src")
+from rd0_jinx.templates import TemplateModel
 from sentence_transformers import SentenceTransformer
 
 torch.set_num_threads(4)

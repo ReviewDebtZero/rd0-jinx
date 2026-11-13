@@ -3,9 +3,9 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jinx-pr"
+name = "rd0-jinx"
 version = "0.1.0"
-description = "Find likely duplicate pull requests in an open-PR queue, built for PRs opened by coding agents."
+description = "Jinx: duplicate pull-request warnings for coding-agent PRs. The first tool in rd0, a toolkit for review debt."
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
@@ -15,6 +15,7 @@ keywords = [
   "pull-request",
   "duplicate-detection",
   "code-review",
+  "review-debt",
   "github-action",
   "coding-agents",
   "static-analysis",
@@ -41,23 +42,23 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ABCR-Labs/Jinx"
-Source = "https://github.com/ABCR-Labs/Jinx"
-Issues = "https://github.com/ABCR-Labs/Jinx/issues"
-Changelog = "https://github.com/ABCR-Labs/Jinx/releases"
+Homepage = "https://rd0.ai"
+Source = "https://github.com/harshuljain13/rd0"
+Issues = "https://github.com/harshuljain13/rd0/issues"
+Changelog = "https://github.com/harshuljain13/rd0/releases"
 
 [project.optional-dependencies]
 embed = ["sentence-transformers>=2.2"]
 dev = ["pytest", "ruff"]
 
 [project.scripts]
-jinx = "jinx_pr.cli:main"
+jinx = "rd0_jinx.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-jinx_pr = ["data/*.json", "py.typed"]
+rd0_jinx = ["data/*.json", "py.typed"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src", "tests"]

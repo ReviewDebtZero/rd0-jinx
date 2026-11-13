@@ -88,7 +88,7 @@ jobs:
   jinx:
     runs-on: ubuntu-latest
     steps:
-      - uses: ABCR-Labs/Jinx@v1
+      - uses: harshuljain13/rd0@v1
         with:
           embed: "false"   # "true" adds MiniLM
 \end{verbatim}
@@ -124,13 +124,13 @@ $ jinx check new.json --open-queue open.jsonl
 
 \begin{figure}[t]\centering
 \includegraphics[width=\columnwidth]{fig_action_comment.png}
-\caption{The Jinx Action's comment on a live demonstration PR (ABCR-Labs/Jinx \#15), which redoes open PR \#12 for the same issue \#11.}\Description{A GitHub PR comment by github-actions listing one likely duplicate, PR 12, with score 1.00 and its reasons: same linked issue, shared files, overlapping line ranges, identical added lines and similar text.}\label{fig:action}\end{figure}
+\caption{The Jinx Action's comment on a live demonstration PR (harshuljain13/rd0 \#15), which redoes open PR \#12 for the same issue \#11.}\Description{A GitHub PR comment by github-actions listing one likely duplicate, PR 12, with score 1.00 and its reasons: same linked issue, shared files, overlapping line ranges, identical added lines and similar text.}\label{fig:action}\end{figure}
 
 \section{Limitations}
 Jinx often misses duplicates that change different files to reach the same goal (\ROnejinxClassD{} Recall@1 on such cross-author pairs). Labels come from PR comments; an LLM audit judged \auditOpenStrict\% of the cross-author labels to be true duplicates or replacements, and a human check is pending. Apart from the demonstration run, we have evaluated Jinx on historical data only; no maintainer has used it yet, and a run on live repositories is future work. In the companion study, asking Claude Haiku 4.5 to check Jinx's top five candidates cut false alarms from \FARsubjinx\% to \FARsubhaiku\% for about \costHaikuPerPR{} US cents per PR~\cite{jinxstudy}; Jinx does not offer this optional check yet.
 
 \section{Availability}
-Jinx is open source under the MIT licence at \url{https://github.com/ABCR-Labs/Jinx} and installs with \texttt{pip install} \nolinkurl{git+https://github.com/ABCR-Labs/Jinx}; the Action is used as \texttt{ABCR-Labs/Jinx@main}. A PyPI release (\texttt{jinx-pr}) and a short demo video will follow before submission.
+Jinx is open source under the MIT licence at \url{https://github.com/harshuljain13/rd0} and installs with \texttt{pip install} \nolinkurl{git+https://github.com/harshuljain13/rd0}; the Action is used as \texttt{harshuljain13/rd0@main}. A PyPI release (\texttt{rd0-jinx}) and a short demo video will follow before submission.
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{../refs}
 \end{document}

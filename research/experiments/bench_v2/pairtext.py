@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, "/home/ubuntu/research/prdupecheck/jinx_pr/src")
-from jinx_pr.templates import TemplateModel
+sys.path.insert(0, "/home/ubuntu/research/prdupecheck/rd0_jinx/src")
+from rd0_jinx.templates import TemplateModel
 
 D = "/home/ubuntu/research/prdupecheck/data/"
 _pr = _diff = _files = _tm = None

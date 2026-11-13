@@ -1,4 +1,4 @@
-# Round 2 review: Jinx papers (ABCR-Labs/Jinx `main`, commit 84c0351)
+# Round 2 review: Jinx papers (harshuljain13/rd0 `main`, commit 84c0351)
 
 **Scope.** I reviewed `paper/empirical/main.tex` (IEEE, 5 pages) and `paper/tooldemo/main.tex` (ACM, 3 pages) for writing clarity, consistency between the two papers, and overlap between them. I rebuilt both papers from source in a clean copy. Both compile without errors, and the committed PDFs match the source text exactly.
 
@@ -35,13 +35,13 @@
     - Keep the cost and replay numbers in one paper only. I suggest the empirical one; the tool demo can cite it in one line.
 
 ### B3. The tool demo does not meet the venue's availability requirements
-- **Where:** T l.87 (`uses: <owner>/jinx-pr@v1`) and T l.111 ("will be public with the camera-ready version, together with a short demo video").
+- **Where:** T l.87 (`uses: <owner>/rd0-jinx@v1`) and T l.111 ("will be public with the camera-ready version, together with a short demo video").
 - **Problem:** `docs/venue_notes.md` records two requirements:
   - ICPC Tool Demos: "source or binaries **must be publicly available**".
   - FSE Tool Demos: "link to source expected" and "link to a screencast expected".
 
   Neither venue reviews anonymously (ICPC "not anonymous", FSE "single-blind"), so there is no reason to hide the repository. As written, the paper can be rejected without review.
-- **Fix:** Publish the repo, the Marketplace listing and the video before submission. Put the real `ABCR-Labs/jinx-pr@v1` in the YAML, and put the repository URL and video URL in the abstract and in §6.
+- **Fix:** Publish the repo, the Marketplace listing and the video before submission. Put the real `harshuljain13/rd0@v1` in the YAML, and put the repository URL and video URL in the abstract and in §6.
 
 ---
 

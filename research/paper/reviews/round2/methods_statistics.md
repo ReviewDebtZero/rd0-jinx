@@ -1,6 +1,6 @@
-# Round 2 review: methods and statistics (ABCR-Labs/Jinx `main` @ 84c0351)
+# Round 2 review: methods and statistics (harshuljain13/rd0 `main` @ 84c0351)
 
-Review only. No pushes, no PRs, no API spend. I checked every claim against `experiments/results*/`, `experiments/label_audit/`, the scripts that produce them, and `src/jinx_pr/`. All `paper/generated/*.tex` macros match their source files. Where I recomputed something myself, I say so. I skipped anything that needs the raw AIDev data.
+Review only. No pushes, no PRs, no API spend. I checked every claim against `experiments/results*/`, `experiments/label_audit/`, the scripts that produce them, and `src/rd0_jinx/`. All `paper/generated/*.tex` macros match their source files. Where I recomputed something myself, I say so. I skipped anything that needs the raw AIDev data.
 
 **Verdict.** The reframe is honest and most of it holds. The open-only-queue numbers, the cand_open ablations and the "no ranking gain" statements are all backed by the CSVs. Three problems remain:
 
@@ -87,7 +87,7 @@ Review only. No pushes, no PRs, no API spend. I checked every claim against `exp
 ### M4. Train/serve skew: `mention_ref` is still two-way in the package
 - **Evidence:**
   - Training and evaluation use forward-only mentions: `eval2.py` l.26–29, `train_package_weights.py` l.34–36.
-  - The package still computes `cand.number in new.mentions or new.number in cand.mentions` (`src/jinx_pr/features.py` l.60, verified). This is also the feature the explanation "one PR links to the other" depends on.
+  - The package still computes `cand.number in new.mentions or new.number in cand.mentions` (`src/rd0_jinx/features.py` l.60, verified). This is also the feature the explanation "one PR links to the other" depends on.
   - On `reopened` events, or when an older PR's body is edited to say "see #new", the shipped model sees a feature it was never trained on, with weight 0.29 standardised.
   - Tool demo §2 and the paper (l.55) say links use the new PR's text only.
 - **Fix:** Make the package feature forward-only, or retrain on the two-way feature and say so. Add a test that `features.py` reproduces `features.parquet` columns on the exported fixtures.

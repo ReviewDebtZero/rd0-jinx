@@ -7,8 +7,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, "/home/ubuntu/research/prdupecheck/jinx_pr/src")
-from jinx_pr.templates import TemplateModel
+sys.path.insert(0, "/home/ubuntu/research/prdupecheck/rd0_jinx/src")
+from rd0_jinx.templates import TemplateModel
 from sentence_transformers import SentenceTransformer
 
 D = "/home/ubuntu/research/prdupecheck/data/"

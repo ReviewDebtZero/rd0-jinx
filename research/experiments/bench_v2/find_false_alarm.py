@@ -8,7 +8,7 @@ import pandas as pd
 
 H = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(H, "..", "..", "src"))
-from jinx_pr import PR, Detector
+from rd0_jinx import PR, Detector
 
 D = os.environ.get("JINX_DATA", "/home/ubuntu/research/prdupecheck/data/")
 with open(D + "bench.pkl", "rb") as fh:

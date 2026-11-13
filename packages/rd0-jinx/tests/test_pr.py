@@ -1,4 +1,4 @@
-from jinx_pr.pr import PR, parse_diff
+from rd0_jinx.pr import PR, parse_diff
 
 DIFF = """diff --git a/auth/session.py b/auth/session.py
 --- a/auth/session.py

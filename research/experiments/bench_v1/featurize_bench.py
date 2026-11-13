@@ -10,11 +10,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, "/home/ubuntu/research/prdupecheck/jinx_pr/src")
-from jinx_pr import PR, Detector
-from jinx_pr.pr import CLOSING
-from jinx_pr.scorer import FEATURES
-from jinx_pr.text import tokens
+sys.path.insert(0, "/home/ubuntu/research/prdupecheck/rd0_jinx/src")
+from rd0_jinx import PR, Detector
+from rd0_jinx.pr import CLOSING
+from rd0_jinx.scorer import FEATURES
+from rd0_jinx.text import tokens
 
 sys.path.insert(0, '/home/ubuntu/research/prdupecheck/bench')
 from ported import balyakin_scores, phoenix_scores

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 import pytest
-from jinx_pr.cli import main
+from rd0_jinx.cli import main
 
 FIX = Path(__file__).parent / "fixtures" / "aidev"
 EXPECTED = json.loads((FIX / "expected.json").read_text())
@@ -26,7 +26,7 @@ def test_cli_on_real_queue(kind, capsys):
 
 
 def test_shipped_weights_are_trained():
-    from jinx_pr.scorer import load_weights
+    from rd0_jinx.scorer import load_weights
 
     for name in ["weights.json", "weights_emb.json"]:
         w = load_weights(name)

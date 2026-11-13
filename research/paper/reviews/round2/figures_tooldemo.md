@@ -1,6 +1,6 @@
-# Round 2 review: figures, tables and tool demo (ABCR-Labs/Jinx `main` @ 84c0351)
+# Round 2 review: figures, tables and tool demo (harshuljain13/rd0 `main` @ 84c0351)
 
-I rendered both committed PDFs (110 and 250 dpi) and rebuilt them from source. Both build: the empirical paper is 5 pages, the tool demo 3. I checked the numbers against `experiments/results/`, `results_grace7/`, `action.yml`, `src/jinx_pr/` and `experiments/bench_v2/eval2.py`. No pushes and no API spend. The raw AIDev data was not used.
+I rendered both committed PDFs (110 and 250 dpi) and rebuilt them from source. Both build: the empirical paper is 5 pages, the tool demo 3. I checked the numbers against `experiments/results/`, `results_grace7/`, `action.yml`, `src/rd0_jinx/` and `experiments/bench_v2/eval2.py`. No pushes and no API spend. The raw AIDev data was not used.
 
 **Fixed since round 1:**
 - The Jinx configuration is now the same in the table, the latency figures and the Action default.
@@ -61,11 +61,11 @@ Labels: **E** = empirical, **T** = tool demo, **B** = both.
   - In both cases, add to T §3: "With `embed`, the runner downloads the MiniLM model (~90 MB) from Hugging Face; no PR content leaves the runner."
 
 ### T3. Install and availability statements cannot be checked by a reviewer
-- **Where:** T l.87 (`<owner>/jinx-pr@v1`), l.91 (`pip install jinx-pr`), §6 (l.111); E Data Availability (l.138).
-- **Problem (verified):** `https://pypi.org/pypi/jinx-pr/json` returns 404. The workflow uses a placeholder owner. Availability is promised only "with the camera-ready version". Tool tracks (FSE, ICSE and ICPC demos) usually require a tool link and a demo video at submission; check the target CFP.
+- **Where:** T l.87 (`<owner>/rd0-jinx@v1`), l.91 (`pip install rd0-jinx`), §6 (l.111); E Data Availability (l.138).
+- **Problem (verified):** `https://pypi.org/pypi/rd0-jinx/json` returns 404. The workflow uses a placeholder owner. Availability is promised only "with the camera-ready version". Tool tracks (FSE, ICSE and ICPC demos) usually require a tool link and a demo video at submission; check the target CFP.
 - **Fix:**
-  - Publish to PyPI, or write `pip install git+https://github.com/ABCR-Labs/Jinx`.
-  - Tag `v1` and use `ABCR-Labs/Jinx@v1` in the snippet, or an anonymised mirror if the track is double-blind.
+  - Publish to PyPI, or write `pip install git+https://github.com/harshuljain13/rd0`.
+  - Tag `v1` and use `harshuljain13/rd0@v1` in the snippet, or an anonymised mirror if the track is double-blind.
   - Put the video URL and repository URL in the abstract.
   - For E, give an anonymised artifact link now.
 

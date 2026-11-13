@@ -7,13 +7,18 @@ export function Footer() {
       <div className="mx-auto w-full max-w-6xl px-5 py-14">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <p className="font-mono text-base font-semibold tracking-tight">jinx</p>
+            <p className="font-mono text-base font-semibold tracking-tight">
+              <span className="text-jade">rd0</span>
+              <span className="text-fg-faint">/</span>jinx
+            </p>
             <p className="mt-3 max-w-sm text-xs leading-relaxed text-fg-dim">
-              Explainable duplicate warnings for pull requests from coding agents. Free, MIT
-              licensed, and it runs on the CI machine&rsquo;s CPU.
+              <span className="text-fg">rd0</span> is a toolkit for review debt — the reviewer time a
+              team owes but has not paid. <span className="text-fg">Jinx</span> is its first tool: it
+              catches pull requests that redo work already sitting in the queue. Free, MIT licensed,
+              and it runs on the CI machine&rsquo;s CPU.
             </p>
             <div className="mt-4 max-w-sm">
-              <CopyLine command="pip install jinx-pr" />
+              <CopyLine command="pip install rd0-jinx" />
             </div>
           </div>
 

@@ -1,6 +1,6 @@
 """Dedup strategy study on the AIDev live-queue benchmark.
 Strategies x duplicate classes; Recall@1/5, MRR with repo-cluster bootstrap CIs; paired tests; false alarms;
-operating curves; random-pair vs live-queue evaluation; error analysis. Writes to jinx_pr/experiments/results/."""
+operating curves; random-pair vs live-queue evaluation; error analysis. Writes to rd0_jinx/experiments/results/."""
 import json
 import os
 import pickle
@@ -17,7 +17,7 @@ from sklearn.model_selection import GroupKFold
 from sklearn.preprocessing import StandardScaler
 
 D = "/home/ubuntu/research/prdupecheck/data/"
-OUT = os.environ.get("OUT", "/home/ubuntu/research/prdupecheck/jinx_pr/experiments/results/"); os.makedirs(OUT, exist_ok=True)
+OUT = os.environ.get("OUT", "/home/ubuntu/research/prdupecheck/rd0_jinx/experiments/results/"); os.makedirs(OUT, exist_ok=True)
 NB = int(os.environ.get("NB", "2000"))
 B = pickle.loads(Path(D + "bench.pkl").read_bytes()); Q = B["queries"]
 P = pd.read_parquet(D + "pull_request.parquet", columns=["id", "repo_url", "title", "number", "user", "agent"]).set_index("id")

@@ -1,7 +1,7 @@
 # Jinx demo video script (about 3.5 minutes)
 
 `video/make_video.py` builds `video/jinx_demo.mp4` (1920x1080, captions, no voice-over yet) from the real
-screenshots of the live Action run on ABCR-Labs/Jinx (demo PRs #12-#15 for issue #11) and the CLI fixture. Read the
+screenshots of the live Action run on harshuljain13/rd0 (demo PRs #12-#15 for issue #11) and the CLI fixture. Read the
 captions below as the voice-over when recording audio.
 
 | Time | On screen | Voice-over / caption |

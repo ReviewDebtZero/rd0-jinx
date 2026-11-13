@@ -12,7 +12,7 @@ import urllib.request
 from .pr import PR
 from .scorer import Detector
 
-MARKER = "<!-- jinx_pr:v1 -->"
+MARKER = "<!-- rd0_jinx:v1 -->"
 API = os.environ.get("GITHUB_API_URL", "https://api.github.com")
 
 
@@ -90,7 +90,7 @@ def main() -> int:
     with open(os.environ["GITHUB_EVENT_PATH"]) as fh:
         event = json.load(fh)
     if "pull_request" not in event:
-        print("jinx_pr: not a pull_request event, skipping")
+        print("rd0_jinx: not a pull_request event, skipping")
         return 0
     thr = os.environ.get("INPUT_THRESHOLD") or None
     gh = GitHub(os.environ["INPUT_GITHUB_TOKEN"], os.environ["GITHUB_REPOSITORY"])
@@ -102,7 +102,7 @@ def main() -> int:
         int(os.environ.get("INPUT_TOP", "3")),
         os.environ.get("INPUT_EMBED", "true").lower() == "true",
     )
-    print(body or "jinx_pr: no likely duplicates")
+    print(body or "rd0_jinx: no likely duplicates")
     return 0
 
 

@@ -8,9 +8,9 @@ from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, "/home/ubuntu/research/prdupecheck/jinx_pr/src")
-from jinx_pr.templates import TemplateModel
-from jinx_pr.text import tokens
+sys.path.insert(0, "/home/ubuntu/research/prdupecheck/rd0_jinx/src")
+from rd0_jinx.templates import TemplateModel
+from rd0_jinx.text import tokens
 
 D = "/home/ubuntu/research/prdupecheck/data/"
 B = pickle.loads(Path(D + "bench.pkl").read_bytes()); Q = B["queries"]; need = sorted(B["need"])

@@ -19,14 +19,14 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install
-        run: pip install "./packages/jinx-pr[dev]"
+        run: pip install "./packages/rd0-jinx[dev]"
       - name: Tests
         run: python -m pytest -q
-        working-directory: packages/jinx-pr
+        working-directory: packages/rd0-jinx
       - name: CLI smoke test
         run: |
-          jinx check packages/jinx-pr/examples/new_pr.json \
-            --open-queue packages/jinx-pr/examples/open_prs.jsonl --top 2
+          jinx check packages/rd0-jinx/examples/new_pr.json \
+            --open-queue packages/rd0-jinx/examples/open_prs.jsonl --top 2
 
   lint:
     runs-on: ubuntu-latest
@@ -48,14 +48,14 @@ jobs:
       - run: pip install build twine
       - name: Build sdist and wheel
         run: python -m build
-        working-directory: packages/jinx-pr
+        working-directory: packages/rd0-jinx
       - name: Check metadata
         run: twine check dist/*
-        working-directory: packages/jinx-pr
+        working-directory: packages/rd0-jinx
       - uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: packages/jinx-pr/dist/*
+          path: packages/rd0-jinx/dist/*
 
   web:
     runs-on: ubuntu-latest

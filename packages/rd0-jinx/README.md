@@ -1,22 +1,22 @@
-# jinx-pr
+# rd0-jinx
 
 **Find the pull request that already does this.**
 
 Coding agents (Copilot, Codex, Devin, Claude Code, Cursor, Jules) open a lot of pull requests, and some of
-them redo work that is already open. `jinx-pr` checks a new PR against the open ones and, when it finds a
+them redo work that is already open. `rd0-jinx` checks a new PR against the open ones and, when it finds a
 likely duplicate, tells you which PR it matches and why.
 
 - Runs on CPU in about 6 ms per PR. No LLM, no API key, no network call.
 - Explains every match: shared files, overlapping line ranges, identical added lines, the same linked issue.
 - About 1.9 false alarms per 100 PRs that have no duplicate.
 
-Full README, benchmark and papers: **https://github.com/ABCR-Labs/Jinx**
+Full README, benchmark and papers: **https://github.com/harshuljain13/rd0**
 
 ## Install
 
 ```bash
-pip install jinx-pr                # the `jinx` command
-pip install "jinx-pr[embed]"       # optional local MiniLM text model (installs PyTorch)
+pip install rd0-jinx                # the `jinx` command
+pip install "rd0-jinx[embed]"       # optional local MiniLM text model (installs PyTorch)
 ```
 
 ## Use it
@@ -50,7 +50,7 @@ a JSON-lines file.
 ## In Python
 
 ```python
-from jinx_pr import PR, Detector
+from rd0_jinx import PR, Detector
 
 new = PR.from_dict(new_pr_json)                      # GitHub API JSON shape
 queue = [PR.from_dict(d) for d in open_prs_json]
@@ -64,7 +64,7 @@ for m in det.rank(new, queue, top=3):
 ## As a GitHub Action
 
 ```yaml
-- uses: ABCR-Labs/Jinx@main
+- uses: harshuljain13/rd0@main
   with:
     threshold: ""        # empty = bundled default (0.5)
     max-open-prs: "200"

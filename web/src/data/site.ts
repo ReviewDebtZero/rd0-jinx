@@ -1,4 +1,4 @@
-export const REPO = "https://github.com/ABCR-Labs/Jinx";
+export const REPO = "https://github.com/harshuljain13/rd0";
 export const AIDEV = "https://huggingface.co/datasets/hao-li/AIDev";
 
 export const PAPERS = {
@@ -24,7 +24,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: ABCR-Labs/Jinx@main
+      - uses: harshuljain13/rd0@main
         with:
           threshold: ""      # empty = bundled default (0.5)
           max-open-prs: "200"

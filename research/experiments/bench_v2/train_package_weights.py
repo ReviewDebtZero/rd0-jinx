@@ -1,7 +1,7 @@
 """Train the shipped Jinx weights on the full AIDev live-queue benchmark (same recipe as eval2.py folds).
 
-Writes src/jinx_pr/data/weights.json (lexical) and weights_emb.json (lexical + MiniLM), then checks that
-jinx_pr.Detector.score_rows reproduces sklearn's probabilities exactly.
+Writes src/rd0_jinx/data/weights.json (lexical) and weights_emb.json (lexical + MiniLM), then checks that
+rd0_jinx.Detector.score_rows reproduces sklearn's probabilities exactly.
 """
 import json
 import os
@@ -17,7 +17,7 @@ from sklearn.preprocessing import StandardScaler
 H = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(H, "..", "..")
 sys.path.insert(0, os.path.join(ROOT, "src"))
-from jinx_pr.scorer import Detector
+from rd0_jinx.scorer import Detector
 
 D = os.environ.get("JINX_DATA", "/home/ubuntu/research/prdupecheck/data/")
 LEX = ["text_tfidf", "title_tfidf", "file_jacc", "file_contain", "hunk_overlap", "line_contain", "same_issue", "mention_ref",
@@ -56,6 +56,6 @@ for fname, cols in [("weights.json", LEX), ("weights_emb.json", LEX + ["emb_cos"
     ref = 1 / (1 + np.exp(-np.clip(z - z_thr, -30, 30)))
     diff = float(np.abs(ours - ref).max())
     assert diff < 1e-6, diff
-    with open(os.path.join(ROOT, "src", "jinx_pr", "data", fname), "w") as fh:
+    with open(os.path.join(ROOT, "src", "rd0_jinx", "data", fname), "w") as fh:
         json.dump(w, fh, indent=1)
     print(fname, "pairs", len(X), "logit shift", round(z_thr, 3), "max |package - sklearn|", f"{diff:.2e}")

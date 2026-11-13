@@ -13,7 +13,7 @@ import pandas as pd
 H = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(H, "..", "..")
 sys.path.insert(0, os.path.join(ROOT, "src"))
-from jinx_pr import PR, Detector
+from rd0_jinx import PR, Detector
 
 D = os.environ.get("JINX_DATA", "/home/ubuntu/research/prdupecheck/data/")
 OUT = os.path.join(ROOT, "tests", "fixtures", "aidev")

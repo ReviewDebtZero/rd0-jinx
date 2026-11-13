@@ -1,6 +1,6 @@
 # Review: Jinx papers (branch `devin/paper-revision`, commit 3080800)
 
-Scope: `paper/empirical/main.tex` (IEEE, 5 pages built) and `paper/tooldemo/main.tex` (ACM, 3 pages built). I rebuilt both PDFs from source in a clean copy: they compile with no errors and no undefined references, so "not built correctly" means content and layout problems, not a broken build. The acmart class does print warnings (finding 20). I read every page as an image and checked numbers against `experiments/results/*`, `src/jinx_pr/data/weights*.json`, `experiments/bench_v2/eval2.py` and `docs/venue_notes.md`. Line numbers refer to `main.tex` in each folder.
+Scope: `paper/empirical/main.tex` (IEEE, 5 pages built) and `paper/tooldemo/main.tex` (ACM, 3 pages built). I rebuilt both PDFs from source in a clean copy: they compile with no errors and no undefined references, so "not built correctly" means content and layout problems, not a broken build. The acmart class does print warnings (finding 20). I read every page as an image and checked numbers against `experiments/results/*`, `src/rd0_jinx/data/weights*.json`, `experiments/bench_v2/eval2.py` and `docs/venue_notes.md`. Line numbers refer to `main.tex` in each folder.
 
 Severity: **major** = a reviewer would likely flag it, or the claim is wrong or misleading. **minor** = a clarity or polish fix.
 

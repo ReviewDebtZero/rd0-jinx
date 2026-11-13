@@ -1,7 +1,7 @@
 # Review: figures, tables and tool demo — Jinx papers (branch `devin/paper-revision`, commit 3080800)
 
 Reviewer role: data-visualisation and tool-demo reviewer (FSE/ICPC tool-demo lens).
-Method: I rendered both committed PDFs to images (110 and 250 dpi), rebuilt both from source, read the TeX sources, `paper/scripts/*.py`, `src/jinx_pr/*`, `action.yml`, and checked every number I call wrong against `experiments/results/*.csv`, `summary.json` and `src/jinx_pr/data/weights*.json`. No commits, no API calls.
+Method: I rendered both committed PDFs to images (110 and 250 dpi), rebuilt both from source, read the TeX sources, `paper/scripts/*.py`, `src/rd0_jinx/*`, `action.yml`, and checked every number I call wrong against `experiments/results/*.csv`, `summary.json` and `src/rd0_jinx/data/weights*.json`. No commits, no API calls.
 
 Build status: both papers rebuild cleanly (empirical 5 pages, tool demo 3 pages); all fonts embedded, no Type 3 fonts. The tool demo raises acmart warnings that matter for submission (see T3).
 
@@ -115,10 +115,10 @@ Numbering: **E** = empirical, **T** = tool demo, **B** = both. Findings are in p
 ### T2. Installation instructions do not work today
 - **Paper:** tool demo. **Location:** §2.6 l.65–80, §5 l.101.
 - **Problems (verified):**
-  - `pip install jinx-pr`: `https://pypi.org/pypi/jinx-pr/json` returns 404; the package is not on PyPI. The README uses `pip install .`.
-  - `uses: ABCR-Labs/jinx-pr@v1`: the code lives in `ABCR-Labs/agentdup` (`action.yml` at repo root); no `jinx-pr` repo or `v1` tag is referenced in the repo.
+  - `pip install rd0-jinx`: `https://pypi.org/pypi/rd0-jinx/json` returns 404; the package is not on PyPI. The README uses `pip install .`.
+  - `uses: harshuljain13/rd0@v1`: the code lives in `harshuljain13/rd0` (`action.yml` at repo root); no `rd0-jinx` repo or `v1` tag is referenced in the repo.
   - The YAML block is set as running `verbatim` text, so it breaks across columns around Table 1 (lines 107–116 on p.1, 160–162 on p.2), and the `[TODO: confirm…]` line prints in red.
-- **Fix:** publish to PyPI (or write `pip install git+https://github.com/ABCR-Labs/<repo>@v1`), create the `v1` tag in the repo that holds `action.yml`, and put the workflow in a non-breaking float: `\begin{figure}[t]\begin{verbatim}...\end{verbatim}\caption{The complete workflow file a repository adds.}\end{figure}`. Add the two inputs a maintainer will want: `threshold` and `max-open-prs` (they exist in `action.yml`). Add one line on how a reviewer can try Jinx in two minutes without a repo: `jinx check examples/new_pr.json --open-queue examples/open_prs.jsonl` (both files are in `examples/`), and make the video (`VIDEO_SCRIPT.md`) follow the numbered steps of Fig. 1 and end on the PR-comment screenshot (T1).
+- **Fix:** publish to PyPI (or write `pip install git+https://github.com/harshuljain13/rd0@v1`), create the `v1` tag in the repo that holds `action.yml`, and put the workflow in a non-breaking float: `\begin{figure}[t]\begin{verbatim}...\end{verbatim}\caption{The complete workflow file a repository adds.}\end{figure}`. Add the two inputs a maintainer will want: `threshold` and `max-open-prs` (they exist in `action.yml`). Add one line on how a reviewer can try Jinx in two minutes without a repo: `jinx check examples/new_pr.json --open-queue examples/open_prs.jsonl` (both files are in `examples/`), and make the video (`VIDEO_SCRIPT.md`) follow the numbered steps of Fig. 1 and end on the PR-comment screenshot (T1).
 
 ### T3. Security of `pull_request_target` is not addressed
 - **Paper:** tool demo. **Location:** §2.6 workflow (l.67–78).
@@ -173,7 +173,7 @@ Numbering: **E** = empirical, **T** = tool demo, **B** = both. Findings are in p
 
 ### E13. Claim about Jinx weights has no figure or number
 - **Location:** E l.123 "the trained Jinx weights … give identical changed lines little weight".
-- **Fix:** add a small horizontal bar chart of the standardised LR weights from `src/jinx_pr/data/weights_emb.json` (12–13 bars, sorted, coloured by signal group text/code/context using the diagram colours). This is cheap, needs no new run, explains the model to non-experts, and supports the explanation feature in the tool demo. It can replace Fig. 6 in the tool demo if space is short.
+- **Fix:** add a small horizontal bar chart of the standardised LR weights from `src/rd0_jinx/data/weights_emb.json` (12–13 bars, sorted, coloured by signal group text/code/context using the diagram colours). This is cheap, needs no new run, explains the model to non-experts, and supports the explanation feature in the tool demo. It can replace Fig. 6 in the tool demo if space is short.
 
 ### T6. The CLI example in Fig. 2 should show the default configuration
 - **Location:** T Fig. 2 (l.49–62).

@@ -17,8 +17,8 @@ import torch
 H = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(H, "..", "..")
 sys.path.insert(0, os.path.join(ROOT, "src"))
-from jinx_pr import PR, Detector
-from jinx_pr.embed import Embedder
+from rd0_jinx import PR, Detector
+from rd0_jinx.embed import Embedder
 
 D = os.environ.get("JINX_DATA", "/home/ubuntu/research/prdupecheck/data/")
 LEX = ["text_tfidf", "title_tfidf", "file_jacc", "file_contain", "hunk_overlap", "line_contain", "same_issue", "mention_ref",

@@ -1,7 +1,7 @@
 # Review: Jinx papers (empirical + tool demo), branch `devin/paper-revision` @ 3080800
 
 Reviewer stance: ICSE/FSE/MSR empirical-SE reviewer. Review only. No commits, no API spend.
-I checked every number cited below against `experiments/results/*.csv`, `summary.json`, `experiments/label_audit/*`, the evaluation code (`experiments/bench_v2/eval2.py`, `experiments/bench_v1/build_bench.py`) and the tool code (`src/jinx_pr/*`). Where I recomputed something myself, I say so.
+I checked every number cited below against `experiments/results/*.csv`, `summary.json`, `experiments/label_audit/*`, the evaluation code (`experiments/bench_v2/eval2.py`, `experiments/bench_v1/build_bench.py`) and the tool code (`src/rd0_jinx/*`). Where I recomputed something myself, I say so.
 
 ## Summary verdict
 
@@ -198,7 +198,7 @@ Severity key: **MAJOR** = a reviewer could reject over it, or a claim is not sup
 - **Where:** `paper/figures/arch.tex`. Empirical Fig. 1 (l.84), tool demo Fig. 1 (l.29).
 - **Problem:**
   - The yellow output box is set in about 4 pt type, which can't be read in print.
-  - Its mock text "Jinx: possible duplicate" differs from the real CLI output ("DUPLICATE? #44110 score 1.00", which I reproduced by running `jinx_pr.cli` on `examples/`).
+  - Its mock text "Jinx: possible duplicate" differs from the real CLI output ("DUPLICATE? #44110 score 1.00", which I reproduced by running `rd0_jinx.cli` on `examples/`).
   - "#ref" is jargon.
   - MiniLM is shown as "optional", but the results use it (Finding 4).
 - **Fix:**

@@ -1,4 +1,4 @@
-from jinx_pr import action
+from rd0_jinx import action
 
 
 class FakeGH:

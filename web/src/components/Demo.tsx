@@ -2,7 +2,7 @@ import { CLI_OUTPUT, REPO } from "@/data/site";
 import { Frame, Heading, Section } from "./ui";
 
 /**
- * The real queue from the live Action run on ABCR-Labs/Jinx, issue #11.
+ * The real queue from the live Action run on harshuljain13/rd0, issue #11.
  * Titles and outcomes are as they happened: Jinx commented on #15, stayed quiet
  * on #13, and missed #14 (0.30, under the 0.5 threshold).
  */
@@ -24,7 +24,7 @@ export function Demo() {
 
       <div className="mt-8 grid gap-5 lg:grid-cols-2">
         <Frame
-          title="github.com/ABCR-Labs/Jinx · pull requests"
+          title="github.com/harshuljain13/rd0 · pull requests"
           right={<span className="text-jade">issue #11</span>}
         >
           <ul className="divide-y divide-line">
@@ -63,7 +63,7 @@ export function Demo() {
                   </p>
                   <ul className="mt-2 space-y-1 font-mono text-[11px] text-fg-dim">
                     <li>· same linked issue (#11)</li>
-                    <li>· shares 2 of 2 changed files (src/jinx_pr/cli.py, tests/test_cli_version.py)</li>
+                    <li>· shares 2 of 2 changed files (src/rd0_jinx/cli.py, tests/test_cli_version.py)</li>
                     <li>· 100% of changed line ranges overlap</li>
                     <li>· 56% of added lines are identical</li>
                     <li>· similar title/description after removing agent template text (0.73)</li>
@@ -80,7 +80,7 @@ export function Demo() {
         <Frame
           title="the same check, from the CLI"
           right={
-            <a href={`${REPO}/tree/main/packages/jinx-pr/examples`} className="hover:text-jade">
+            <a href={`${REPO}/tree/main/packages/rd0-jinx/examples`} className="hover:text-jade">
               examples →
             </a>
           }

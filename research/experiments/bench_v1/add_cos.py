@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, "/home/ubuntu/research/prdupecheck/jinx_pr/src")
+sys.path.insert(0, "/home/ubuntu/research/prdupecheck/rd0_jinx/src")
 D = "/home/ubuntu/research/prdupecheck/data/"
 B = pickle.loads(Path(D + "bench.pkl").read_bytes()); Q = B["queries"]
 F = pd.read_parquet(D + "features_lex.parquet")

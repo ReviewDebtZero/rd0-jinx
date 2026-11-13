@@ -86,7 +86,7 @@ slides = [
     ], font=MONO, top=230, step=64), 25,
      ("An unrelated docs PR got no comment. A PR for the same issue written very differently scored 0.30, below the "
      "default threshold, so it was missed. The threshold is the knob that trades misses against false alarms.")),
-    (text_slide("The same check runs locally", ["$ pip install git+https://github.com/ABCR-Labs/Jinx",
+    (text_slide("The same check runs locally", ["$ pip install git+https://github.com/harshuljain13/rd0",
                                                  "$ jinx check examples/new_pr.json --open-queue examples/open_prs.jsonl --top 2",
                                                  ""] + cli, font=ImageFont.truetype(F + "DejaVuSansMono.ttf", 25), top=170, step=40), 25,
      ("This is a real agent PR from huggingface/transformers, from the AIDev dataset. Jinx finds its twin among 19 "
@@ -101,8 +101,8 @@ slides = [
         "- An optional Claude Haiku check halves false alarms, but costs API money",
         "  and is not part of Jinx yet.",
     ], top=230, step=70), 22, "Jinx is not more accurate than the best baselines; it packages them with explanations."),
-    (text_slide("Try it", ["github.com/ABCR-Labs/Jinx", "", "pip install git+https://github.com/ABCR-Labs/Jinx",
-                           "uses: ABCR-Labs/Jinx@main", "", "MIT licence  ·  CPU only  ·  no API key"], top=300, step=70), 12,
+    (text_slide("Try it", ["github.com/harshuljain13/rd0", "", "pip install git+https://github.com/harshuljain13/rd0",
+                           "uses: harshuljain13/rd0@main", "", "MIT licence  ·  CPU only  ·  no API key"], top=300, step=70), 12,
      "Jinx is open source. Thanks for watching."),
 ]
 os.makedirs(os.path.join(HERE, "frames"), exist_ok=True)

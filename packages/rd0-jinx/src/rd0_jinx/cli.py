@@ -100,7 +100,7 @@ def main(argv=None) -> int:
         "--embed",
         nargs="?",
         const="sentence-transformers/all-MiniLM-L6-v2",
-        help="also use a local embedding model (needs jinx-pr[embed])",
+        help="also use a local embedding model (needs rd0-jinx[embed])",
     )
     c.add_argument("--templates", help="template file from `jinx learn-templates`")
     c.add_argument("--json", action="store_true")

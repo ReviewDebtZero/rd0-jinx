@@ -3,11 +3,13 @@
 </p>
 
 <p align="center">
-  <b>Jinx stops your team from reviewing the same pull request twice.</b>
+  <b>Jinx stops your team from reviewing the same pull request twice.</b><br>
+  <sub>The first tool in <a href="https://rd0.ai"><b>rd0</b></a> — review debt, to zero.</sub>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-16a34a"></a>
+  <a href="https://pypi.org/project/rd0-jinx/"><img alt="PyPI" src="https://img.shields.io/badge/pypi-rd0--jinx-3775a9?logo=pypi&logoColor=white"></a>
   <img alt="Python 3.9+" src="https://img.shields.io/badge/python-3.9%2B-3776ab?logo=python&logoColor=white">
   <img alt="CPU only" src="https://img.shields.io/badge/runs%20on-CPU%20only-0d9488">
   <img alt="No API key" src="https://img.shields.io/badge/API%20key-not%20needed-4f46e5">
@@ -31,6 +33,9 @@ Coding agents (Copilot, Codex, Devin, Claude Code, Cursor, Jules) open a lot of 
 redo work that is already open. Jinx checks each new PR against the open ones. When it finds a likely duplicate,
 it leaves one short comment naming the PR it matches and why.
 
+> **rd0** is a toolkit for *review debt* — the reviewer time a team owes but has not yet paid. **Jinx** is its
+> first tool, and it covers one slice: work that is already sitting in the queue. Everything below is Jinx.
+
 |  |  |
 |---|---|
 | 💬 **Tells you why** | Shared files, the same lines changed, the same issue. You can decide in seconds. |
@@ -39,10 +44,10 @@ it leaves one short comment naming the PR it matches and why.
 | 🛡️ **Safe** | Reads PR data through the GitHub API. Never runs the PR's code, never closes or blocks anything. |
 
 ```bash
-pip install jinx-pr
+pip install rd0-jinx
 ```
 
-**Website:** [`web/`](web/) — the same story with an interactive comparison. **Papers:** [empirical study](research/paper/empirical/main.pdf) · [tool demo](research/paper/tooldemo/main.pdf)
+**Website:** [rd0.ai](https://rd0.ai) — the same story with an interactive comparison, built from [`web/`](web/). **Papers:** [empirical study](research/paper/empirical/main.pdf) · [tool demo](research/paper/tooldemo/main.pdf)
 
 ## What it looks like
 
@@ -152,7 +157,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: ABCR-Labs/Jinx@main
+      - uses: harshuljain13/rd0@main
         with:
           threshold: ""        # empty = bundled default (0.5); lower catches more, with more false alarms
           max-open-prs: "200"
@@ -166,11 +171,11 @@ changes. `pull_request_target` is safe here because Jinx never checks out or run
 ### Or from the command line
 
 ```bash
-pip install jinx-pr                          # adds the `jinx` command
-pip install "jinx-pr[embed]"                 # optional local MiniLM model
+pip install rd0-jinx                          # adds the `jinx` command
+pip install "rd0-jinx[embed]"                 # optional local MiniLM model
 
-jinx check packages/jinx-pr/examples/new_pr.json \
-  --open-queue packages/jinx-pr/examples/open_prs.jsonl --top 2
+jinx check packages/rd0-jinx/examples/new_pr.json \
+  --open-queue packages/rd0-jinx/examples/open_prs.jsonl --top 2
 ```
 
 Input uses the GitHub API's JSON shape (`number`, `title`, `body`, `user.login`, `created_at`). The optional
@@ -188,7 +193,7 @@ JSON-lines file.
 ### From Python
 
 ```python
-from jinx_pr import PR, Detector
+from rd0_jinx import PR, Detector
 
 new = PR.from_dict(new_pr_json)                  # GitHub API JSON shape
 queue = [PR.from_dict(d) for d in open_prs_json]
@@ -223,7 +228,7 @@ flowchart LR
 2. **Compare the code:** shared files, overlapping changed line ranges, identical added lines.
 3. **Check links:** the same linked issue, or the new PR mentioning the other one.
 4. **Add context:** the same author, and the time gap between the PRs.
-5. **Combine** these with a small logistic model. The shipped weights are in `packages/jinx-pr/src/jinx_pr/data/weights.json` (lexical) and `weights_emb.json` (`--embed`), trained on all 4,832 AIDev queue queries by `research/experiments/bench_v2/train_package_weights.py`.
+5. **Combine** these with a small logistic model. The shipped weights are in `packages/rd0-jinx/src/rd0_jinx/data/weights.json` (lexical) and `weights_emb.json` (`--embed`), trained on all 4,832 AIDev queue queries by `research/experiments/bench_v2/train_package_weights.py`.
 
 ### Learn templates for your own PRs
 
@@ -259,17 +264,20 @@ study of 66 strategies is in [`research/experiments/`](research/experiments/) an
 ## Repository layout
 
 ```
-packages/jinx-pr/   the installable library, CLI and tests
-web/                the website (Next.js static export)
-research/           experiments, papers and design docs
-action.yml          the GitHub Action (must live at the root)
+packages/rd0-jinx/   Jinx: the installable library, CLI and tests
+web/                 the rd0.ai website (Next.js static export)
+research/            experiments, papers and design docs
+action.yml           the GitHub Action (must live at the root)
 ```
+
+The repo is `rd0` because it is the home of the toolkit; `packages/` is where each
+tool lives. A second tool would arrive as `packages/rd0-<name>/` beside this one.
 
 ## Development
 
 ```bash
-pip install -e "./packages/jinx-pr[dev]"
-cd packages/jinx-pr && python -m pytest -q
+pip install -e "./packages/rd0-jinx[dev]"
+cd packages/rd0-jinx && python -m pytest -q
 ruff check .                     # repo-wide, settings in ruff.toml
 
 cd web && npm install && npm run dev        # the website

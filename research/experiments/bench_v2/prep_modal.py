@@ -5,9 +5,9 @@ from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, "/home/ubuntu/research/prdupecheck/jinx_pr/src")
-from jinx_pr.templates import TemplateModel
+sys.path.insert(0, "/home/ubuntu/research/prdupecheck/rd0_jinx/src")
 from pairtext import D, pr_text
+from rd0_jinx.templates import TemplateModel
 
 need = sorted(pickle.loads(Path(D + "bench.pkl").read_bytes())["need"])
 pr = pd.read_parquet(D + "pull_request.parquet", columns=["id", "title", "body", "agent"]).set_index("id").loc[need]

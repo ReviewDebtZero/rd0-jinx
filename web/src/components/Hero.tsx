@@ -4,9 +4,9 @@ import { CopyLine } from "./CopyLine";
 import { Pill } from "./ui";
 
 const WAYS = [
-  { cmd: "pip install jinx-pr", what: "the library and the CLI" },
+  { cmd: "pip install rd0-jinx", what: "the library and the CLI" },
   { cmd: "jinx check pr.json --open-queue q.jsonl", what: "check one PR locally" },
-  { cmd: "uses: ABCR-Labs/Jinx@main", what: "comment on every new PR" },
+  { cmd: "uses: harshuljain13/rd0@main", what: "comment on every new PR" },
 ];
 
 export function Hero() {
@@ -24,7 +24,7 @@ export function Hero() {
         </div>
 
         <p className="mt-8 font-mono text-xs text-fg-faint">
-          {"// duplicate warnings for pull requests from coding agents"}
+          {"// jinx — duplicate warnings for pull requests from coding agents"}
         </p>
 
         <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
@@ -40,7 +40,7 @@ export function Hero() {
         </p>
 
         <div className="mt-8 max-w-xl">
-          <CopyLine command="pip install jinx-pr" />
+          <CopyLine command="pip install rd0-jinx" />
         </div>
 
         <div className="mt-6 max-w-xl border border-line">
