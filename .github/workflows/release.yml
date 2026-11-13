@@ -6,10 +6,13 @@ name: release
 #
 # One-time setup before the first run, at https://pypi.org/manage/account/publishing/
 #   PyPI project name : jinx-pr
-#   Owner             : ABCR-Labs
+#   Owner             : harshuljain13
 #   Repository        : Jinx
 #   Workflow          : release.yml
-#   Environment       : pypi
+#   Environment       : pypi-jinx-pr
+#
+# The owner is harshuljain13, not ABCR-Labs: ABCR-Labs/Jinx is a GitHub
+# redirect, and PyPI matches owner/repo exactly without following it.
 
 on:
   push:
@@ -19,7 +22,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: pypi
+    environment: pypi-jinx-pr
     permissions:
       id-token: write # required for Trusted Publishing
     steps:
