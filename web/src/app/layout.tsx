@@ -53,6 +53,19 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Loaded in the browser rather than at build time, the way px0 does it:
+            no build-time fetch to Google that can hang or fail in CI. */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font --
+            the rule targets the Pages Router's _document.js. This is the App
+            Router root layout, so the link already applies to every page. */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        />
+      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

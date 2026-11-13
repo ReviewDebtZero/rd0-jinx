@@ -1,28 +1,34 @@
 @import "tailwindcss";
 
-/* Terminal-native palette. Flat surfaces and hairline borders only: depth comes
-   from one-pixel rules and spacing, never from gradients or drop shadows. */
+/* Tokyo Night, the palette px0.ai uses. Two things make it work and neither is
+   the hue: the background is blue-black rather than grey-black, and borders are
+   low-alpha foreground, so they sit *in* the surface instead of drawn on top. */
 @theme {
-  --color-ink: #08090b;
-  --color-panel: #0d0f12;
-  --color-panel-2: #12151a;
-  --color-line: #1d2127;
-  --color-line-bright: #2b3139;
-  --color-fg: #e6e8ea;
-  --color-fg-dim: #949aa3;
-  --color-fg-faint: #646b75;
-  --color-jade: #21c08b;
-  --color-jade-dim: #178f68;
-  --color-amber: #e0a63a;
-  --color-rose: #e06c75;
-  --color-iris: #8b9cf7;
+  --color-ink: #06070b;
+  --color-panel: #0d0e16;
+  --color-panel-2: #141824;
+  --color-line: #1c2030;
+  --color-line-bright: #2b3148;
 
-  /* The --font-* vars are empty unless a self-hosted face is registered; the
-     platform stack after each one is what actually renders today. */
-  --font-mono: var(--font-jetbrains, ""), ui-monospace, "SF Mono", SFMono-Regular,
-    Menlo, Consolas, "Liberation Mono", monospace;
-  --font-sans: var(--font-inter, ""), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Helvetica, Arial, sans-serif;
+  --color-fg: #e4e8f7;
+  --color-fg-dim: #9ba3c4;
+  --color-fg-faint: #6b7386;
+
+  /* accent = the product, positives, scores, calls to action */
+  --color-accent: #fbbf24;
+  --color-accent-dim: #d97706;
+  /* note = informational asides and partial answers */
+  --color-note: #7aa2f7;
+  /* warn = numbers that represent a cost, and stated limitations */
+  --color-warn: #f7768e;
+
+  /* px0 loads JetBrains Mono from Google Fonts with a plain <link>, so there is
+     no build-time fetch to fail. We do the same; the stack behind it renders
+     until the webfont lands. */
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", SFMono-Regular, Menlo,
+    Consolas, "Liberation Mono", monospace;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -38,27 +44,41 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* A faint grid, the one piece of texture. Subtle enough to read as paper
-   rather than as decoration. */
+@layer base {
+  /* 2px, the radius px0 uses almost everywhere. Just enough to stop the
+     brutalism reading as unfinished. Scoped with [class~=...] so it hits full
+     boxes only and leaves one-sided rules (border-b, border-t) alone. */
+  [class~="border"],
+  [class~="border-l-2"] {
+    border-radius: 2px;
+  }
+}
+
+/* A faint grid, the one piece of texture. */
 .grid-bg {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+    linear-gradient(to right, rgba(192, 202, 245, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(192, 202, 245, 0.03) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
+/* Accent glow. px0 uses this sparingly: the primary action and the one element
+   it wants your eye on, never on every card. */
+.glow-accent {
+  box-shadow: 0 0 12px color-mix(in oklab, var(--color-accent) 32%, transparent);
+}
+
 ::selection {
-  background: var(--color-jade);
+  background: var(--color-accent);
   color: var(--color-ink);
 }
 
-/* Focus rings: visible, and in the accent colour rather than the browser blue. */
 :focus-visible {
-  outline: 2px solid var(--color-jade);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
-/* The one interactive control that needs it: the operating-point slider. */
+/* The operating-point slider. */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -79,15 +99,16 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -7px;
   height: 16px;
   width: 16px;
-  background: var(--color-jade);
+  background: var(--color-accent);
   border: 3px solid var(--color-ink);
+  border-radius: 2px;
 }
 input[type="range"]::-moz-range-thumb {
   height: 16px;
   width: 16px;
   border: 3px solid var(--color-ink);
-  background: var(--color-jade);
-  border-radius: 0;
+  background: var(--color-accent);
+  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

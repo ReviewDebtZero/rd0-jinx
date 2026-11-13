@@ -51,7 +51,7 @@ export function HowItWorks() {
       <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {STEPS.map((s) => (
           <li key={s.id} className="border border-line bg-panel p-4">
-            <p className="font-mono text-[11px] text-jade">{s.id}</p>
+            <p className="font-mono text-[11px] text-accent">{s.id}</p>
             <h3 className="mt-2 text-sm font-semibold text-fg">{s.title}</h3>
             <p className="mt-1.5 text-xs leading-relaxed text-fg-dim">{s.body}</p>
           </li>

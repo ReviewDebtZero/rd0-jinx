@@ -13,7 +13,7 @@ export function Nav() {
     <header className="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur">
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center gap-4 px-5">
         <a href="#top" className="flex items-baseline gap-2">
-          <span className="font-mono text-base font-semibold tracking-tight text-jade">rd0</span>
+          <span className="font-mono text-base font-semibold tracking-tight text-accent">rd0</span>
           <span className="font-mono text-base text-fg-faint">/</span>
           <span className="font-mono text-base font-semibold tracking-tight">jinx</span>
           <span className="font-mono text-[11px] text-fg-faint">v0.1.0</span>

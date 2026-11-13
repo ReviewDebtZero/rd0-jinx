@@ -3,8 +3,8 @@ import { PAPERS } from "@/data/site";
 import { Heading, Section } from "./ui";
 
 function Mark({ v }: { v: Cell }) {
-  if (v === "yes") return <span className="text-jade">✓</span>;
-  if (v === "part") return <span className="text-amber">~</span>;
+  if (v === "yes") return <span className="text-accent">✓</span>;
+  if (v === "part") return <span className="text-note">~</span>;
   return <span className="text-fg-faint">·</span>;
 }
 
@@ -48,15 +48,15 @@ export function MarketMatrix() {
           </p>
         </div>
 
-        <div className="border border-jade/40 bg-jade/[0.05] p-6">
-          <p className="font-mono text-[11px] uppercase tracking-wider text-jade">nobody asks</p>
+        <div className="border border-accent/40 bg-accent/[0.05] p-6">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-accent">nobody asks</p>
           <p className="mt-4 text-2xl font-semibold leading-snug text-fg">
             &ldquo;Is this PR
             <br />
             already open?&rdquo;
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
-            <span className="border border-jade/50 bg-jade/10 px-2 py-1 font-mono text-[11px] text-jade">
+            <span className="border border-accent/50 bg-accent/10 px-2 py-1 font-mono text-[11px] text-accent">
               jinx
             </span>
           </div>
@@ -88,7 +88,7 @@ export function MarketMatrix() {
                   scope="col"
                   title={c.label}
                   className={`px-3 py-2.5 text-center font-normal ${
-                    c.key === "dupPr" ? "text-jade" : ""
+                    c.key === "dupPr" ? "text-accent" : ""
                   }`}
                 >
                   {c.short}
@@ -114,12 +114,12 @@ export function MarketMatrix() {
               {TOOLS.filter((t) => t.group === g.key).map((t) => (
                 <tr
                   key={t.name}
-                  className={`border-b border-line last:border-0 ${t.ours ? "bg-jade/[0.06]" : ""}`}
+                  className={`border-b border-line last:border-0 ${t.ours ? "bg-accent/[0.06]" : ""}`}
                 >
                   <th scope="row" className="px-4 py-3 text-left font-normal">
                     <span
                       className={`font-mono text-xs ${
-                        t.ours ? "font-semibold text-jade" : "text-fg"
+                        t.ours ? "font-semibold text-accent" : "text-fg"
                       }`}
                     >
                       {t.ours && <span className="mr-1.5">▸</span>}
@@ -145,7 +145,7 @@ export function MarketMatrix() {
       </div>
 
       <p className="mt-3 font-mono text-[11px] text-fg-faint">
-        <span className="text-jade">✓</span> yes · <span className="text-amber">~</span> partly ·{" "}
+        <span className="text-accent">✓</span> yes · <span className="text-note">~</span> partly ·{" "}
         <span>·</span> no. The highlighted column is the one that splits the categories.
       </p>
 
@@ -153,7 +153,7 @@ export function MarketMatrix() {
       <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {TOOLS.filter((t) => t.note && (t.ours || t.dupPr !== "no")).map((t) => (
           <div key={t.name} className="border border-line bg-panel p-3">
-            <p className={`font-mono text-[11px] ${t.ours ? "text-jade" : "text-fg-dim"}`}>
+            <p className={`font-mono text-[11px] ${t.ours ? "text-accent" : "text-fg-dim"}`}>
               {t.name}
             </p>
             <p className="mt-1.5 text-xs leading-relaxed text-fg-dim">{t.note}</p>
@@ -161,8 +161,8 @@ export function MarketMatrix() {
         ))}
       </div>
 
-      <p className="mt-6 max-w-3xl border-l-2 border-amber/50 bg-amber/[0.04] px-4 py-3 text-xs leading-relaxed text-fg-dim">
-        <span className="font-mono text-amber">honest note · </span>
+      <p className="mt-6 max-w-3xl border-l-2 border-note/50 bg-note/[0.04] px-4 py-3 text-xs leading-relaxed text-fg-dim">
+        <span className="font-mono text-note">honest note · </span>
         This table is about what each tool is built to do, read from its own documentation. We have
         not benchmarked the commercial tools head to head — that needs paid accounts on live
         repositories — so nothing here says Jinx finds more bugs or reviews better than CodeRabbit or
@@ -170,7 +170,7 @@ export function MarketMatrix() {
         down, is against the tools that actually do duplicate-PR detection.{" "}
         <a
           href={PAPERS.marketNotes}
-          className="text-fg underline-offset-2 hover:text-jade hover:underline"
+          className="text-fg underline-offset-2 hover:text-accent hover:underline"
         >
           Read the full audit →
         </a>

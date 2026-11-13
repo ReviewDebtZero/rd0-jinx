@@ -20,7 +20,7 @@ export function Problem() {
       <dl className="mt-6 grid gap-3 sm:grid-cols-3">
         {stats.map((s) => (
           <div key={s.k} className="border border-line bg-panel p-4">
-            <dd className="font-mono text-3xl font-semibold tracking-tight text-amber">{s.v}</dd>
+            <dd className="font-mono text-3xl font-semibold tracking-tight text-warn">{s.v}</dd>
             <dt className="mt-2 text-xs leading-relaxed text-fg-dim">{s.k}</dt>
           </div>
         ))}
@@ -123,7 +123,7 @@ export function Limits() {
           },
         ].map((x) => (
           <li key={x.t} className="border border-line bg-panel p-4">
-            <h3 className="font-mono text-xs text-amber">{x.t}</h3>
+            <h3 className="font-mono text-xs text-warn">{x.t}</h3>
             <p className="mt-2 text-xs leading-relaxed text-fg-dim">{x.b}</p>
           </li>
         ))}
@@ -153,9 +153,9 @@ export function Research() {
           <a
             key={x.t}
             href={x.href}
-            className="border border-line bg-panel p-4 transition-colors hover:border-jade/40"
+            className="border border-line bg-panel p-4 transition-colors hover:border-accent/40"
           >
-            <p className="font-mono text-xs text-jade">{x.t} →</p>
+            <p className="font-mono text-xs text-accent">{x.t} →</p>
             <p className="mt-2 text-xs leading-relaxed text-fg-dim">{x.d}</p>
           </a>
         ))}

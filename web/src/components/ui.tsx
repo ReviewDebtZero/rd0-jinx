@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 export function SectionLabel({ index, children }: { index: string; children: ReactNode }) {
   return (
     <div className="flex items-baseline gap-3 font-mono text-xs tracking-wide text-fg-faint">
-      <span className="text-jade">{`// ${index}`}</span>
+      <span className="text-accent">{`// ${index}`}</span>
       <span className="text-fg-dim">{children}</span>
       <span aria-hidden className="h-px flex-1 bg-line" />
     </div>
@@ -33,19 +33,19 @@ export function Section({
   );
 }
 
-/** Two-tier heading: plain phrase, then the emphasis in jade. */
+/** Two-tier heading: plain phrase, then the emphasis in accent. */
 export function Heading({ lead, accent }: { lead: string; accent: string }) {
   return (
     <h2 className="max-w-3xl text-balance text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
-      {lead} <span className="text-jade">{accent}</span>
+      {lead} <span className="text-accent">{accent}</span>
     </h2>
   );
 }
 
-export function Pill({ children, tone = "line" }: { children: ReactNode; tone?: "line" | "jade" }) {
+export function Pill({ children, tone = "line" }: { children: ReactNode; tone?: "line" | "accent" }) {
   const tones = {
     line: "border-line text-fg-dim",
-    jade: "border-jade/40 text-jade",
+    accent: "border-accent/40 text-accent",
   };
   return (
     <span

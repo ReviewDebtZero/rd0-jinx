@@ -25,7 +25,7 @@ export function Demo() {
       <div className="mt-8 grid gap-5 lg:grid-cols-2">
         <Frame
           title="github.com/harshuljain13/rd0-jinx · pull requests"
-          right={<span className="text-jade">issue #11</span>}
+          right={<span className="text-accent">issue #11</span>}
         >
           <ul className="divide-y divide-line">
             {QUEUE.map((p) => (
@@ -34,7 +34,7 @@ export function Demo() {
                 <span className="min-w-0 flex-1 truncate text-fg-dim">{p.title}</span>
                 {p.verdict === "quiet" && <span className="shrink-0 text-fg-faint">no comment</span>}
                 {p.verdict === "missed" && (
-                  <span className="shrink-0 text-amber" title="scored 0.30, below the 0.5 threshold">
+                  <span className="shrink-0 text-note" title="scored 0.30, below the 0.5 threshold">
                     missed · 0.30
                   </span>
                 )}
@@ -45,21 +45,21 @@ export function Demo() {
             {/* The PR that gets the warning. */}
             <li className="bg-panel-2 px-3 py-2.5">
               <div className="flex items-baseline gap-3 font-mono text-xs">
-                <span className="text-jade">#15</span>
+                <span className="text-accent">#15</span>
                 <span className="min-w-0 flex-1 truncate text-fg">feat(cli): add --version flag</span>
-                <span className="w-10 shrink-0 text-right text-jade">17:18</span>
+                <span className="w-10 shrink-0 text-right text-accent">17:18</span>
               </div>
 
-              <div className="mt-3 border border-jade/30 bg-jade/[0.04]">
-                <div className="flex items-center gap-2 border-b border-jade/20 px-3 py-1.5 font-mono text-[11px]">
-                  <span className="text-jade">jinx</span>
+              <div className="glow-accent mt-3 border border-accent/30 bg-accent/[0.04]">
+                <div className="flex items-center gap-2 border-b border-accent/20 px-3 py-1.5 font-mono text-[11px]">
+                  <span className="text-accent">jinx</span>
                   <span className="border border-line px-1.5 text-fg-faint">bot</span>
                   <span className="ml-auto text-fg-faint">score 1.00</span>
                 </div>
                 <div className="px-3 py-2.5">
                   <p className="text-xs text-fg">
                     This PR may duplicate{" "}
-                    <span className="font-mono text-jade">#12 feat(cli): add --version flag</span>
+                    <span className="font-mono text-accent">#12 feat(cli): add --version flag</span>
                   </p>
                   <ul className="mt-2 space-y-1 font-mono text-[11px] text-fg-dim">
                     <li>· same linked issue (#11)</li>
@@ -68,7 +68,7 @@ export function Demo() {
                     <li>· 56% of added lines are identical</li>
                     <li>· similar title/description after removing agent template text (0.73)</li>
                   </ul>
-                  <p className="mt-2.5 border-t border-jade/20 pt-2 text-[11px] italic text-fg-faint">
+                  <p className="mt-2.5 border-t border-accent/20 pt-2 text-[11px] italic text-fg-faint">
                     Automated hint, not a decision. A maintainer should confirm before closing anything.
                   </p>
                 </div>
@@ -80,7 +80,7 @@ export function Demo() {
         <Frame
           title="the same check, from the CLI"
           right={
-            <a href={`${REPO}/tree/main/packages/rd0-jinx/examples`} className="hover:text-jade">
+            <a href={`${REPO}/tree/main/packages/rd0-jinx/examples`} className="hover:text-accent">
               examples →
             </a>
           }
@@ -94,7 +94,7 @@ export function Demo() {
       <p className="mt-4 font-mono text-[11px] text-fg-faint">
         The CLI example is a real queue from AIDev: huggingface/transformers #44134 and the 19 PRs that
         were open when it was created.{" "}
-        <a href={`${REPO}/pull/15`} className="text-fg-dim underline-offset-2 hover:text-jade hover:underline">
+        <a href={`${REPO}/pull/15`} className="text-fg-dim underline-offset-2 hover:text-accent hover:underline">
           See the original comment on #15 →
         </a>
       </p>

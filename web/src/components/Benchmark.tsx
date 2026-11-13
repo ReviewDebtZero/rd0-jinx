@@ -15,7 +15,7 @@ export function Benchmark() {
       <Heading lead="Same recall as the best of them." accent="A third of the false alarms." />
       <p className="mt-4 max-w-3xl text-sm leading-relaxed text-fg-dim">
         We replayed {data.n_cross} real duplicate pull requests from the public{" "}
-        <a href={AIDEV} className="text-fg underline-offset-2 hover:text-jade hover:underline">
+        <a href={AIDEV} className="text-fg underline-offset-2 hover:text-accent hover:underline">
           AIDev
         </a>{" "}
         dataset. Each method saw only the PRs that were genuinely open at that moment, the way a bot
@@ -26,13 +26,13 @@ export function Benchmark() {
       <ResultsTable />
       <OperatingPoint />
 
-      <p className="mt-6 max-w-3xl border-l-2 border-amber/50 bg-amber/[0.04] px-4 py-3 text-xs leading-relaxed text-fg-dim">
-        <span className="font-mono text-amber">honest note · </span>
+      <p className="mt-6 max-w-3xl border-l-2 border-note/50 bg-note/[0.04] px-4 py-3 text-xs leading-relaxed text-fg-dim">
+        <span className="font-mono text-note">honest note · </span>
         On ranking, the strong methods are statistically tied, and a plain link rule is slightly ahead
         overall — though all it can ever tell you is &ldquo;these two share a link&rdquo;. Our claim is
         the narrow one: Jinx raises under half the false alarms of the shipping bots, says exactly why
         it matched, and installs in two minutes.{" "}
-        <a href={PAPERS.report} className="text-fg underline-offset-2 hover:text-jade hover:underline">
+        <a href={PAPERS.report} className="text-fg underline-offset-2 hover:text-accent hover:underline">
           All 66 strategies →
         </a>
       </p>
@@ -53,7 +53,7 @@ function FarChart() {
           .map((m) => (
             <div key={m.name} className="grid grid-cols-[9rem_1fr_5.5rem] items-center gap-3">
               <span
-                className={`truncate font-mono text-[11px] ${m.ours ? "text-jade" : "text-fg-dim"}`}
+                className={`truncate font-mono text-[11px] ${m.ours ? "text-accent" : "text-fg-dim"}`}
                 title={m.name}
               >
                 {m.name}
@@ -70,7 +70,7 @@ function FarChart() {
                 {/* point estimate */}
                 <div
                   className={`absolute top-1/2 h-4 -translate-y-1/2 ${
-                    m.ours ? "bg-jade" : "bg-fg-faint/70"
+                    m.ours ? "bg-accent" : "bg-fg-faint/70"
                   }`}
                   style={{ width: `${(m.far / MAX_FAR) * 100}%` }}
                 />
@@ -113,10 +113,10 @@ function ResultsTable() {
           {METHODS.map((m) => (
             <tr
               key={m.name}
-              className={`border-b border-line last:border-0 ${m.ours ? "bg-jade/[0.05]" : ""}`}
+              className={`border-b border-line last:border-0 ${m.ours ? "bg-accent/[0.05]" : ""}`}
             >
               <th scope="row" className="px-3 py-2.5 text-left font-normal">
-                <span className={m.ours ? "font-semibold text-jade" : "text-fg"}>{m.name}</span>
+                <span className={m.ours ? "font-semibold text-accent" : "text-fg"}>{m.name}</span>
               </th>
               <td className="px-3 py-2.5 text-fg-dim">
                 {m.top1.toFixed(1)}{" "}
@@ -156,7 +156,7 @@ function OperatingPoint() {
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <label htmlFor={id} className="text-sm text-fg-dim">
           If you can live with{" "}
-          <span className="font-mono text-jade">
+          <span className="font-mono text-accent">
             {pct} false {pct === 1 ? "alarm" : "alarms"}
           </span>{" "}
           per 100 clean PRs…
@@ -187,14 +187,14 @@ function OperatingPoint() {
           return (
             <div key={m.name} className="grid grid-cols-[9rem_1fr_3rem] items-center gap-3">
               <span
-                className={`truncate font-mono text-[11px] ${m.ours ? "text-jade" : "text-fg-dim"}`}
+                className={`truncate font-mono text-[11px] ${m.ours ? "text-accent" : "text-fg-dim"}`}
               >
                 {m.name}
               </span>
               <div className="h-3 bg-panel-2">
                 <div
                   className={`h-3 transition-[width] duration-300 ${
-                    m.ours ? "bg-jade" : "bg-fg-faint/60"
+                    m.ours ? "bg-accent" : "bg-fg-faint/60"
                   }`}
                   style={{ width: `${v}%` }}
                 />

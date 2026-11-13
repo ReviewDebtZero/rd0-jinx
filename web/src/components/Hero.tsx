@@ -16,7 +16,7 @@ export function Hero() {
     <section id="top" className="grid-bg border-b border-line">
       <div className="mx-auto w-full max-w-6xl px-5 pb-14 pt-16 sm:pt-24">
         <div className="flex flex-wrap items-center gap-2">
-          <Pill tone="jade">open source</Pill>
+          <Pill tone="accent">open source</Pill>
           <Pill>MIT</Pill>
           <Pill>CPU only</Pill>
           <Pill>no API key</Pill>
@@ -62,7 +62,7 @@ export function Hero() {
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a
             href={REPO}
-            className="border border-jade/50 bg-jade/10 px-4 py-2 font-mono text-sm text-jade transition-colors hover:bg-jade/15"
+            className="glow-accent border border-accent/50 bg-accent/10 px-4 py-2 font-mono text-sm text-accent transition-colors hover:bg-accent/15"
           >
             Star on GitHub
           </a>
@@ -112,7 +112,7 @@ function StatStrip({
       <dl className="mx-auto grid w-full max-w-6xl grid-cols-2 divide-line sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
         {stats.map((s) => (
           <div key={s.k} className="border-b border-line px-5 py-5 lg:border-b-0">
-            <dd className="font-mono text-2xl font-semibold tracking-tight text-jade">{s.v}</dd>
+            <dd className="font-mono text-2xl font-semibold tracking-tight text-accent">{s.v}</dd>
             <dt className="mt-1 text-xs text-fg-dim">{s.k}</dt>
             <p className="mt-0.5 font-mono text-[11px] text-fg-faint">{s.sub}</p>
           </div>

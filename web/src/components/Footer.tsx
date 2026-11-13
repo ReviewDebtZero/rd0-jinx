@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <p className="font-mono text-base font-semibold tracking-tight">
-              <span className="text-jade">rd0</span>
+              <span className="text-accent">rd0</span>
               <span className="text-fg-faint">/</span>jinx
             </p>
             <p className="mt-3 max-w-sm text-xs leading-relaxed text-fg-dim">
@@ -26,17 +26,17 @@ export function Footer() {
             <p className="font-mono text-[11px] text-fg-faint">project</p>
             <ul className="mt-3 space-y-2 font-mono text-xs text-fg-dim">
               <li>
-                <a href={REPO} className="hover:text-jade">
+                <a href={REPO} className="hover:text-accent">
                   GitHub
                 </a>
               </li>
               <li>
-                <a href={`${REPO}/issues`} className="hover:text-jade">
+                <a href={`${REPO}/issues`} className="hover:text-accent">
                   Issues
                 </a>
               </li>
               <li>
-                <a href={`${REPO}/blob/main/LICENSE`} className="hover:text-jade">
+                <a href={`${REPO}/blob/main/LICENSE`} className="hover:text-accent">
                   MIT license
                 </a>
               </li>
@@ -47,22 +47,22 @@ export function Footer() {
             <p className="font-mono text-[11px] text-fg-faint">research</p>
             <ul className="mt-3 space-y-2 font-mono text-xs text-fg-dim">
               <li>
-                <a href={PAPERS.empirical} className="hover:text-jade">
+                <a href={PAPERS.empirical} className="hover:text-accent">
                   Empirical study
                 </a>
               </li>
               <li>
-                <a href={PAPERS.tooldemo} className="hover:text-jade">
+                <a href={PAPERS.tooldemo} className="hover:text-accent">
                   Tool demo paper
                 </a>
               </li>
               <li>
-                <a href={PAPERS.report} className="hover:text-jade">
+                <a href={PAPERS.report} className="hover:text-accent">
                   Full report
                 </a>
               </li>
               <li>
-                <a href={AIDEV} className="hover:text-jade">
+                <a href={AIDEV} className="hover:text-accent">
                   AIDev dataset
                 </a>
               </li>
@@ -74,7 +74,7 @@ export function Footer() {
           <p>Harshul Jain · Saurabh Yergattikar · Tanya Sah · Parv Khatri</p>
           <p>
             Benchmark derived from{" "}
-            <a href={AIDEV} className="hover:text-jade">
+            <a href={AIDEV} className="hover:text-accent">
               AIDev
             </a>{" "}
             (CC BY 4.0) · formerly AgentDup
