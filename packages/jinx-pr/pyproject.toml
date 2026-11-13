@@ -57,7 +57,7 @@ jinx = "jinx_pr.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-jinx_pr = ["data/*.json"]
+jinx_pr = ["data/*.json", "py.typed"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src", "tests"]
