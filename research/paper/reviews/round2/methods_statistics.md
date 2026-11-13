@@ -1,4 +1,4 @@
-# Round 2 review: methods and statistics (harshuljain13/rd0 `main` @ 84c0351)
+# Round 2 review: methods and statistics (harshuljain13/rd0-jinx `main` @ 84c0351)
 
 Review only. No pushes, no PRs, no API spend. I checked every claim against `experiments/results*/`, `experiments/label_audit/`, the scripts that produce them, and `src/rd0_jinx/`. All `paper/generated/*.tex` macros match their source files. Where I recomputed something myself, I say so. I skipped anything that needs the raw AIDev data.
 

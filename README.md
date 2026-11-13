@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Jinx: explainable duplicate warnings for pull requests from coding agents" width="100%">
+  <img src="assets/banner.svg" alt="rd0/jinx — duplicate warnings for pull requests from coding agents" width="100%">
 </p>
 
 <p align="center">
@@ -157,7 +157,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: harshuljain13/rd0@main
+      - uses: harshuljain13/rd0-jinx@main
         with:
           threshold: ""        # empty = bundled default (0.5); lower catches more, with more false alarms
           max-open-prs: "200"

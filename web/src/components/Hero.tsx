@@ -6,7 +6,7 @@ import { Pill } from "./ui";
 const WAYS = [
   { cmd: "pip install rd0-jinx", what: "the library and the CLI" },
   { cmd: "jinx check pr.json --open-queue q.jsonl", what: "check one PR locally" },
-  { cmd: "uses: harshuljain13/rd0@main", what: "comment on every new PR" },
+  { cmd: "uses: harshuljain13/rd0-jinx@main", what: "comment on every new PR" },
 ];
 
 export function Hero() {

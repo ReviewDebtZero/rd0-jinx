@@ -10,7 +10,7 @@ likely duplicate, tells you which PR it matches and why.
 - Explains every match: shared files, overlapping line ranges, identical added lines, the same linked issue.
 - About 1.9 false alarms per 100 PRs that have no duplicate.
 
-Full README, benchmark and papers: **https://github.com/harshuljain13/rd0**
+Full README, benchmark and papers: **https://github.com/harshuljain13/rd0-jinx**
 
 ## Install
 
@@ -64,7 +64,7 @@ for m in det.rank(new, queue, top=3):
 ## As a GitHub Action
 
 ```yaml
-- uses: harshuljain13/rd0@main
+- uses: harshuljain13/rd0-jinx@main
   with:
     threshold: ""        # empty = bundled default (0.5)
     max-open-prs: "200"

@@ -2,7 +2,7 @@ import { CLI_OUTPUT, REPO } from "@/data/site";
 import { Frame, Heading, Section } from "./ui";
 
 /**
- * The real queue from the live Action run on harshuljain13/rd0, issue #11.
+ * The real queue from the live Action run on harshuljain13/rd0-jinx, issue #11.
  * Titles and outcomes are as they happened: Jinx commented on #15, stayed quiet
  * on #13, and missed #14 (0.30, under the 0.5 threshold).
  */
@@ -24,7 +24,7 @@ export function Demo() {
 
       <div className="mt-8 grid gap-5 lg:grid-cols-2">
         <Frame
-          title="github.com/harshuljain13/rd0 · pull requests"
+          title="github.com/harshuljain13/rd0-jinx · pull requests"
           right={<span className="text-jade">issue #11</span>}
         >
           <ul className="divide-y divide-line">

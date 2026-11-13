@@ -1,35 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img"
+     aria-label="rd0 / jinx — duplicate warnings for pull requests from coding agents">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#312e81"/>
-      <stop offset="0.55" stop-color="#4f46e5"/>
-      <stop offset="1" stop-color="#0d9488"/>
-    </linearGradient>
-    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"/>
-      <stop offset="1" stop-color="#e0e7ff" stop-opacity="0.96"/>
-    </linearGradient>
+    <!-- The same faint grid the website uses. No gradients anywhere. -->
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.025" stroke-width="1"/>
+    </pattern>
+    <style>
+      .m { font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .s { font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif; }
+    </style>
   </defs>
-  <rect width="1280" height="320" rx="24" fill="url(#bg)"/>
-  <circle cx="1180" cy="40" r="140" fill="#ffffff" opacity="0.06"/>
-  <circle cx="90" cy="300" r="110" fill="#ffffff" opacity="0.05"/>
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
-    <text x="80" y="150" font-size="96" font-weight="700" fill="#ffffff">Jinx</text>
-    <text x="82" y="200" font-size="28" fill="#e0e7ff">Explainable duplicate warnings for pull requests</text>
-    <text x="82" y="238" font-size="28" fill="#e0e7ff">from coding agents</text>
-    <text x="82" y="282" font-size="18" fill="#99f6e4" letter-spacing="1">CPU-ONLY  ·  NO API KEY  ·  GITHUB ACTION  ·  PLAIN-LANGUAGE REASONS</text>
+
+  <rect width="1280" height="320" fill="#08090b"/>
+  <rect width="1280" height="320" fill="url(#grid)"/>
+  <rect x="0.5" y="0.5" width="1279" height="319" fill="none" stroke="#1d2127"/>
+
+  <!-- Wordmark -->
+  <g class="m" transform="translate(72,74)">
+    <text font-size="30" font-weight="700" fill="#21c08b">rd0</text>
+    <text x="62" font-size="30" fill="#646b75">/</text>
+    <text x="88" font-size="30" font-weight="700" fill="#e6e8ea">jinx</text>
   </g>
-  <g transform="translate(820,70)" font-family="Segoe UI, Helvetica, Arial, sans-serif">
-    <rect x="0" y="0" width="300" height="78" rx="12" fill="url(#card)"/>
-    <circle cx="28" cy="39" r="11" fill="none" stroke="#16a34a" stroke-width="4"/>
-    <text x="52" y="34" font-size="18" font-weight="700" fill="#1e1b4b">#44134  new PR</text>
-    <text x="52" y="58" font-size="15" fill="#475569">refactor(tvp): capture_outputs</text>
-    <rect x="60" y="112" width="300" height="78" rx="12" fill="url(#card)"/>
-    <circle cx="88" cy="151" r="11" fill="none" stroke="#16a34a" stroke-width="4"/>
-    <text x="112" y="146" font-size="18" font-weight="700" fill="#1e1b4b">#44110  open PR</text>
-    <text x="112" y="170" font-size="15" fill="#475569">refactor(tvp): capture_outputs</text>
-    <path d="M150 80 C150 98, 210 96, 210 110" stroke="#fbbf24" stroke-width="4" fill="none" stroke-dasharray="7 6"/>
-    <rect x="236" y="84" width="150" height="26" rx="13" fill="#f59e0b"/>
-    <text x="311" y="102" font-size="15" font-weight="700" fill="#1f2937" text-anchor="middle">duplicate? 1.00</text>
+
+  <!-- Kicker -->
+  <text class="m" x="72" y="116" font-size="15" fill="#646b75">// duplicate warnings for pull requests from coding agents</text>
+
+  <!-- Headline -->
+  <g class="s" transform="translate(72,0)">
+    <text y="180" font-size="54" font-weight="600" fill="#e6e8ea">Review it once.</text>
+    <text y="238" font-size="54" font-weight="600" fill="#646b75">Not twice.</text>
+  </g>
+
+  <!-- Stat chips -->
+  <g class="m" font-size="14" transform="translate(72,276)">
+    <text fill="#21c08b">6 ms<tspan fill="#646b75" dx="8">per PR</tspan></text>
+    <text x="150" fill="#21c08b">1.9<tspan fill="#646b75" dx="8">false alarms / 100</tspan></text>
+    <text x="390" fill="#21c08b">$0<tspan fill="#646b75" dx="8">no LLM, no API key</tspan></text>
+  </g>
+
+  <!-- The comment it leaves -->
+  <g transform="translate(726,92)">
+    <rect x="0" y="0" width="480" height="150" fill="#0d0f12" stroke="#21c08b" stroke-opacity="0.3"/>
+    <rect x="0" y="0" width="480" height="30" fill="#12151a"/>
+    <line x1="0" y1="30" x2="480" y2="30" stroke="#21c08b" stroke-opacity="0.2"/>
+    <g class="m" font-size="12">
+      <text x="14" y="20" fill="#21c08b">jinx</text>
+      <text x="52" y="20" fill="#646b75">bot</text>
+      <text x="466" y="20" fill="#646b75" text-anchor="end">score 1.00</text>
+
+      <text x="14" y="56" font-size="13" fill="#e6e8ea">This PR may duplicate <tspan fill="#21c08b">#12</tspan></text>
+      <text x="14" y="82" fill="#949aa3">· same linked issue (#11)</text>
+      <text x="14" y="102" fill="#949aa3">· shares 2 of 2 changed files</text>
+      <text x="14" y="122" fill="#949aa3">· 100% of changed line ranges overlap</text>
+      <text x="14" y="142" fill="#646b75">· 56% of added lines are identical</text>
+    </g>
   </g>
 </svg>

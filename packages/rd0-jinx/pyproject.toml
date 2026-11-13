@@ -43,9 +43,9 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://rd0.ai"
-Source = "https://github.com/harshuljain13/rd0"
-Issues = "https://github.com/harshuljain13/rd0/issues"
-Changelog = "https://github.com/harshuljain13/rd0/releases"
+Source = "https://github.com/harshuljain13/rd0-jinx"
+Issues = "https://github.com/harshuljain13/rd0-jinx/issues"
+Changelog = "https://github.com/harshuljain13/rd0-jinx/releases"
 
 [project.optional-dependencies]
 embed = ["sentence-transformers>=2.2"]
