@@ -54,7 +54,7 @@ export function Demo() {
                 <div className="flex items-center gap-2 border-b border-accent/20 px-3 py-1.5 font-mono text-[11px]">
                   <span className="text-accent">jinx</span>
                   <span className="border border-line px-1.5 text-fg-faint">bot</span>
-                  <span className="ml-auto text-fg-faint">score 1.00</span>
+                  <span className="ml-auto font-semibold text-note">score 1.00</span>
                 </div>
                 <div className="px-3 py-2.5">
                   <p className="text-xs text-fg">

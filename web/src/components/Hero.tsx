@@ -112,7 +112,7 @@ function StatStrip({
       <dl className="mx-auto grid w-full max-w-6xl grid-cols-2 divide-line sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
         {stats.map((s) => (
           <div key={s.k} className="border-b border-line px-5 py-5 lg:border-b-0">
-            <dd className="font-mono text-2xl font-semibold tracking-tight text-accent">{s.v}</dd>
+            <dd className="font-mono text-2xl font-semibold tracking-tight text-note">{s.v}</dd>
             <dt className="mt-1 text-xs text-fg-dim">{s.k}</dt>
             <p className="mt-0.5 font-mono text-[11px] text-fg-faint">{s.sub}</p>
           </div>

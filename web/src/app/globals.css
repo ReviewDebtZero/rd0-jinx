@@ -4,28 +4,28 @@
    script in layout.tsx, so there is no flash of the wrong theme. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* The palette is taken from assets/banner.svg, so the README hero and the site
-   are literally the same colours: indigo #4f46e5, teal #0d9488, amber #f59e0b,
-   indigo-ink #1e1b4b. Light is the default; dark is a re-voicing of the same
-   hues, not a different scheme. */
+/* Purple, yellow and black. Dark is the real design and the default; light is
+   the same roles re-voiced for a white surface, where yellow has to go ochre
+   to stay legible. Every value below clears WCAG AA on both surfaces. */
 @theme {
   --color-ink: #ffffff;
-  --color-panel: #f7f8fc;
-  --color-panel-2: #eef0f9;
-  --color-line: #dcdff0;
-  --color-line-bright: #c0c5e4;
+  --color-panel: #faf9fb;
+  --color-panel-2: #f3f1f7;
+  --color-line: #e6e2ee;
+  --color-line-bright: #cfc8dd;
 
-  --color-fg: #1e1b4b;
-  --color-fg-dim: #475569;
-  --color-fg-faint: #656d91; /* 4.8:1 on panel; #7c84a8 failed AA at 11px */
+  --color-fg: #18181b;
+  --color-fg-dim: #52525b;
+  --color-fg-faint: #64646f;
 
-  /* accent = the product, positives, scores, calls to action */
-  --color-accent: #4f46e5;
-  --color-accent-dim: #312e81;
-  /* note = informational asides and partial answers */
-  --color-note: #0f766e; /* 5.2:1 on panel; #0d9488 failed AA at 11px */
-  /* warn = figures that represent a cost, and stated limitations */
-  --color-warn: #b45309;
+  /* accent = purple. The brand: wordmark, calls to action, section markers. */
+  --color-accent: #6d28d9;
+  --color-accent-dim: #4c1d95;
+  /* note = yellow. The pop: headline numbers, scores, callouts. Darkened hard
+     for light mode, where a true yellow is unreadable. */
+  --color-note: #854d0e;
+  /* warn = rose. Figures that represent a cost, and stated limitations. */
+  --color-warn: #be123c;
 
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", SFMono-Regular, Menlo,
     Consolas, "Liberation Mono", monospace;
@@ -36,20 +36,20 @@
 /* Same hues, lifted for a dark surface: the accent goes lighter so it keeps
    contrast against ink rather than sinking into it. */
 .dark {
-  --color-ink: #0b0b14;
-  --color-panel: #13131f;
-  --color-panel-2: #1a1a2b;
-  --color-line: #262640;
-  --color-line-bright: #383860;
+  --color-ink: #0a0a0b;
+  --color-panel: #141417;
+  --color-panel-2: #1c1c21;
+  --color-line: #2a2a31;
+  --color-line-bright: #3f3f48;
 
-  --color-fg: #e8e9f5;
-  --color-fg-dim: #a0a3c0;
-  --color-fg-faint: #6e7193;
+  --color-fg: #fafafa;
+  --color-fg-dim: #a1a1aa;
+  --color-fg-faint: #7a7a85;
 
-  --color-accent: #818cf8;
-  --color-accent-dim: #4f46e5;
-  --color-note: #5eead4;
-  --color-warn: #f59e0b;
+  --color-accent: #a78bfa;
+  --color-accent-dim: #7c3aed;
+  --color-note: #fde047;
+  --color-warn: #fb7185;
 }
 
 html {
@@ -76,14 +76,14 @@ body {
 /* A faint grid, the one piece of texture, tinted with the accent. */
 .grid-bg {
   background-image:
-    linear-gradient(to right, rgb(79 70 229 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(79 70 229 / 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgb(109 40 217 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(109 40 217 / 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 .dark .grid-bg {
   background-image:
-    linear-gradient(to right, rgb(129 140 248 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(129 140 248 / 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgb(167 139 250 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(167 139 250 / 0.06) 1px, transparent 1px);
 }
 
 /* Used on exactly two elements: the primary action and the comment the page is
