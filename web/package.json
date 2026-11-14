@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prebuild": "pkill -f 'next dev' >/dev/null 2>&1 || true"
   },
   "dependencies": {
     "next": "15.5.4",
