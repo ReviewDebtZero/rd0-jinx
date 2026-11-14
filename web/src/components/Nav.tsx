@@ -1,4 +1,5 @@
 import { REPO } from "@/data/site";
+import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS = [
   { href: "#demo", label: "demo" },
@@ -27,12 +28,15 @@ export function Nav() {
           ))}
         </nav>
 
-        <a
-          href={REPO}
-          className="ml-auto border border-line px-2.5 py-1 font-mono text-xs text-fg-dim transition-colors hover:border-line-bright hover:text-fg md:ml-0"
-        >
-          GitHub
-        </a>
+        <div className="ml-auto flex items-center gap-2 md:ml-0">
+          <ThemeToggle />
+          <a
+            href={REPO}
+            className="border border-line px-2.5 py-1 font-mono text-xs text-fg-dim transition-colors hover:border-line-bright hover:text-fg"
+          >
+            GitHub
+          </a>
+        </div>
       </div>
     </header>
   );

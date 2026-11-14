@@ -54,8 +54,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Loaded in the browser rather than at build time, the way px0 does it:
-            no build-time fetch to Google that can hang or fail in CI. */}
+        {/* Runs before first paint, so the stored or preferred theme is already
+            applied and there is no flash of the wrong one. Deliberately tiny
+            and dependency-free. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
+          }}
+        />
+        {/* Loaded in the browser rather than at build time: no build-time fetch
+            to Google that can hang or fail in CI. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font --
