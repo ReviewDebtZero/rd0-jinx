@@ -24,10 +24,10 @@ export function MarketMatrix() {
       {/* The insight, stated before any table: these are two different questions. */}
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
         <div className="border border-line bg-panel/40 p-6">
-          <p className="font-mono text-[11px] uppercase tracking-wider text-fg-faint">
+          <p className="font-mono text-[12.5px] uppercase tracking-wider text-fg-faint">
             every AI reviewer asks
           </p>
-          <p className="mt-4 text-2xl font-semibold leading-snug text-fg-dim">
+          <p className="mt-4 text-3xl font-bold leading-snug text-fg-dim">
             &ldquo;Is this code
             <br />
             any good?&rdquo;
@@ -36,31 +36,31 @@ export function MarketMatrix() {
             {reviewers.map((t) => (
               <span
                 key={t.name}
-                className="border border-line px-2 py-1 font-mono text-[11px] text-fg-faint"
+                className="border border-line px-2 py-1 font-mono text-[12.5px] text-fg-faint"
               >
                 {t.name}
               </span>
             ))}
           </div>
-          <p className="mt-5 text-xs leading-relaxed text-fg-faint">
+          <p className="mt-5 text-[13px] leading-relaxed text-fg-faint">
             They are good at it, and Jinx does not compete with them. It never looks at whether your
             code is correct.
           </p>
         </div>
 
         <div className="border border-accent/40 bg-accent/[0.05] p-6">
-          <p className="font-mono text-[11px] uppercase tracking-wider text-accent">nobody asks</p>
-          <p className="mt-4 text-2xl font-semibold leading-snug text-fg">
+          <p className="font-mono text-[12.5px] uppercase tracking-wider text-accent">nobody asks</p>
+          <p className="mt-4 text-3xl font-bold leading-snug text-fg">
             &ldquo;Is this PR
             <br />
             already open?&rdquo;
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
-            <span className="border border-accent/50 bg-accent/10 px-2 py-1 font-mono text-[11px] text-accent">
+            <span className="border border-accent/50 bg-accent/10 px-2 py-1 font-mono text-[12.5px] text-accent">
               jinx
             </span>
           </div>
-          <ul className="mt-5 space-y-1.5 font-mono text-[11px] text-fg-dim">
+          <ul className="mt-5 space-y-1.5 font-mono text-[12.5px] text-fg-dim">
             <li>▸ 1.9 false alarms per 100 clean PRs</li>
             <li>▸ names the PR it matched, and why</li>
             <li>▸ free, CPU-only, no API key</li>
@@ -68,7 +68,7 @@ export function MarketMatrix() {
         </div>
       </div>
 
-      <p className="mt-6 max-w-3xl text-sm leading-relaxed text-fg-dim">
+      <p className="mt-6 max-w-3xl text-[15px] leading-relaxed text-fg-dim">
         We read the full public docs of every major AI review tool in November 2026, searching for
         duplicate, similar or related <span className="text-fg">pull request</span> detection. Where
         duplicate detection exists at all, it is for <span className="text-fg">issues</span>.
@@ -78,7 +78,7 @@ export function MarketMatrix() {
       <div className="mt-6 overflow-x-auto border border-line">
         <table className="w-full min-w-[54rem] border-collapse text-left">
           <thead>
-            <tr className="border-b border-line bg-panel-2 font-mono text-[11px] text-fg-dim">
+            <tr className="border-b border-line bg-panel-2 font-mono text-[12.5px] text-fg-dim">
               <th scope="col" className="px-4 py-2.5 font-normal">
                 tool
               </th>
@@ -104,10 +104,10 @@ export function MarketMatrix() {
             <tbody key={g.key}>
               <tr className="border-b border-line bg-panel/60">
                 <td colSpan={COLUMNS.length + 2} className="px-4 py-2">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-fg-dim">
+                  <span className="font-mono text-[12.5px] uppercase tracking-wider text-fg-dim">
                     {g.label}
                   </span>
-                  <span className="ml-3 font-mono text-[11px] text-fg-faint">{g.sub}</span>
+                  <span className="ml-3 font-mono text-[12.5px] text-fg-faint">{g.sub}</span>
                 </td>
               </tr>
 
@@ -118,8 +118,8 @@ export function MarketMatrix() {
                 >
                   <th scope="row" className="px-4 py-3 text-left font-normal">
                     <span
-                      className={`font-mono text-xs ${
-                        t.ours ? "font-semibold text-accent" : "text-fg"
+                      className={`font-mono text-[13px] ${
+                        t.ours ? "font-bold text-accent" : "text-fg"
                       }`}
                     >
                       {t.ours && <span className="mr-1.5">▸</span>}
@@ -129,14 +129,14 @@ export function MarketMatrix() {
                   {COLUMNS.map((c) => (
                     <td
                       key={c.key}
-                      className={`px-3 py-3 text-center font-mono text-sm ${
+                      className={`px-3 py-3 text-center font-mono text-[15px] ${
                         c.key === "dupPr" ? "bg-ink/40" : ""
                       }`}
                     >
                       <Mark v={t[c.key] as Cell} />
                     </td>
                   ))}
-                  <td className="px-4 py-3 font-mono text-[11px] text-fg-dim">{t.price}</td>
+                  <td className="px-4 py-3 font-mono text-[12.5px] text-fg-dim">{t.price}</td>
                 </tr>
               ))}
             </tbody>
@@ -144,7 +144,7 @@ export function MarketMatrix() {
         </table>
       </div>
 
-      <p className="mt-3 font-mono text-[11px] text-fg-faint">
+      <p className="mt-3 font-mono text-[12.5px] text-fg-faint">
         <span className="text-accent">✓</span> yes · <span className="text-note">~</span> partly ·{" "}
         <span>·</span> no. The highlighted column is the one that splits the categories.
       </p>
@@ -153,15 +153,15 @@ export function MarketMatrix() {
       <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {TOOLS.filter((t) => t.note && (t.ours || t.dupPr !== "no")).map((t) => (
           <div key={t.name} className="border border-line bg-panel p-3">
-            <p className={`font-mono text-[11px] ${t.ours ? "text-accent" : "text-fg-dim"}`}>
+            <p className={`font-mono text-[12.5px] ${t.ours ? "text-accent" : "text-fg-dim"}`}>
               {t.name}
             </p>
-            <p className="mt-1.5 text-xs leading-relaxed text-fg-dim">{t.note}</p>
+            <p className="mt-1.5 text-[13px] leading-relaxed text-fg-dim">{t.note}</p>
           </div>
         ))}
       </div>
 
-      <p className="mt-6 max-w-3xl border-l-2 border-note/50 bg-note/[0.04] px-4 py-3 text-xs leading-relaxed text-fg-dim">
+      <p className="mt-6 max-w-3xl border-l-2 border-note/50 bg-note/[0.04] px-4 py-3 text-[13px] leading-relaxed text-fg-dim">
         <span className="font-mono text-note">honest note · </span>
         This table is about what each tool is built to do, read from its own documentation. We have
         not benchmarked the commercial tools head to head — that needs paid accounts on live

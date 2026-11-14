@@ -19,7 +19,7 @@ export function CopyLine({ command, className = "" }: { command: string; classNa
 
   return (
     <div
-      className={`flex items-center gap-3 border border-line bg-panel px-3 py-2.5 font-mono text-sm ${className}`}
+      className={`flex items-center gap-3 border border-line bg-panel px-3 py-2.5 font-mono text-[15px] ${className}`}
     >
       <span aria-hidden className="select-none text-accent">
         $
@@ -29,7 +29,7 @@ export function CopyLine({ command, className = "" }: { command: string; classNa
         type="button"
         onClick={copy}
         aria-label={`Copy "${command}" to the clipboard`}
-        className="shrink-0 border border-line px-2 py-0.5 text-[11px] text-fg-dim transition-colors hover:border-accent/50 hover:text-accent"
+        className="shrink-0 border border-line px-2 py-0.5 text-[12.5px] text-fg-dim transition-colors hover:border-accent/50 hover:text-accent"
       >
         {copied ? "copied" : "copy"}
       </button>

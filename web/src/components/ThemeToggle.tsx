@@ -35,7 +35,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label={dark ? "Switch to the light theme" : "Switch to the dark theme"}
       aria-pressed={dark}
-      className="border border-line px-2 py-1 font-mono text-xs text-fg-dim transition-colors hover:border-line-bright hover:text-fg"
+      className="border border-line px-2 py-1 font-mono text-[13px] text-fg-dim transition-colors hover:border-line-bright hover:text-fg"
     >
       {/* Render a stable placeholder until mounted, so the server and client
           markup match and the label does not flicker. */}

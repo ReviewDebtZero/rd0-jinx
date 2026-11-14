@@ -13,19 +13,19 @@ export function Problem() {
   return (
     <Section index="00" label="why this exists">
       <Heading lead="A duplicate PR costs a review," accent="not a merge conflict." />
-      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-dim">
+      <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fg-dim">
         Across {data.n_cross} real cases in AIDev where one agent&rsquo;s PR repeated a PR from a
         different author:
       </p>
       <dl className="mt-6 grid gap-3 sm:grid-cols-3">
         {stats.map((s) => (
           <div key={s.k} className="border border-line bg-panel p-4">
-            <dd className="font-mono text-3xl font-semibold tracking-tight text-warn">{s.v}</dd>
-            <dt className="mt-2 text-xs leading-relaxed text-fg-dim">{s.k}</dt>
+            <dd className="font-mono text-4xl font-bold tracking-tight text-warn">{s.v}</dd>
+            <dt className="mt-2 text-[13px] leading-relaxed text-fg-dim">{s.k}</dt>
           </div>
         ))}
       </dl>
-      <p className="mt-4 font-mono text-[11px] text-fg-faint">
+      <p className="mt-4 font-mono text-[12.5px] text-fg-faint">
         The reviewer&rsquo;s time is already spent by the time anyone notices. Jinx aims to say it on
         day zero.
       </p>
@@ -40,26 +40,26 @@ export function Install() {
 
       <div className="mt-8 grid gap-5 lg:grid-cols-2">
         <div>
-          <p className="font-mono text-[11px] text-fg-dim">1 · as a GitHub Action</p>
-          <p className="mt-2 text-xs leading-relaxed text-fg-dim">
+          <p className="font-mono text-[12.5px] text-fg-dim">1 · as a GitHub Action</p>
+          <p className="mt-2 text-[13px] leading-relaxed text-fg-dim">
             Drop this in <code className="text-fg">.github/workflows/jinx.yml</code>. Jinx comments
             on a new PR when it finds a likely duplicate, and edits that same comment when the PR
             changes — it never posts twice.
           </p>
           <Frame className="mt-3" title=".github/workflows/jinx.yml">
-            <pre className="overflow-x-auto px-3 py-3 font-mono text-[11px] leading-relaxed text-fg-dim">
+            <pre className="overflow-x-auto px-3 py-3 font-mono text-[12.5px] leading-relaxed text-fg-dim">
               {ACTION_YAML}
             </pre>
           </Frame>
-          <p className="mt-3 text-xs leading-relaxed text-fg-faint">
+          <p className="mt-3 text-[13px] leading-relaxed text-fg-faint">
             <code className="text-fg-dim">pull_request_target</code> is safe here: Jinx reads PR data
             through the GitHub API and never checks out or runs the PR&rsquo;s code.
           </p>
         </div>
 
         <div>
-          <p className="font-mono text-[11px] text-fg-dim">2 · or from the command line</p>
-          <p className="mt-2 text-xs leading-relaxed text-fg-dim">
+          <p className="font-mono text-[12.5px] text-fg-dim">2 · or from the command line</p>
+          <p className="mt-2 text-[13px] leading-relaxed text-fg-dim">
             Check one PR against a queue on your own machine. Input takes the GitHub API&rsquo;s JSON
             shape; the queue can be a JSON list or JSON lines.
           </p>
@@ -69,10 +69,10 @@ export function Install() {
           </div>
 
           <div className="mt-4 border border-line">
-            <div className="border-b border-line bg-panel-2 px-3 py-1.5 font-mono text-[11px] text-fg-faint">
+            <div className="border-b border-line bg-panel-2 px-3 py-1.5 font-mono text-[12.5px] text-fg-faint">
               flags
             </div>
-            <table className="w-full font-mono text-[11px]">
+            <table className="w-full font-mono text-[12.5px]">
               <tbody className="text-fg-dim">
                 {[
                   ["--top N", "list at most N candidates"],
@@ -92,7 +92,7 @@ export function Install() {
 
           <a
             href={`${REPO}#readme`}
-            className="mt-4 inline-block border border-line px-3 py-1.5 font-mono text-xs text-fg-dim transition-colors hover:border-line-bright hover:text-fg"
+            className="mt-4 inline-block border border-line px-3 py-1.5 font-mono text-[13px] text-fg-dim transition-colors hover:border-line-bright hover:text-fg"
           >
             Full documentation →
           </a>
@@ -123,8 +123,8 @@ export function Limits() {
           },
         ].map((x) => (
           <li key={x.t} className="border border-line bg-panel p-4">
-            <h3 className="font-mono text-xs text-warn">{x.t}</h3>
-            <p className="mt-2 text-xs leading-relaxed text-fg-dim">{x.b}</p>
+            <h3 className="font-mono text-[13px] text-warn">{x.t}</h3>
+            <p className="mt-2 text-[13px] leading-relaxed text-fg-dim">{x.b}</p>
           </li>
         ))}
       </ul>
@@ -136,7 +136,7 @@ export function Research() {
   return (
     <Section id="research" index="07" label="the research">
       <Heading lead="How you build the queue" accent="decides who wins." />
-      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-fg-dim">
+      <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-fg-dim">
         Most published duplicate-PR evaluations score against a pool that includes recently closed
         PRs. Keep closed-in-the-last-7-days PRs in the queue and Jinx leads the classic research
         detector by 9 points. Score it the way a bot actually sees the world — open PRs only — and
@@ -155,8 +155,8 @@ export function Research() {
             href={x.href}
             className="border border-line bg-panel p-4 transition-colors hover:border-accent/40"
           >
-            <p className="font-mono text-xs text-accent">{x.t} →</p>
-            <p className="mt-2 text-xs leading-relaxed text-fg-dim">{x.d}</p>
+            <p className="font-mono text-[13px] text-accent">{x.t} →</p>
+            <p className="mt-2 text-[13px] leading-relaxed text-fg-dim">{x.d}</p>
           </a>
         ))}
       </div>

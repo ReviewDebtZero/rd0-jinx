@@ -3,6 +3,7 @@
 import { useId, useState } from "react";
 import data from "@/data/jinx.json";
 import { AIDEV, PAPERS } from "@/data/site";
+import { useInView } from "@/lib/motion";
 import { Heading, Section } from "./ui";
 
 const METHODS = data.methods;
@@ -13,7 +14,7 @@ export function Benchmark() {
   return (
     <Section id="benchmark" index="03" label="measured against real detectors">
       <Heading lead="Same recall as the best of them." accent="A third of the false alarms." />
-      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-fg-dim">
+      <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-fg-dim">
         We replayed {data.n_cross} real duplicate pull requests from the public{" "}
         <a href={AIDEV} className="text-fg underline-offset-2 hover:text-accent hover:underline">
           AIDev
@@ -26,7 +27,7 @@ export function Benchmark() {
       <ResultsTable />
       <OperatingPoint />
 
-      <p className="mt-6 max-w-3xl border-l-2 border-note/50 bg-note/[0.04] px-4 py-3 text-xs leading-relaxed text-fg-dim">
+      <p className="mt-6 max-w-3xl border-l-2 border-note/50 bg-note/[0.04] px-4 py-3 text-[13px] leading-relaxed text-fg-dim">
         <span className="font-mono text-note">honest note · </span>
         On ranking, the strong methods are statistically tied, and a plain link rule is slightly ahead
         overall — though all it can ever tell you is &ldquo;these two share a link&rdquo;. Our claim is
@@ -42,9 +43,11 @@ export function Benchmark() {
 
 /** Horizontal bars: false alarms per 100 clean PRs, with the CI drawn in. */
 function FarChart() {
+  const { ref, inView } = useInView<HTMLElement>();
+
   return (
-    <figure className="mt-8 border border-line bg-panel p-5">
-      <figcaption className="font-mono text-[11px] text-fg-dim">
+    <figure ref={ref} className="mt-8 border border-line bg-panel p-5">
+      <figcaption className="font-mono text-[12.5px] text-fg-dim">
         false alarms per 100 pull requests that have no duplicate — lower is better
       </figcaption>
       <div className="mt-5 space-y-2.5">
@@ -53,7 +56,7 @@ function FarChart() {
           .map((m) => (
             <div key={m.name} className="grid grid-cols-[9rem_1fr_5.5rem] items-center gap-3">
               <span
-                className={`truncate font-mono text-[11px] ${m.ours ? "text-accent" : "text-fg-dim"}`}
+                className={`truncate font-mono text-[12.5px] ${m.ours ? "text-accent" : "text-fg-dim"}`}
                 title={m.name}
               >
                 {m.name}
@@ -69,13 +72,16 @@ function FarChart() {
                 />
                 {/* point estimate */}
                 <div
-                  className={`absolute top-1/2 h-4 -translate-y-1/2 ${
+                  className={`bar-grow absolute top-1/2 h-4 -translate-y-1/2 ${
                     m.ours ? "bg-accent" : "bg-fg-faint/70"
                   }`}
-                  style={{ width: `${(m.far / MAX_FAR) * 100}%` }}
+                  style={{
+                    width: `${(m.far / MAX_FAR) * 100}%`,
+                    transform: `translateY(-50%) scaleX(${inView ? 1 : 0})`,
+                  }}
                 />
               </div>
-              <span className="text-right font-mono text-[11px] text-fg-dim">
+              <span className="text-right font-mono text-[12.5px] text-fg-dim">
                 {m.far.toFixed(1)}
                 <span className="text-fg-faint">
                   {" "}
@@ -94,7 +100,7 @@ function ResultsTable() {
     <div className="mt-5 overflow-x-auto border border-line">
       <table className="w-full min-w-[44rem] border-collapse text-left">
         <thead>
-          <tr className="border-b border-line bg-panel-2 font-mono text-[11px] text-fg-dim">
+          <tr className="border-b border-line bg-panel-2 font-mono text-[12.5px] text-fg-dim">
             <th scope="col" className="px-3 py-2.5 font-normal">
               method
             </th>
@@ -109,14 +115,14 @@ function ResultsTable() {
             </th>
           </tr>
         </thead>
-        <tbody className="font-mono text-xs">
+        <tbody className="font-mono text-[13px]">
           {METHODS.map((m) => (
             <tr
               key={m.name}
               className={`border-b border-line last:border-0 ${m.ours ? "bg-accent/[0.05]" : ""}`}
             >
               <th scope="row" className="px-3 py-2.5 text-left font-normal">
-                <span className={m.ours ? "font-semibold text-accent" : "text-fg"}>{m.name}</span>
+                <span className={m.ours ? "font-bold text-accent" : "text-fg"}>{m.name}</span>
               </th>
               <td className="px-3 py-2.5 text-fg-dim">
                 {m.top1.toFixed(1)}{" "}
@@ -154,14 +160,14 @@ function OperatingPoint() {
   return (
     <div className="mt-5 border border-line bg-panel p-5">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <label htmlFor={id} className="text-sm text-fg-dim">
+        <label htmlFor={id} className="text-[15px] text-fg-dim">
           If you can live with{" "}
           <span className="font-mono text-accent">
             {pct} false {pct === 1 ? "alarm" : "alarms"}
           </span>{" "}
           per 100 clean PRs…
         </label>
-        <span className="font-mono text-[11px] text-fg-faint">…this is what each method catches</span>
+        <span className="font-mono text-[12.5px] text-fg-faint">…this is what each method catches</span>
       </div>
 
       <input
@@ -175,7 +181,7 @@ function OperatingPoint() {
         className="mt-4 w-full"
         aria-valuetext={`${pct} false alarms per 100 clean pull requests`}
       />
-      <div className="mt-1 flex justify-between font-mono text-[11px] text-fg-faint">
+      <div className="mt-1 flex justify-between font-mono text-[12.5px] text-fg-faint">
         {FAR_STEPS.map((s) => (
           <span key={s}>{Math.round(parseFloat(s) * 100)}</span>
         ))}
@@ -187,7 +193,7 @@ function OperatingPoint() {
           return (
             <div key={m.name} className="grid grid-cols-[9rem_1fr_3rem] items-center gap-3">
               <span
-                className={`truncate font-mono text-[11px] ${m.ours ? "text-accent" : "text-fg-dim"}`}
+                className={`truncate font-mono text-[12.5px] ${m.ours ? "text-accent" : "text-fg-dim"}`}
               >
                 {m.name}
               </span>
@@ -199,13 +205,13 @@ function OperatingPoint() {
                   style={{ width: `${v}%` }}
                 />
               </div>
-              <span className="text-right font-mono text-[11px] text-fg-dim">{v}%</span>
+              <span className="text-right font-mono text-[12.5px] text-fg-dim">{v}%</span>
             </div>
           );
         })}
       </div>
 
-      <p className="mt-4 font-mono text-[11px] leading-relaxed text-fg-faint">
+      <p className="mt-4 font-mono text-[12.5px] leading-relaxed text-fg-faint">
         &ldquo;Caught&rdquo; means the method ranked the right PR first and scored it above the
         threshold that produces this false-alarm rate. Cross-validated replays on AIDev.
       </p>

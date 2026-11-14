@@ -1,55 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img"
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img"
      aria-label="rd0/jinx — explainable duplicate warnings for pull requests from coding agents">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#312e81"/>
-      <stop offset="0.55" stop-color="#4f46e5"/>
-      <stop offset="1" stop-color="#0d9488"/>
-    </linearGradient>
-    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"/>
-      <stop offset="1" stop-color="#e0e7ff" stop-opacity="0.96"/>
-    </linearGradient>
+    <clipPath id="round"><rect width="1280" height="360" rx="28"/></clipPath>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#609cfc" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <style>
+      .m { font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .s { font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif; }
+    </style>
   </defs>
 
-  <rect width="1280" height="320" rx="32" fill="url(#bg)"/>
-  <clipPath id="round"><rect width="1280" height="320" rx="32"/></clipPath>
-  <g clip-path="url(#round)"><circle cx="1180" cy="40" r="140" fill="#ffffff" opacity="0.06"/>
-  <circle cx="90" cy="300" r="110" fill="#ffffff" opacity="0.05"/></g>
+  <g clip-path="url(#round)">
+    <rect width="1280" height="360" fill="#08080a"/>
+    <rect width="1280" height="360" fill="url(#grid)"/>
+    <circle cx="1210" cy="18" r="150" fill="#609cfc" opacity="0.05"/>
+  </g>
+  <rect x="0.5" y="0.5" width="1279" height="359" rx="28" fill="none" stroke="#27272f"/>
 
-  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
-    <text x="80" y="126" font-size="82" font-weight="700" fill="#ffffff"><tspan fill="#99f6e4">rd0</tspan><tspan fill="#c7d2fe" font-weight="400" dx="6">/</tspan><tspan dx="6">jinx</tspan></text>
-    <text x="82" y="170" font-size="26" fill="#e0e7ff">Explainable duplicate warnings for pull requests</text>
-    <text x="82" y="204" font-size="26" fill="#e0e7ff">from coding agents</text>
+  <!-- Wordmark -->
+  <text class="m" x="72" y="112" font-size="76" font-weight="700" fill="#f4f4f2">
+    <tspan fill="#609cfc">rd0</tspan><tspan fill="#8b8b85" font-weight="400" dx="10">/</tspan><tspan dx="10">jinx</tspan>
+  </text>
 
-    <!-- The numbers that matter, from the 313-duplicate replay -->
-    <g font-size="17">
-      <text x="82" y="252" font-weight="700" fill="#99f6e4">6 ms<tspan fill="#c7d2fe" font-weight="400" dx="7">per PR</tspan></text>
-      <text x="212" y="252" font-weight="700" fill="#99f6e4">1.9<tspan fill="#c7d2fe" font-weight="400" dx="7">false alarms / 100</tspan></text>
-      <text x="432" y="252" font-weight="700" fill="#99f6e4">$0<tspan fill="#c7d2fe" font-weight="400" dx="7">no LLM, no API key</tspan></text>
-    </g>
+  <!-- Tagline -->
+  <text class="s" x="74" y="166" font-size="27" font-weight="500" fill="#c3c3bd">Explainable duplicate warnings for pull requests</text>
+  <text class="s" x="74" y="202" font-size="27" font-weight="500" fill="#c3c3bd">from coding agents</text>
 
-    <text x="82" y="286" font-size="16" fill="#99f6e4" letter-spacing="1" opacity="0.85">CPU-ONLY  ·  NO API KEY  ·  GITHUB ACTION  ·  PLAIN-LANGUAGE REASONS</text>
+  <!-- The numbers -->
+  <g class="m" font-size="19" font-weight="700">
+    <text x="74" y="262" fill="#e4b430">6 ms<tspan fill="#8b8b85" font-weight="500" dx="9">per PR</tspan></text>
+    <text x="222" y="262" fill="#e4b430">1.9<tspan fill="#8b8b85" font-weight="500" dx="9">false alarms / 100</tspan></text>
+    <text x="516" y="262" fill="#e4b430">$0<tspan fill="#8b8b85" font-weight="500" dx="9">to run</tspan></text>
   </g>
 
-  <!-- The comment it actually leaves, with its reasons -->
-  <g transform="translate(762,52)" font-family="Segoe UI, Helvetica, Arial, sans-serif">
-    <rect x="0" y="0" width="438" height="216" rx="14" fill="url(#card)"/>
+  <text class="m" x="74" y="304" font-size="15" font-weight="500" fill="#609cfc" letter-spacing="1.2" opacity="0.8">CPU-ONLY · NO API KEY · GITHUB ACTION · PLAIN REASONS</text>
 
-    <circle cx="30" cy="34" r="11" fill="none" stroke="#16a34a" stroke-width="4"/>
-    <text x="52" y="40" font-size="17" font-weight="700" fill="#1e1b4b">jinx<tspan font-weight="400" fill="#64748b" dx="8">bot</tspan></text>
-    <rect x="286" y="20" width="132" height="28" rx="14" fill="#f59e0b"/>
-    <text x="352" y="39" font-size="15" font-weight="700" fill="#1f2937" text-anchor="middle">duplicate? 1.00</text>
+  <!-- The comment it leaves -->
+  <g transform="translate(742,62)">
+    <rect x="0" y="0" width="466" height="236" rx="6" fill="#101014" stroke="#609cfc" stroke-opacity="0.32"/>
+    <rect x="0" y="0" width="466" height="40" rx="6" fill="#17171d"/>
+    <rect x="0" y="30" width="466" height="10" fill="#17171d"/>
+    <line x1="0" y1="40" x2="466" y2="40" stroke="#609cfc" stroke-opacity="0.22"/>
 
-    <line x1="20" y1="62" x2="418" y2="62" stroke="#c7d2fe"/>
+    <g class="m">
+      <text x="20" y="26" font-size="15" font-weight="700" fill="#609cfc">jinx<tspan font-weight="500" fill="#8b8b85" dx="10">bot</tspan></text>
+      <text x="446" y="26" font-size="15" font-weight="700" fill="#e4b430" text-anchor="end">score 1.00</text>
 
-    <text x="22" y="90" font-size="17" fill="#1e1b4b">This PR may duplicate <tspan font-weight="700" fill="#4f46e5">#44110</tspan></text>
+      <text x="20" y="74" font-size="16" font-weight="500" fill="#f4f4f2">This PR may duplicate <tspan font-weight="700" fill="#609cfc">#44110</tspan></text>
 
-    <g font-size="15" fill="#475569">
-      <text x="22" y="122">· one PR links to the other (#44110)</text>
-      <text x="22" y="148">· shares 1 of 1 changed files</text>
-      <text x="22" y="174">· 100% of changed line ranges overlap</text>
-      <text x="22" y="200">· 100% of added lines are identical</text>
+      <g font-size="14" font-weight="500" fill="#c3c3bd">
+        <text x="20" y="110">· one PR links to the other (#44110)</text>
+        <text x="20" y="140">· shares 1 of 1 changed files</text>
+        <text x="20" y="170">· 100% of changed line ranges overlap</text>
+        <text x="20" y="200">· 100% of added lines are identical</text>
+      </g>
     </g>
   </g>
 </svg>

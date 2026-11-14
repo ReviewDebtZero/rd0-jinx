@@ -33,13 +33,13 @@ export function HowItWorks() {
   return (
     <Section id="how" index="04" label="how it works">
       <Heading lead="Four signals and a logistic model." accent="No LLM anywhere in the loop." />
-      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-dim">
+      <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fg-dim">
         The whole thing is arithmetic over PR metadata and the diff. That is why it costs nothing,
         finishes in {data.latency_ms} ms, and can name every reason it fired.
       </p>
 
       <div className="mt-8 overflow-x-auto border border-line bg-panel">
-        <pre className="px-5 py-4 font-mono text-[11px] leading-relaxed text-fg-dim">
+        <pre className="px-5 py-4 font-mono text-[12.5px] leading-relaxed text-fg-dim">
 {`  new PR ──┐
            ├─▶ strip template ──┬─▶ code overlap   files · line ranges · added lines ─┐
   open ────┘                    ├─▶ links          same issue · #mention             ─┤
@@ -51,9 +51,9 @@ export function HowItWorks() {
       <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {STEPS.map((s) => (
           <li key={s.id} className="border border-line bg-panel p-4">
-            <p className="font-mono text-[11px] text-accent">{s.id}</p>
-            <h3 className="mt-2 text-sm font-semibold text-fg">{s.title}</h3>
-            <p className="mt-1.5 text-xs leading-relaxed text-fg-dim">{s.body}</p>
+            <p className="font-mono text-[12.5px] text-accent">{s.id}</p>
+            <h3 className="mt-2 text-[15px] font-bold text-fg">{s.title}</h3>
+            <p className="mt-1.5 text-[13px] leading-relaxed text-fg-dim">{s.body}</p>
           </li>
         ))}
       </ol>
