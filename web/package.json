@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "prebuild": "pkill -f 'next dev' >/dev/null 2>&1 || true"
+    "prebuild": "command -v pkill >/dev/null 2>&1 && pkill -f 'next dev' >/dev/null 2>&1; exit 0"
   },
   "dependencies": {
     "next": "15.5.4",
