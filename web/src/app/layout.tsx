@@ -51,8 +51,11 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // suppressHydrationWarning on <html>: the theme script below sets
+  // class="dark" before React hydrates, so the server HTML and the client DOM
+  // differ on that one attribute by design.
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Runs before first paint, so the stored or preferred theme is already
             applied and there is no flash of the wrong one. Deliberately tiny

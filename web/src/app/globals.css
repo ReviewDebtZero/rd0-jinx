@@ -4,26 +4,26 @@
    script in layout.tsx, so there is no flash of the wrong theme. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* vLLM's palette: blue #609cfc and gold #e4b430, sampled straight from their
-   logo. Blue carries the brand, gold carries the numbers. Dark is the design;
-   light is the same roles re-voiced for paper, where both have to darken to
-   stay legible. Every value clears WCAG AA on both surfaces. */
+/* Two accents, no third. Blue carries the brand and the actions, amber
+   carries the numbers; a red was doing a job neither of them needed.
+   Dark and light are tuned separately rather than one being the other dimmed:
+   dark is vivid on near-black, light is saturated ink on warm paper. */
 @theme {
-  --color-ink: #ffffff;
-  --color-panel: #f8f8f6;
-  --color-panel-2: #efefea;
-  --color-line: #dedcd4;
-  --color-line-bright: #bbb8ad;
+  --color-ink: #fcfbf7;
+  --color-panel: #f5f3ec;
+  --color-panel-2: #ece9df;
+  --color-line: #ddd8c9;
+  --color-line-bright: #bdb6a2;
 
-  --color-fg: #16160f;
-  --color-fg-dim: #3f3f38;
-  --color-fg-faint: #5c5c53;
+  --color-fg: #14130f;
+  --color-fg-dim: #3c3a33;
+  --color-fg-faint: #5c594f;
 
-  /* accent = blue (brand, actions), note = gold (numbers), warn = red. */
-  --color-accent: #1d4ed8;
-  --color-accent-dim: #1e3a8a;
-  --color-note: #8a6410;
-  --color-warn: #b91c1c;
+  /* Light is not the dark palette dimmed: warm paper, and inks that are more
+     saturated than their dark counterparts rather than less. */
+  --color-accent: #0b5fd0;
+  --color-accent-dim: #073f8f;
+  --color-note: #8f5e00;
 
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", SFMono-Regular, Menlo,
     Consolas, "Liberation Mono", monospace;
@@ -44,10 +44,9 @@
   --color-fg-dim: #c3c3bd;
   --color-fg-faint: #8b8b85;
 
-  --color-accent: #609cfc;
-  --color-accent-dim: #3b82f6;
-  --color-note: #e4b430;
-  --color-warn: #f87171;
+  --color-accent: #4d9fff;
+  --color-accent-dim: #2f86ff;
+  --color-note: #ffcc33;
 }
 
 html {
@@ -74,14 +73,14 @@ body {
 /* A faint grid, the one piece of texture, tinted with the accent. */
 .grid-bg {
   background-image:
-    linear-gradient(to right, rgb(29 78 216 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(29 78 216 / 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgb(11 95 208 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(11 95 208 / 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 .dark .grid-bg {
   background-image:
-    linear-gradient(to right, rgb(96 156 252 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(96 156 252 / 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgb(77 159 255 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(77 159 255 / 0.07) 1px, transparent 1px);
 }
 
 /* Used on exactly two elements: the primary action and the comment the page is
