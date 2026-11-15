@@ -54,6 +54,7 @@ out = {
     "n_cross": int(X.n.iloc[0]),
     "methods": rows,
     "cost": {
+        "n": int(COST["n"]),
         "after_1h": round(COST["share caught after >1h"] * 100),
         "after_1d": round(COST["share after >24h"] * 100),
         "after_7d": round(COST["share after >7d"] * 100),

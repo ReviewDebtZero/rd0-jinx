@@ -75,7 +75,7 @@ export function MarketMatrix() {
       </p>
 
       {/* The detail, grouped by what each tool is for. */}
-      <div className="mt-6 overflow-x-auto border border-line">
+      <div tabIndex={0} role="region" aria-label="Feature comparison table" className="mt-6 overflow-x-auto border border-line">
         <table className="w-full min-w-[54rem] border-collapse text-left">
           <thead>
             <tr className="border-b border-line bg-panel-2 font-mono text-[12.5px] text-fg-dim">

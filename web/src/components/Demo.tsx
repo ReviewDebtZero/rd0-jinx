@@ -88,10 +88,11 @@ export function Demo() {
                   </p>
                   <ul className="mt-2 space-y-1 font-mono text-[12.5px] text-fg-dim">
                     <li>· same linked issue (#11)</li>
-                    <li>· shares 2 of 2 changed files (src/rd0_jinx/cli.py, tests/test_cli_version.py)</li>
+                    <li>· shares 2 of 2 changed files (src/jinx_pr/cli.py, tests/test_cli_version.py)</li>
                     <li>· 100% of changed line ranges overlap</li>
                     <li>· 56% of added lines are identical</li>
                     <li>· similar title/description after removing agent template text (0.73)</li>
+                    <li>· same author (possible re-opened or replacement PR)</li>
                   </ul>
                   <p className="mt-2.5 border-t border-accent/20 pt-2 text-[12.5px] italic text-fg-faint">
                     Automated hint, not a decision. A maintainer should confirm before closing anything.

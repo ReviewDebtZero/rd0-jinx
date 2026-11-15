@@ -1,75 +1,117 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img"
-     aria-label="rd0/jinx — explainable duplicate warnings for pull requests from coding agents. Two pull requests whose changed lines overlap, matched with a score of 1.00.">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img"
+     aria-label="rd0/jinx: review it once, not twice. Jinx spots a new pull request that duplicates an open one and explains why, with shared files, overlapping lines and the same linked issue.">
   <defs>
-    <clipPath id="round"><rect width="1280" height="360" rx="28"/></clipPath>
-    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
-      <path d="M56 0H0V56" fill="none" stroke="#4d9fff" stroke-opacity="0.06" stroke-width="1"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1023"/>
+      <stop offset="0.55" stop-color="#151a3d"/>
+      <stop offset="1" stop-color="#0c2a3a"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0.15" cy="0.1" r="0.6">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.9" cy="0.95" r="0.55">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity="0.40"/>
+      <stop offset="1" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="0.5" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+    <linearGradient id="link" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.06"/>
     </pattern>
+    <clipPath id="r"><rect width="1280" height="400" rx="28"/></clipPath>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
     <style>
-      .m { font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
-      .s { font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .m { font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+      .s { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
     </style>
   </defs>
 
-  <g clip-path="url(#round)">
-    <rect width="1280" height="360" fill="#08080a"/>
-    <rect width="1280" height="360" fill="url(#grid)"/>
-    <circle cx="1230" cy="40" r="170" fill="#4d9fff" opacity="0.045"/>
+  <g clip-path="url(#r)">
+    <rect width="1280" height="400" fill="url(#bg)"/>
+    <rect width="1280" height="400" fill="url(#glowA)"/>
+    <rect width="1280" height="400" fill="url(#glowB)"/>
+    <rect width="1280" height="400" fill="url(#dots)"/>
   </g>
-  <rect x="0.5" y="0.5" width="1279" height="359" rx="28" fill="none" stroke="#27272f"/>
 
-  <!-- left: the pitch -->
-  <text class="m" x="72" y="118" font-size="74" font-weight="700" fill="#f4f4f2">
-    <tspan fill="#4d9fff">rd0</tspan><tspan fill="#8b8b85" font-weight="400" dx="10">/</tspan><tspan dx="10">jinx</tspan>
+  <!-- left: pitch -->
+  <text class="m" x="64" y="108" font-size="64" font-weight="700" fill="#f8fafc">
+    <tspan fill="#60a5fa">rd0</tspan><tspan fill="#64748b" font-weight="400" dx="6">/</tspan><tspan dx="6">jinx</tspan>
   </text>
+  <text class="s" x="66" y="172" font-size="40" font-weight="800" fill="#f8fafc">Review it once.</text>
+  <text class="s" x="66" y="220" font-size="40" font-weight="800" fill="url(#title)">Not twice.</text>
+  <text class="s" x="66" y="262" font-size="20" fill="#cbd5e1">Duplicate-PR warnings for coding agents,</text>
+  <text class="s" x="66" y="290" font-size="20" fill="#cbd5e1">with the reason for every match.</text>
 
-  <text class="s" x="74" y="172" font-size="26" font-weight="500" fill="#c3c3bd">Explainable duplicate warnings</text>
-  <text class="s" x="74" y="206" font-size="26" font-weight="500" fill="#c3c3bd">for pull requests from coding agents</text>
-
-  <g class="m" font-size="19" font-weight="700">
-    <text x="74" y="266" fill="#ffcc33">6 ms<tspan fill="#8b8b85" font-weight="500" dx="9">per PR</tspan></text>
-    <text x="222" y="266" fill="#ffcc33">1.9<tspan fill="#8b8b85" font-weight="500" dx="9">false alarms / 100</tspan></text>
-    <text x="516" y="266" fill="#ffcc33">$0<tspan fill="#8b8b85" font-weight="500" dx="9">to run</tspan></text>
+  <!-- chips -->
+  <g class="m" font-size="15" font-weight="600">
+    <rect x="64" y="318" width="132" height="34" rx="17" fill="#22c55e" fill-opacity="0.16" stroke="#22c55e" stroke-opacity="0.6"/>
+    <text x="130" y="340" text-anchor="middle" fill="#86efac">CPU only</text>
+    <rect x="206" y="318" width="150" height="34" rx="17" fill="#a78bfa" fill-opacity="0.16" stroke="#a78bfa" stroke-opacity="0.6"/>
+    <text x="281" y="340" text-anchor="middle" fill="#ddd6fe">no API key</text>
+    <rect x="366" y="318" width="168" height="34" rx="17" fill="#38bdf8" fill-opacity="0.16" stroke="#38bdf8" stroke-opacity="0.6"/>
+    <text x="450" y="340" text-anchor="middle" fill="#bae6fd">GitHub Action</text>
+    <rect x="544" y="318" width="96" height="34" rx="17" fill="#fbbf24" fill-opacity="0.16" stroke="#fbbf24" stroke-opacity="0.6"/>
+    <text x="592" y="340" text-anchor="middle" fill="#fde68a">MIT</text>
   </g>
 
-  <text class="m" x="74" y="306" font-size="15" font-weight="500" fill="#4d9fff" letter-spacing="1.2" opacity="0.8">CPU-ONLY · NO API KEY · GITHUB ACTION · PLAIN REASONS</text>
+  <!-- right: two PR cards -->
+  <g filter="url(#sh)">
+    <rect x="700" y="44" width="220" height="168" rx="14" fill="#0f172a" stroke="#334155"/>
+    <rect x="1020" y="44" width="220" height="168" rx="14" fill="#0f172a" stroke="#334155"/>
+  </g>
+  <g class="m" font-size="14">
+    <circle cx="722" cy="70" r="7" fill="#22c55e"/>
+    <text x="736" y="75" fill="#e2e8f0" font-weight="700">#15</text><text x="776" y="75" fill="#94a3b8">new PR</text>
+    <circle cx="1042" cy="70" r="7" fill="#22c55e"/>
+    <text x="1056" y="75" fill="#e2e8f0" font-weight="700">#12</text><text x="1096" y="75" fill="#94a3b8">already open</text>
+    <text x="722" y="100" fill="#cbd5e1" font-size="13">cli.py</text>
+    <text x="1042" y="100" fill="#cbd5e1" font-size="13">cli.py</text>
+  </g>
+  <g>
+    <rect x="720" y="112" width="130" height="10" rx="5" fill="#334155"/>
+    <rect x="720" y="132" width="180" height="10" rx="5" fill="#22c55e"/>
+    <rect x="720" y="152" width="160" height="10" rx="5" fill="#22c55e"/>
+    <rect x="720" y="172" width="170" height="10" rx="5" fill="#22c55e"/>
+    <rect x="720" y="192" width="100" height="10" rx="5" fill="#334155"/>
+    <rect x="1040" y="112" width="120" height="10" rx="5" fill="#334155"/>
+    <rect x="1040" y="132" width="180" height="10" rx="5" fill="#22c55e"/>
+    <rect x="1040" y="152" width="160" height="10" rx="5" fill="#22c55e"/>
+    <rect x="1040" y="172" width="170" height="10" rx="5" fill="#22c55e"/>
+    <rect x="1040" y="192" width="140" height="10" rx="5" fill="#334155"/>
+  </g>
+  <g stroke="url(#link)" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <path d="M902 137 C 950 137, 990 137, 1038 137"/>
+    <path d="M882 157 C 940 157, 985 157, 1038 157"/>
+    <path d="M892 177 C 945 177, 990 177, 1038 177"/>
+  </g>
+  <g fill="#fbbf24"><circle cx="902" cy="137" r="4"/><circle cx="882" cy="157" r="4"/><circle cx="892" cy="177" r="4"/></g>
+  <g fill="#f472b6"><circle cx="1038" cy="137" r="4"/><circle cx="1038" cy="157" r="4"/><circle cx="1038" cy="177" r="4"/></g>
+  <text class="m" x="970" y="122" font-size="12" text-anchor="middle" fill="#fbbf24">same lines</text>
 
-  <!-- right: what deduplication actually looks like. Two PRs side by side;
-       the lines they both change are amber and tied together, the rest grey. -->
-  <g transform="translate(706,44)">
-    <g class="m" font-size="13" font-weight="600">
-      <text x="0" y="12" fill="#4d9fff">#44134<tspan fill="#8b8b85" font-weight="500" dx="8">new</tspan></text>
-      <text x="300" y="12" fill="#c3c3bd">#44110<tspan fill="#8b8b85" font-weight="500" dx="8">open</tspan></text>
-    </g>
-
-    <rect x="0"   y="30"  width="160" height="15" rx="3" fill="#27272f"/>
-    <rect x="0"   y="57"  width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
-    <rect x="0"   y="84"  width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
-    <rect x="0"   y="111" width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
-    <rect x="0"   y="138" width="112" height="15" rx="3" fill="#27272f"/>
-
-    <rect x="300" y="30"  width="132" height="15" rx="3" fill="#27272f"/>
-    <rect x="300" y="57"  width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
-    <rect x="300" y="84"  width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
-    <rect x="300" y="111" width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
-    <rect x="300" y="138" width="146" height="15" rx="3" fill="#27272f"/>
-
-    <g stroke="#ffcc33" stroke-width="2" stroke-opacity="0.5">
-      <path d="M160 64.5 H300"/>
-      <path d="M160 91.5 H300"/>
-      <path d="M160 118.5 H300"/>
-    </g>
-    <g fill="#ffcc33">
-      <circle cx="166" cy="64.5" r="3"/><circle cx="294" cy="64.5" r="3"/>
-      <circle cx="166" cy="91.5" r="3"/><circle cx="294" cy="91.5" r="3"/>
-      <circle cx="166" cy="118.5" r="3"/><circle cx="294" cy="118.5" r="3"/>
-    </g>
-
-    <g transform="translate(0,182)">
-      <rect x="0" y="0" width="460" height="46" rx="6" fill="#101014" stroke="#4d9fff" stroke-opacity="0.35"/>
-      <circle cx="26" cy="23" r="7" fill="none" stroke="#ffcc33" stroke-width="2.5"/>
-      <text class="m" x="46" y="28" font-size="13" font-weight="600" fill="#f4f4f2">duplicate of <tspan fill="#4d9fff" font-weight="700">#44110</tspan><tspan fill="#8b8b85" font-weight="500" dx="8">· 3 of 3 lines identical</tspan></text>
-      <text class="m" x="444" y="28" font-size="14" font-weight="700" fill="#ffcc33" text-anchor="end">1.00</text>
+  <!-- jinx comment -->
+  <g filter="url(#sh)">
+    <rect x="700" y="232" width="540" height="128" rx="14" fill="#111827" stroke="#6366f1" stroke-opacity="0.8"/>
+  </g>
+  <rect x="700" y="232" width="6" height="128" rx="3" fill="url(#title)"/>
+  <g class="m">
+    <text x="726" y="262" font-size="15" font-weight="700" fill="#a78bfa">jinx</text>
+    <text x="770" y="262" font-size="15" fill="#e2e8f0">this PR may duplicate <tspan fill="#60a5fa" font-weight="700">#12</tspan></text>
+    <rect x="1148" y="246" width="74" height="24" rx="12" fill="#fbbf24" fill-opacity="0.18" stroke="#fbbf24"/>
+    <text x="1185" y="263" font-size="14" font-weight="700" text-anchor="middle" fill="#fde68a">1.00</text>
+    <g font-size="14" fill="#cbd5e1">
+      <text x="726" y="292"><tspan fill="#22c55e">✓</tspan> same linked issue (#11)</text>
+      <text x="726" y="316"><tspan fill="#22c55e">✓</tspan> shares 2 of 2 changed files</text>
+      <text x="726" y="340"><tspan fill="#22c55e">✓</tspan> 100% of changed line ranges overlap</text>
     </g>
   </g>
 </svg>

@@ -128,7 +128,7 @@ genuinely open at that moment, as a bot would. Intervals are 95% bootstrap CIs c
 | contrib-guard (existing bot) | 91.4 | 5.5 | Best existing bot we tested |
 | Simili-bot (existing bot, re-implemented) | 87.9 | 4.5 | |
 | PRSense (existing bot, re-implemented) | 82.7 | 4.7 | |
-| Claude Haiku 4.5 + Jinx | 94 | 0.8\* | Needs an API key, about 0.8¢ per PR |
+| Claude Haiku 4.5 + Jinx | 93.6 | 0.8\* | Needs an API key, about 0.8¢ per PR |
 
 \* On a random sample of 1,600 PRs with no duplicate, where Jinx itself raises 1.7.
 
