@@ -112,7 +112,7 @@ export function Demo() {
             </a>
           }
         >
-          <pre tabIndex={0} aria-label="Jinx CLI output" className="overflow-x-auto px-3 py-3 font-mono text-[12px] leading-relaxed text-fg-dim">
+          <pre tabIndex={0} role="region" aria-label="Jinx CLI output" className="overflow-x-auto px-3 py-3 font-mono text-[12px] leading-relaxed text-fg-dim">
             {CLI_OUTPUT}
           </pre>
         </Frame>
