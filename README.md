@@ -37,10 +37,9 @@ naming the match and why.
   <sub><a href="https://rd0-jinx.netlify.app/jinx_demo.mp4">Watch the full demo</a> — PyPI install, <code>jinx check</code> on a real queue, the live comment on PR #15, the website.</sub>
 </p>
 
-On a real run on this repository, Jinx commented on #15 (below), stayed quiet on the unrelated #13, and
-**missed** #14 — it scored 0.30 under the 0.5 threshold.
-
-<p align="center"><img src="assets/action_comment.png" alt="Jinx comment: this PR may duplicate PR 12, score 1.00, listing the shared issue, shared files and overlapping lines" width="90%"></p>
+On a real run on this repository, Jinx commented on
+[#15](https://github.com/harshuljain13/rd0-jinx/pull/15#issuecomment-3534631731), stayed quiet on the
+unrelated #13, and **missed** #14 — it scored 0.30 under the 0.5 threshold.
 
 ```console
 $ pip install rd0-jinx && jinx check new_pr.json --open-queue open_prs.jsonl --top 2
