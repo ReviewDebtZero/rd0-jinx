@@ -38,6 +38,16 @@ export function Nav() {
           </a>
         </div>
       </div>
+      <nav
+        aria-label="Sections"
+        className="flex gap-5 overflow-x-auto border-t border-line px-5 py-2 font-mono text-[13px] text-fg-dim md:hidden"
+      >
+        {LINKS.map((l) => (
+          <a key={l.href} href={l.href} className="shrink-0 transition-colors hover:text-fg">
+            {l.label}
+          </a>
+        ))}
+      </nav>
     </header>
   );
 }

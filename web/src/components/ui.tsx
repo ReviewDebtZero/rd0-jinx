@@ -58,7 +58,7 @@ export function Pill({ children, tone = "line" }: { children: ReactNode; tone?: 
 
 /** A bordered panel. No shadow, no radius: the border is the whole affordance. */
 export function Panel({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`border border-line bg-panel ${className}`}>{children}</div>;
+  return <div className={`min-w-0 border border-line bg-panel ${className}`}>{children}</div>;
 }
 
 /** Panel with a titled header strip, used for the demo and diagram frames. */
@@ -74,7 +74,7 @@ export function Frame({
   className?: string;
 }) {
   return (
-    <div className={`border border-line bg-panel ${className}`}>
+    <div className={`min-w-0 border border-line bg-panel ${className}`}>
       <div className="flex items-center justify-between gap-3 border-b border-line bg-panel-2 px-3 py-2 font-mono text-[12.5px] text-fg-dim">
         <span className="truncate">{title}</span>
         {right}

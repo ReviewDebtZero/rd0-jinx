@@ -38,7 +38,7 @@ export function HowItWorks() {
         finishes in {data.latency_ms} ms, and can name every reason it fired.
       </p>
 
-      <div className="mt-8 overflow-x-auto border border-line bg-panel">
+      <div tabIndex={0} role="region" aria-label="Pipeline diagram" className="mt-8 overflow-x-auto border border-line bg-panel">
         <pre className="px-5 py-4 font-mono text-[12.5px] leading-relaxed text-fg-dim">
 {`  new PR ──┐
            ├─▶ strip template ──┬─▶ code overlap   files · line ranges · added lines ─┐

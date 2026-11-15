@@ -1,5 +1,5 @@
 import data from "@/data/jinx.json";
-import { ACTION_YAML, PAPERS, REPO } from "@/data/site";
+import { ACTION_YAML, PAPERS, PIP_INSTALL, REPO } from "@/data/site";
 import { CopyLine } from "./CopyLine";
 import { Frame, Heading, Section } from "./ui";
 
@@ -17,14 +17,14 @@ export function Problem() {
         Across {data.n_cross} real cases in AIDev where one agent&rsquo;s PR repeated a PR from a
         different author:
       </p>
-      <dl className="mt-6 grid gap-3 sm:grid-cols-3">
+      <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {stats.map((s) => (
           <div key={s.k} className="border border-line bg-panel p-4">
-            <dd className="font-mono text-4xl font-bold tracking-tight text-note">{s.v}</dd>
-            <dt className="mt-2 text-[13px] leading-relaxed text-fg-dim">{s.k}</dt>
+            <p className="font-mono text-4xl font-bold tracking-tight text-note">{s.v}</p>
+            <p className="mt-2 text-[13px] leading-relaxed text-fg-dim">{s.k}</p>
           </div>
         ))}
-      </dl>
+      </div>
       <p className="mt-4 font-mono text-[12.5px] text-fg-faint">
         The reviewer&rsquo;s time is already spent by the time anyone notices. Jinx aims to say it on
         day zero.
@@ -39,7 +39,7 @@ export function Install() {
       <Heading lead="Two minutes." accent="Then it is just there." />
 
       <div className="mt-8 grid gap-5 lg:grid-cols-2">
-        <div>
+        <div className="min-w-0">
           <p className="font-mono text-[12.5px] text-fg-dim">1 · as a GitHub Action</p>
           <p className="mt-2 text-[13px] leading-relaxed text-fg-dim">
             Drop this in <code className="text-fg">.github/workflows/jinx.yml</code>. Jinx comments
@@ -47,7 +47,7 @@ export function Install() {
             changes — it never posts twice.
           </p>
           <Frame className="mt-3" title=".github/workflows/jinx.yml">
-            <pre className="overflow-x-auto px-3 py-3 font-mono text-[12.5px] leading-relaxed text-fg-dim">
+            <pre tabIndex={0} aria-label="GitHub Action workflow" className="overflow-x-auto px-3 py-3 font-mono text-[12.5px] leading-relaxed text-fg-dim">
               {ACTION_YAML}
             </pre>
           </Frame>
@@ -57,14 +57,14 @@ export function Install() {
           </p>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="font-mono text-[12.5px] text-fg-dim">2 · or from the command line</p>
           <p className="mt-2 text-[13px] leading-relaxed text-fg-dim">
             Check one PR against a queue on your own machine. Input takes the GitHub API&rsquo;s JSON
             shape; the queue can be a JSON list or JSON lines.
           </p>
           <div className="mt-3 space-y-2">
-            <CopyLine command="pip install rd0-jinx" />
+            <CopyLine command={PIP_INSTALL} />
             <CopyLine command="jinx check new_pr.json --open-queue open_prs.jsonl" />
           </div>
 

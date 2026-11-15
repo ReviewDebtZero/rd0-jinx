@@ -111,7 +111,7 @@ export function Demo() {
             </a>
           }
         >
-          <pre className="overflow-x-auto px-3 py-3 font-mono text-[12px] leading-relaxed text-fg-dim">
+          <pre tabIndex={0} aria-label="Jinx CLI output" className="overflow-x-auto px-3 py-3 font-mono text-[12px] leading-relaxed text-fg-dim">
             {CLI_OUTPUT}
           </pre>
         </Frame>
@@ -120,7 +120,7 @@ export function Demo() {
       <p className="mt-4 font-mono text-[12.5px] text-fg-faint">
         The CLI example is a real queue from AIDev: huggingface/transformers #44134 and the 19 PRs that
         were open when it was created.{" "}
-        <a href={`${REPO}/pull/15`} className="text-fg-dim underline-offset-2 hover:text-accent hover:underline">
+        <a href={`${REPO}/pull/15`} className="text-fg-dim underline underline-offset-2 hover:text-accent">
           See the original comment on #15 →
         </a>
       </p>

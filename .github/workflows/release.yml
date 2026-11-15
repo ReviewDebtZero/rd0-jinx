@@ -7,7 +7,7 @@ name: release
 # One-time setup before the first run, at https://pypi.org/manage/account/publishing/
 #   PyPI project name : rd0-jinx
 #   Owner             : harshuljain13
-#   Repository        : rd0            <- rename the repo on GitHub first
+#   Repository        : rd0-jinx
 #   Workflow          : release.yml
 #   Environment       : pypi-rd0-jinx  <- create this under Settings > Environments
 #
