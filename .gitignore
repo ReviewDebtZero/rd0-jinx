@@ -3,13 +3,22 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 build/
+dist/
+.venv/
+venv/
+
+# Node / Next.js (web/)
+node_modules/
+.next/
+out/
+.vercel/
 
 # LaTeX build files (PDFs are committed)
-paper/**/*.aux
-paper/**/*.log
-paper/**/*.bbl
-paper/**/*.blg
-paper/**/*.fls
-paper/**/*.fdb_latexmk
-paper/**/*.out
-paper/tooldemo/video/frames/
+research/paper/**/*.aux
+research/paper/**/*.log
+research/paper/**/*.bbl
+research/paper/**/*.blg
+research/paper/**/*.fls
+research/paper/**/*.fdb_latexmk
+research/paper/**/*.out
+research/paper/tooldemo/video/frames/

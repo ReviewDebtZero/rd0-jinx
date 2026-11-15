@@ -1,3 +1,36 @@
+# rd0.ai — a Next.js static export living in web/.
+# `base` makes web/ the working directory, so `publish` is web/out.
+
 [build]
-  publish = "site"
-  command = ""
+  base = "web"
+  command = "npm ci && npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# The export is fully static, so everything is cacheable. Hashed assets can be
+# cached forever; HTML must revalidate or a deploy would not be visible.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Deploy previews and branch builds should not be indexed.
+[context.deploy-preview]
+  [context.deploy-preview.environment]
+    ROBOTS = "noindex"

@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rd0-jinx"
+version = "0.1.0"
+description = "Jinx: duplicate pull-request warnings for coding-agent PRs. The first tool in rd0, a toolkit for review debt."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = []
+keywords = [
+  "pull-request",
+  "duplicate-detection",
+  "code-review",
+  "review-debt",
+  "github-action",
+  "coding-agents",
+  "static-analysis",
+]
+authors = [
+  { name = "Harshul Jain" },
+  { name = "Saurabh Yergattikar" },
+  { name = "Tanya Sah" },
+  { name = "Parv Khatri" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Software Development :: Version Control :: Git",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://rd0.ai"
+Source = "https://github.com/harshuljain13/rd0-jinx"
+Issues = "https://github.com/harshuljain13/rd0-jinx/issues"
+Changelog = "https://github.com/harshuljain13/rd0-jinx/releases"
+
+[project.optional-dependencies]
+embed = ["sentence-transformers>=2.2"]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+jinx = "rd0_jinx.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+rd0_jinx = ["data/*.json", "py.typed"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]

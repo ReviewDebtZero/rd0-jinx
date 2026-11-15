@@ -1,0 +1,79 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # The package declares requires-python >=3.9, so test the floor and the
+        # ceiling. The floor needs an older runner: ubuntu-latest is 26.04 now,
+        # and setup-python has no 3.9 build for it. Pinning here keeps the 3.9
+        # claim actually verified instead of quietly dropping it.
+        include:
+          - python-version: "3.9"
+            os: ubuntu-22.04
+          - python-version: "3.13"
+            os: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: pip install "./packages/rd0-jinx[dev]"
+      - name: Tests
+        run: python -m pytest -q
+        working-directory: packages/rd0-jinx
+      - name: CLI smoke test
+        run: |
+          jinx check packages/rd0-jinx/examples/new_pr.json \
+            --open-queue packages/rd0-jinx/examples/open_prs.jsonl --top 2
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install ruff
+      - run: ruff check .
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install build twine
+      - name: Build sdist and wheel
+        run: python -m build
+        working-directory: packages/rd0-jinx
+      - name: Check metadata
+        run: twine check dist/*
+        working-directory: packages/rd0-jinx
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: packages/rd0-jinx/dist/*
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+        working-directory: web
+      - run: npm run lint
+        working-directory: web
+      - run: npm run build
+        working-directory: web

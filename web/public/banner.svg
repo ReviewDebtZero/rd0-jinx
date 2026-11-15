@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img"
+     aria-label="rd0/jinx — explainable duplicate warnings for pull requests from coding agents. Two pull requests whose changed lines overlap, matched with a score of 1.00.">
+  <defs>
+    <clipPath id="round"><rect width="1280" height="360" rx="28"/></clipPath>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#4d9fff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <style>
+      .m { font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .s { font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="1280" height="360" fill="#08080a"/>
+    <rect width="1280" height="360" fill="url(#grid)"/>
+    <circle cx="1230" cy="40" r="170" fill="#4d9fff" opacity="0.045"/>
+  </g>
+  <rect x="0.5" y="0.5" width="1279" height="359" rx="28" fill="none" stroke="#27272f"/>
+
+  <!-- left: the pitch -->
+  <text class="m" x="72" y="118" font-size="74" font-weight="700" fill="#f4f4f2">
+    <tspan fill="#4d9fff">rd0</tspan><tspan fill="#8b8b85" font-weight="400" dx="10">/</tspan><tspan dx="10">jinx</tspan>
+  </text>
+
+  <text class="s" x="74" y="172" font-size="26" font-weight="500" fill="#c3c3bd">Explainable duplicate warnings</text>
+  <text class="s" x="74" y="206" font-size="26" font-weight="500" fill="#c3c3bd">for pull requests from coding agents</text>
+
+  <g class="m" font-size="19" font-weight="700">
+    <text x="74" y="266" fill="#ffcc33">6 ms<tspan fill="#8b8b85" font-weight="500" dx="9">per PR</tspan></text>
+    <text x="222" y="266" fill="#ffcc33">1.9<tspan fill="#8b8b85" font-weight="500" dx="9">false alarms / 100</tspan></text>
+    <text x="516" y="266" fill="#ffcc33">$0<tspan fill="#8b8b85" font-weight="500" dx="9">to run</tspan></text>
+  </g>
+
+  <text class="m" x="74" y="306" font-size="15" font-weight="500" fill="#4d9fff" letter-spacing="1.2" opacity="0.8">CPU-ONLY · NO API KEY · GITHUB ACTION · PLAIN REASONS</text>
+
+  <!-- right: what deduplication actually looks like. Two PRs side by side;
+       the lines they both change are amber and tied together, the rest grey. -->
+  <g transform="translate(706,44)">
+    <g class="m" font-size="13" font-weight="600">
+      <text x="0" y="12" fill="#4d9fff">#44134<tspan fill="#8b8b85" font-weight="500" dx="8">new</tspan></text>
+      <text x="300" y="12" fill="#c3c3bd">#44110<tspan fill="#8b8b85" font-weight="500" dx="8">open</tspan></text>
+    </g>
+
+    <rect x="0"   y="30"  width="160" height="15" rx="3" fill="#27272f"/>
+    <rect x="0"   y="57"  width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
+    <rect x="0"   y="84"  width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
+    <rect x="0"   y="111" width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
+    <rect x="0"   y="138" width="112" height="15" rx="3" fill="#27272f"/>
+
+    <rect x="300" y="30"  width="132" height="15" rx="3" fill="#27272f"/>
+    <rect x="300" y="57"  width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
+    <rect x="300" y="84"  width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
+    <rect x="300" y="111" width="160" height="15" rx="3" fill="#ffcc33" opacity="0.92"/>
+    <rect x="300" y="138" width="146" height="15" rx="3" fill="#27272f"/>
+
+    <g stroke="#ffcc33" stroke-width="2" stroke-opacity="0.5">
+      <path d="M160 64.5 H300"/>
+      <path d="M160 91.5 H300"/>
+      <path d="M160 118.5 H300"/>
+    </g>
+    <g fill="#ffcc33">
+      <circle cx="166" cy="64.5" r="3"/><circle cx="294" cy="64.5" r="3"/>
+      <circle cx="166" cy="91.5" r="3"/><circle cx="294" cy="91.5" r="3"/>
+      <circle cx="166" cy="118.5" r="3"/><circle cx="294" cy="118.5" r="3"/>
+    </g>
+
+    <g transform="translate(0,182)">
+      <rect x="0" y="0" width="460" height="46" rx="6" fill="#101014" stroke="#4d9fff" stroke-opacity="0.35"/>
+      <circle cx="26" cy="23" r="7" fill="none" stroke="#ffcc33" stroke-width="2.5"/>
+      <text class="m" x="46" y="28" font-size="13" font-weight="600" fill="#f4f4f2">duplicate of <tspan fill="#4d9fff" font-weight="700">#44110</tspan><tspan fill="#8b8b85" font-weight="500" dx="8">· 3 of 3 lines identical</tspan></text>
+      <text class="m" x="444" y="28" font-size="14" font-weight="700" fill="#ffcc33" text-anchor="end">1.00</text>
+    </g>
+  </g>
+</svg>
