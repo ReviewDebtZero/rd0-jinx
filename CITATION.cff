@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "Jinx: Explainable Duplicate Warnings for Pull Requests from Coding Agents"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Jain
+    given-names: Harshul
+  - family-names: Yergattikar
+    given-names: Saurabh
+  - family-names: Sah
+    given-names: Tanya
+  - family-names: Khatri
+    given-names: Parv
+repository-code: "https://github.com/harshuljain13/rd0-jinx"
+url: "https://rd0-jinx.netlify.app"
+version: "0.1.0"
+license: MIT
