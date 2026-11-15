@@ -170,7 +170,7 @@ export function MarketMatrix() {
         down, is against the tools that actually do duplicate-PR detection.{" "}
         <a
           href={PAPERS.marketNotes}
-          className="text-fg underline-offset-2 hover:text-accent hover:underline"
+          className="text-fg underline underline-offset-2 hover:text-accent"
         >
           Read the full audit →
         </a>

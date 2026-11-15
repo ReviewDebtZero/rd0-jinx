@@ -13,10 +13,10 @@ const FAR_STEPS = ["0.01", "0.02", "0.05", "0.1", "0.2"] as const;
 export function Benchmark() {
   return (
     <Section id="benchmark" index="03" label="measured against real detectors">
-      <Heading lead="Same recall as the best of them." accent="A third of the false alarms." />
+      <Heading lead="Same recall as the best of them." accent="Under half the false alarms." />
       <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-fg-dim">
         We replayed {data.n_cross} real duplicate pull requests from the public{" "}
-        <a href={AIDEV} className="text-fg underline-offset-2 hover:text-accent hover:underline">
+        <a href={AIDEV} className="text-fg underline underline-offset-2 hover:text-accent">
           AIDev
         </a>{" "}
         dataset. Each method saw only the PRs that were genuinely open at that moment, the way a bot
@@ -33,7 +33,7 @@ export function Benchmark() {
         overall — though all it can ever tell you is &ldquo;these two share a link&rdquo;. Our claim is
         the narrow one: Jinx raises under half the false alarms of the shipping bots, says exactly why
         it matched, and installs in two minutes.{" "}
-        <a href={PAPERS.report} className="text-fg underline-offset-2 hover:text-accent hover:underline">
+        <a href={PAPERS.report} className="text-fg underline underline-offset-2 hover:text-accent">
           All 66 strategies →
         </a>
       </p>

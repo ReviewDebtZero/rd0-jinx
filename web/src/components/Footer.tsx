@@ -1,4 +1,4 @@
-import { AIDEV, PAPERS, REPO } from "@/data/site";
+import { AIDEV, PAPERS, PIP_INSTALL, REPO } from "@/data/site";
 import { CopyLine } from "./CopyLine";
 
 export function Footer() {
@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-line">
       <div className="mx-auto w-full max-w-6xl px-5 py-14">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
+          <div className="min-w-0">
             <p className="font-mono text-[17px] font-bold tracking-tight">
               <span className="text-accent">rd0</span>
               <span className="text-fg-faint">/</span>jinx
@@ -18,7 +18,7 @@ export function Footer() {
               and it runs on the CI machine&rsquo;s CPU.
             </p>
             <div className="mt-4 max-w-sm">
-              <CopyLine command="pip install rd0-jinx" />
+              <CopyLine command={PIP_INSTALL} />
             </div>
           </div>
 

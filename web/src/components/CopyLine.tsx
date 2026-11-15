@@ -19,12 +19,12 @@ export function CopyLine({ command, className = "" }: { command: string; classNa
 
   return (
     <div
-      className={`flex items-center gap-3 border border-line bg-panel px-3 py-2.5 font-mono text-[15px] ${className}`}
+      className={`flex min-w-0 items-center gap-3 border border-line bg-panel px-3 py-2.5 font-mono text-[15px] ${className}`}
     >
       <span aria-hidden className="select-none text-accent">
         $
       </span>
-      <code className="flex-1 truncate text-fg">{command}</code>
+      <code className="min-w-0 flex-1 truncate text-fg" title={command}>{command}</code>
       <button
         type="button"
         onClick={copy}

@@ -1,12 +1,12 @@
 import data from "@/data/jinx.json";
-import { AGENTS, REPO } from "@/data/site";
+import { AGENTS, PIP_INSTALL, REPO } from "@/data/site";
 import { CopyLine } from "./CopyLine";
 import { CountUp } from "./motion/CountUp";
 import { Typewriter } from "./motion/Typewriter";
 import { Pill } from "./ui";
 
 const WAYS = [
-  { cmd: "pip install rd0-jinx", what: "the library and the CLI" },
+  { cmd: PIP_INSTALL, what: "the library and the CLI" },
   { cmd: "jinx check pr.json --open-queue q.jsonl", what: "check one PR locally" },
   { cmd: "uses: harshuljain13/rd0-jinx@main", what: "comment on every new PR" },
 ];
@@ -42,7 +42,7 @@ export function Hero() {
         </p>
 
         <div className="mt-8 max-w-xl">
-          <CopyLine command="pip install rd0-jinx" />
+          <CopyLine command={PIP_INSTALL} />
         </div>
 
         <div className="mt-6 max-w-xl border border-line">
@@ -53,8 +53,8 @@ export function Hero() {
             <tbody>
               {WAYS.map((w) => (
                 <tr key={w.cmd} className="border-b border-line last:border-0">
-                  <td className="px-3 py-2 text-fg">{w.cmd}</td>
-                  <td className="px-3 py-2 text-right text-fg-faint">{w.what}</td>
+                  <td className="break-all px-3 py-2 text-fg">{w.cmd}</td>
+                  <td className="hidden px-3 py-2 text-right text-fg-faint sm:table-cell">{w.what}</td>
                 </tr>
               ))}
             </tbody>
@@ -111,17 +111,17 @@ function StatStrip({
   ];
   return (
     <div className="border-t border-line bg-panel/50">
-      <dl className="mx-auto grid w-full max-w-6xl grid-cols-2 divide-line sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-2 divide-line sm:grid-cols-3 lg:grid-cols-5 lg:divide-x">
         {stats.map((s) => (
           <div key={s.k} className="border-b border-line px-5 py-5 lg:border-b-0">
-            <dd className="font-mono text-3xl font-bold tracking-tight text-note">
+            <p className="font-mono text-3xl font-bold tracking-tight text-note">
               <CountUp to={s.to} decimals={s.decimals} prefix={s.prefix} suffix={s.suffix} />
-            </dd>
-            <dt className="mt-1 text-[13px] text-fg-dim">{s.k}</dt>
+            </p>
+            <p className="mt-1 text-[13px] text-fg-dim">{s.k}</p>
             <p className="mt-0.5 font-mono text-[12.5px] text-fg-faint">{s.sub}</p>
           </div>
         ))}
-      </dl>
+      </div>
     </div>
   );
 }
