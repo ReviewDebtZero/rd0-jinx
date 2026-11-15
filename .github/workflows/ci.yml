@@ -7,12 +7,19 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        # The package declares requires-python >=3.9, so test the floor and the ceiling.
-        python-version: ["3.9", "3.13"]
+        # The package declares requires-python >=3.9, so test the floor and the
+        # ceiling. The floor needs an older runner: ubuntu-latest is 26.04 now,
+        # and setup-python has no 3.9 build for it. Pinning here keeps the 3.9
+        # claim actually verified instead of quietly dropping it.
+        include:
+          - python-version: "3.9"
+            os: ubuntu-22.04
+          - python-version: "3.13"
+            os: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
