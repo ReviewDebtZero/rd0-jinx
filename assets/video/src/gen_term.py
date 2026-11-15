@@ -1,16 +1,21 @@
 import json
-pip=[l for l in open("pip.txt").read().splitlines() if l]
-chk=open("check.txt").read().rstrip("\n").splitlines()
-cmd1='pip install rd0-jinx'
-cmd2='jinx check new_pr.json --open-queue open_prs.jsonl --top 2'
-steps=[["cmd",cmd1]]+[["out",l,"#94a3b8"] for l in pip]+[["gap",700],["cmd",cmd2]]
-for l in chk:
-    c="#e2e8f0"
-    if "DUPLICATE?" in l: c="#fde68a"
-    elif l.strip().startswith("-"): c="#86efac"
-    elif l.strip().startswith("#"): c="#94a3b8"
-    steps.append(["out",l,c])
-page='''<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="scenes/base.css"><style>
+from pathlib import Path
+
+pip = [ln for ln in Path("pip.txt").read_text().splitlines() if ln]
+chk = Path("check.txt").read_text().rstrip("\n").splitlines()
+cmd1 = "pip install rd0-jinx"
+cmd2 = "jinx check new_pr.json --open-queue open_prs.jsonl --top 2"
+steps = [["cmd", cmd1]] + [["out", ln, "#94a3b8"] for ln in pip] + [["gap", 700], ["cmd", cmd2]]
+for ln in chk:
+    c = "#e2e8f0"
+    if "DUPLICATE?" in ln:
+        c = "#fde68a"
+    elif ln.strip().startswith("-"):
+        c = "#86efac"
+    elif ln.strip().startswith("#"):
+        c = "#94a3b8"
+    steps.append(["out", ln, c])
+page = """<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="scenes/base.css"><style>
 .hd{position:absolute;left:120px;top:70px;font-size:46px;font-weight:800}.hd2{position:absolute;left:120px;top:135px;font-size:27px;color:#cbd5e1}
 .win{position:absolute;left:120px;right:120px;top:200px;bottom:70px;background:#0b1220;border:2px solid #334155;border-radius:20px;box-shadow:0 30px 70px rgba(0,0,0,.55);overflow:hidden}
 .bar{height:52px;background:#111827;border-bottom:1px solid #1f2937;display:flex;align-items:center;gap:12px;padding-left:22px}.bar i{width:16px;height:16px;border-radius:50%}
@@ -29,6 +34,6 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   for(const ch of s[1]){c.textContent+=ch;await sleep(28)}await sleep(350);line.querySelector('.cur').remove();await sleep(250)}
  else{const d=document.createElement('div');d.style.color=s[2];d.textContent=s[1]||' ';t.appendChild(d);await sleep(s[1].includes('DUPLICATE')?500:170)}}
  const line=document.createElement('div');line.innerHTML='<span class="p">$ </span><span class="cur"></span>';t.appendChild(line)})();
-</script></body></html>'''
-open("term.html","w").write(page.replace("__STEPS__",json.dumps(steps)))
-print(len(steps),"steps")
+</script></body></html>"""
+Path("term.html").write_text(page.replace("__STEPS__", json.dumps(steps)))
+print(len(steps), "steps")
