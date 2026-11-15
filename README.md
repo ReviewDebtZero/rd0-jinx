@@ -38,7 +38,7 @@ naming the match and why.
 </p>
 
 On a real run on this repository, Jinx commented on
-[#15](https://github.com/harshuljain13/rd0-jinx/pull/15#issuecomment-3534631731), stayed quiet on the
+[#15](https://github.com/harshuljain13/rd0-jinx/pull/15#issuecomment-6830707025), stayed quiet on the
 unrelated #13, and **missed** #14 — it scored 0.30 under the 0.5 threshold.
 
 ```console
