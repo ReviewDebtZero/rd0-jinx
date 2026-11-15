@@ -29,13 +29,24 @@ naming the match and why.
 
 ## See it work (80 s)
 
-<p align="center">
-  <a href="https://rd0-jinx.netlify.app/jinx_demo.mp4">
-    <img src="assets/demo_preview.gif" alt="Animated preview of the Jinx demo" width="640">
-  </a>
-  <br>
-  <sub><a href="https://rd0-jinx.netlify.app/jinx_demo.mp4">Watch the full demo</a> — PyPI install, <code>jinx check</code> on a real queue, the live comment on PR #15, the website.</sub>
-</p>
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <a href="https://rd0-jinx.netlify.app/jinx_demo.mp4">
+        <img src="assets/demo_preview.gif" alt="Animated preview of the Jinx demo: two PRs change the same lines and Jinx scores the match 1.00" width="100%">
+      </a>
+      <br>
+      <sub><a href="https://rd0-jinx.netlify.app/jinx_demo.mp4">Watch the demo</a> — PyPI install, <code>jinx check</code>, the live comment on PR #15, the website.</sub>
+    </td>
+    <td width="50%" align="center">
+      <a href="#measured-against-real-detectors">
+        <img src="assets/fig_far.png" alt="Bar chart of false alarms per 100 clean PRs: Jinx 1.9, link rule 1.2, INTRUDE 2.0, Simili-bot 4.5, PRSense 4.7, contrib-guard 5.5" width="100%">
+      </a>
+      <br>
+      <sub>False alarms per 100 clean PRs — Jinx has under half of the shipping bots. <a href="#measured-against-real-detectors">Benchmark below</a>.</sub>
+    </td>
+  </tr>
+</table>
 
 On a real run on this repository, Jinx commented on
 [#15](https://github.com/harshuljain13/rd0-jinx/pull/15#issuecomment-6830707025), stayed quiet on the
@@ -95,10 +106,6 @@ replayed against only the PRs open at that moment. False alarms per 100 PRs with
 | Simili-bot (existing bot) | 87.9 | 4.5 |
 | PRSense (existing bot) | 82.7 | 4.7 |
 | Claude Haiku 4.5 + Jinx | 93.6 | 0.8\* |
-
-<p align="center">
-  <img src="assets/fig_far.png" alt="Bar chart of false alarms per 100 clean PRs: Jinx 1.9, link rule 1.2, INTRUDE 2.0, Simili-bot 4.5, PRSense 4.7, contrib-guard 5.5" width="60%">
-</p>
 
 \* On a 1,600-PR no-duplicate sample, where Jinx alone raises 1.7. Costs ~0.8¢ per PR.
 
