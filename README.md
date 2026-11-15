@@ -107,10 +107,6 @@ replayed against only the PRs open at that moment. False alarms per 100 PRs with
 | PRSense (existing bot) | 82.7 | 4.7 |
 | Claude Haiku 4.5 + Jinx | 93.6 | 0.8\* |
 
-<p align="center">
-  <img src="assets/fig_far.png" alt="Bar chart of false alarms per 100 clean PRs: Jinx 1.9, link rule 1.2, INTRUDE 2.0, Simili-bot 4.5, PRSense 4.7, contrib-guard 5.5" width="60%">
-</p>
-
 \* On a 1,600-PR no-duplicate sample, where Jinx alone raises 1.7. Costs ~0.8¢ per PR.
 
 > On ranking, the strong methods are statistically tied — and the plain link rule is slightly ahead, though
