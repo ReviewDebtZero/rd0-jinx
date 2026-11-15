@@ -1,6 +1,5 @@
 export const REPO = "https://github.com/harshuljain13/rd0-jinx";
-/** Until rd0-jinx is on PyPI, install straight from GitHub. */
-export const PIP_INSTALL = `pip install "git+${REPO}#subdirectory=packages/rd0-jinx"`;
+export const PIP_INSTALL = "pip install rd0-jinx";
 export const AIDEV = "https://huggingface.co/datasets/hao-li/AIDev";
 
 export const PAPERS = {

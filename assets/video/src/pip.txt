@@ -1,0 +1,4 @@
+Collecting rd0-jinx
+  Downloading rd0_jinx-0.1.0-py3-none-any.whl (21 kB)
+Installing collected packages: rd0-jinx
+Successfully installed rd0-jinx-0.1.0
