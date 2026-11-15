@@ -14,8 +14,8 @@ export function Problem() {
     <Section index="00" label="why this exists">
       <Heading lead="A duplicate PR costs a review," accent="not a merge conflict." />
       <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fg-dim">
-        Across {data.n_cross} real cases in AIDev where one agent&rsquo;s PR repeated a PR from a
-        different author:
+        Across {c.n} real cases in AIDev where one agent&rsquo;s PR repeated an open PR from a
+        different author, counted from the moment the second PR opened until a person flagged it:
       </p>
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {stats.map((s) => (
@@ -26,8 +26,8 @@ export function Problem() {
         ))}
       </div>
       <p className="mt-4 font-mono text-[12.5px] text-fg-faint">
-        The reviewer&rsquo;s time is already spent by the time anyone notices. Jinx aims to say it on
-        day zero.
+        In about one case in five, someone had already put review time into a PR that was then closed
+        as a duplicate. Jinx aims to flag it the moment the second PR opens.
       </p>
     </Section>
   );

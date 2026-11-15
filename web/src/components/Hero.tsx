@@ -103,7 +103,7 @@ function StatStrip({
   n: number;
 }) {
   const stats = [
-    { to: latency, decimals: 1, prefix: "", suffix: " ms", k: "per pull request", sub: "median, one CPU core" },
+    { to: latency, decimals: 1, prefix: "", suffix: " ms", k: "per pull request", sub: "median, 4 CPU threads" },
     { to: far, decimals: 1, prefix: "", suffix: "", k: "false alarms / 100", sub: "on PRs with no duplicate" },
     { to: Math.round(top1), decimals: 0, prefix: "", suffix: "/100", k: "right PR ranked first", sub: `over ${n} real duplicates` },
     { to: 0, decimals: 0, prefix: "$", suffix: "", k: "to run", sub: "no LLM, no API key" },

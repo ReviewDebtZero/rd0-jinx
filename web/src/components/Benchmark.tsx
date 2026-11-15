@@ -97,7 +97,7 @@ function FarChart() {
 
 function ResultsTable() {
   return (
-    <div className="mt-5 overflow-x-auto border border-line">
+    <div tabIndex={0} role="region" aria-label="Benchmark results table" className="mt-5 overflow-x-auto border border-line">
       <table className="w-full min-w-[44rem] border-collapse text-left">
         <thead>
           <tr className="border-b border-line bg-panel-2 font-mono text-[12.5px] text-fg-dim">
