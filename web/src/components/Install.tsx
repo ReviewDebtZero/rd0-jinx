@@ -47,7 +47,7 @@ export function Install() {
             changes — it never posts twice.
           </p>
           <Frame className="mt-3" title=".github/workflows/jinx.yml">
-            <pre tabIndex={0} aria-label="GitHub Action workflow" className="overflow-x-auto px-3 py-3 font-mono text-[12.5px] leading-relaxed text-fg-dim">
+            <pre tabIndex={0} role="region" aria-label="GitHub Action workflow" className="overflow-x-auto px-3 py-3 font-mono text-[12.5px] leading-relaxed text-fg-dim">
               {ACTION_YAML}
             </pre>
           </Frame>
