@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><style>
+.stage{position:absolute;inset:0}
+.q{position:absolute;left:0;right:0;top:120px;text-align:center;font-size:76px;font-weight:800}
+.q span{display:inline-block}
+.card{position:absolute;top:330px;width:560px;height:330px;border-radius:24px;background:#0f172a;border:2px solid #334155;box-shadow:0 30px 60px rgba(0,0,0,.5);padding:30px}
+.card h3{font-size:30px;display:flex;gap:14px;align-items:center}.card h3 i{width:20px;height:20px;border-radius:50%;background:#22c55e;display:inline-block}
+.card h3 small{color:#94a3b8;font-weight:400;font-size:26px}
+.card .f{color:#cbd5e1;font-size:24px;margin:18px 0 22px}
+.ln{height:20px;border-radius:10px;margin:16px 0;background:#334155;transform-origin:left;transform:scaleX(0);animation:grow .6s forwards cubic-bezier(.2,.8,.2,1)}
+.ln.g{background:#22c55e}
+@keyframes grow{to{transform:scaleX(1)}}
+#A{left:230px;animation:inL .8s .5s forwards}#B{right:230px;animation:inR .8s .9s forwards}
+svg{position:absolute;left:0;top:0}
+path{fill:none;stroke:url(#lg);stroke-width:6;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:draw .7s forwards ease-out}
+@keyframes draw{to{stroke-dashoffset:0}}
+.tag{position:absolute;left:0;right:0;top:470px;text-align:center;font-size:30px;color:#fbbf24;font-weight:700}
+.cm{position:absolute;left:460px;top:700px;width:1000px;border-radius:24px;background:#111827;border:2px solid #6366f1;padding:28px 40px;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.cm .h{font-size:32px;display:flex;justify-content:space-between}.cm .h b{color:#a78bfa}
+.score{border:2px solid #fbbf24;color:#fde68a;border-radius:30px;padding:2px 22px;font-weight:700}
+.r{font-size:27px;color:#cbd5e1;margin-top:14px}.r::before{content:"✓  ";color:#22c55e}
+.t2{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+</style></head><body><div class="bg"></div><div class="dots"></div>
+<div class="stage" id="s1" style="animation:out .5s 6.6s forwards">
+ <div class="q"><span class="a" style="animation:up .7s .1s forwards">Two agents.&nbsp;</span><span class="a" style="animation:up .7s .4s forwards">Same fix.&nbsp;</span><span class="a grad" style="animation:up .7s 2.2s forwards">One reviewer.</span></div>
+ <div class="card a mono" id="A"><h3><i></i>#15 <small>new PR · agent A</small></h3><div class="f">src/jinx_pr/cli.py</div>
+  <div class="ln" style="width:60%;animation-delay:1.2s"></div><div class="ln g" style="width:92%;animation-delay:1.3s"></div><div class="ln g" style="width:84%;animation-delay:1.4s"></div><div class="ln g" style="width:88%;animation-delay:1.5s"></div><div class="ln" style="width:45%;animation-delay:1.6s"></div></div>
+ <div class="card a mono" id="B"><h3><i></i>#12 <small>already open · agent B</small></h3><div class="f">src/jinx_pr/cli.py</div>
+  <div class="ln" style="width:50%;animation-delay:1.5s"></div><div class="ln g" style="width:92%;animation-delay:1.6s"></div><div class="ln g" style="width:84%;animation-delay:1.7s"></div><div class="ln g" style="width:88%;animation-delay:1.8s"></div><div class="ln" style="width:70%;animation-delay:1.9s"></div></div>
+ <svg width="1920" height="1080"><defs><linearGradient id="lg"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#f472b6"/></linearGradient></defs>
+  <path d="M760 488 C 900 488, 1020 488, 1160 488" style="animation-delay:2.6s"/><path d="M716 524 C 880 524, 1020 524, 1160 524" style="animation-delay:2.8s"/><path d="M738 560 C 890 560, 1020 560, 1160 560" style="animation-delay:3.0s"/></svg>
+ <div class="tag a mono" style="top:430px;animation:fade .4s 2.8s forwards">same lines</div>
+ <div class="cm a mono" style="animation:pop .6s 3.6s forwards"><div class="h"><span><b>jinx</b> &nbsp;this PR may duplicate <span style="color:#60a5fa">#12</span></span><span class="score" id="sc">0.00</span></div>
+  <div class="r a" style="animation:fade .3s 4.2s forwards">same linked issue (#11)</div><div class="r a" style="animation:fade .3s 4.5s forwards">shares 2 of 2 changed files</div><div class="r a" style="animation:fade .3s 4.8s forwards">100% of changed line ranges overlap</div></div>
+</div>
+<div class="t2"><div class="a mono" style="font-size:150px;font-weight:700;animation:up .8s 7.0s forwards"><span style="color:#60a5fa">rd0</span><span style="color:#64748b;font-weight:400"> / </span>jinx</div>
+ <div class="a" style="font-size:64px;font-weight:800;animation:up .8s 7.4s forwards">Review it once. <span class="grad">Not twice.</span></div>
+ <div class="a" style="font-size:34px;color:#cbd5e1;animation:up .8s 7.8s forwards">Duplicate-PR warnings for coding agents, with the reason for every match.</div></div>
+<script>setTimeout(()=>{const e=document.getElementById('sc');const t0=performance.now();(function f(){const p=Math.min(1,(performance.now()-t0)/700);e.textContent=p.toFixed(2);if(p<1)requestAnimationFrame(f)})()},3900)</script>
+</body></html>

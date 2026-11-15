@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-16a34a"></a>
-  <img alt="PyPI: coming soon" src="https://img.shields.io/badge/pypi-coming%20soon-3775a9?logo=pypi&logoColor=white">
+  <a href="https://pypi.org/project/rd0-jinx/"><img alt="PyPI" src="https://img.shields.io/pypi/v/rd0-jinx?color=3775a9&logo=pypi&logoColor=white"></a>
   <img alt="Python 3.9+" src="https://img.shields.io/badge/python-3.9%2B-3776ab?logo=python&logoColor=white">
   <img alt="CPU only" src="https://img.shields.io/badge/runs%20on-CPU%20only-0d9488">
   <img alt="No API key" src="https://img.shields.io/badge/API%20key-not%20needed-4f46e5">
@@ -44,10 +44,18 @@ it leaves one short comment naming the PR it matches and why.
 | 🛡️ **Safe** | Reads PR data through the GitHub API. Never runs the PR's code, never closes or blocks anything. |
 
 ```bash
-pip install "git+https://github.com/harshuljain13/rd0-jinx#subdirectory=packages/rd0-jinx"
+pip install rd0-jinx
 ```
 
-The PyPI release (`pip install rd0-jinx`) is not out yet; until then, install from GitHub as above.
+### See it work (80 s)
+
+<p align="center">
+  <a href="https://rd0-jinx.netlify.app/jinx_demo.mp4">
+    <img src="assets/demo_preview.gif" alt="Animated preview of the Jinx demo video: two PRs change the same lines and Jinx flags the duplicate with score 1.00" width="720">
+  </a>
+  <br>
+  <sub><a href="https://rd0-jinx.netlify.app/jinx_demo.mp4">Watch the full demo</a> (MP4, 1080p) — installing from PyPI, <code>jinx check</code> on a real queue, the live comment on PR #15, and the website. Also in the repo: <a href="web/public/jinx_demo.mp4"><code>web/public/jinx_demo.mp4</code></a>.</sub>
+</p>
 
 **Website:** [rd0-jinx.netlify.app](https://rd0-jinx.netlify.app) — the same story with an interactive comparison, built from [`web/`](web/). **Papers:** [empirical study](research/paper/empirical/main.pdf) · [tool demo](research/paper/tooldemo/main.pdf)
 
@@ -173,8 +181,8 @@ changes. `pull_request_target` is safe here because Jinx never checks out or run
 ### Or from the command line
 
 ```bash
-pip install "git+https://github.com/harshuljain13/rd0-jinx#subdirectory=packages/rd0-jinx"   # adds the `jinx` command
-pip install "rd0-jinx[embed] @ git+https://github.com/harshuljain13/rd0-jinx#subdirectory=packages/rd0-jinx"   # optional local MiniLM model
+pip install rd0-jinx              # adds the `jinx` command
+pip install "rd0-jinx[embed]"     # optional local MiniLM model
 
 jinx check packages/rd0-jinx/examples/new_pr.json \
   --open-queue packages/rd0-jinx/examples/open_prs.jsonl --top 2

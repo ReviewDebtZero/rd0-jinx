@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><style>
+h1{position:absolute;left:160px;top:110px;font-size:64px;font-weight:800}
+.sub{position:absolute;left:160px;top:200px;font-size:30px;color:#cbd5e1}
+.rows{position:absolute;left:160px;top:300px;width:1600px}
+.row{display:flex;align-items:center;height:78px;gap:30px}
+.n{width:330px;font-size:32px;text-align:right}.n.me{color:#60a5fa;font-weight:800}
+.bar{height:46px;border-radius:12px;transform-origin:left;transform:scaleX(0);animation:grow .9s forwards cubic-bezier(.2,.8,.2,1)}
+@keyframes grow{to{transform:scaleX(1)}}
+.v{font-size:32px;font-weight:700;opacity:0;animation:fade .3s forwards}
+.note{position:absolute;left:160px;right:160px;bottom:90px;font-size:28px;color:#cbd5e1;line-height:1.5}
+</style></head><body><div class="bg"></div><div class="dots"></div>
+<h1 class="a" style="animation:up .7s .1s forwards">False alarms per 100 PRs <span class="grad">with no duplicate</span></h1>
+<div class="sub a" style="animation:up .7s .3s forwards">313 real duplicate PRs from the public AIDev dataset · lower is better</div>
+<div class="rows" id="rows"></div>
+<div class="note a" style="animation:fade .6s 3.6s forwards">Ranking the right PR first, the strong methods tie: Jinx 91.7%, the plain link rule 93.6%, INTRUDE 91.4%.<br>Jinx's edge: <b style="color:#fde68a">under half the false alarms of the existing bots</b>, plain reasons, CPU only, no API key.</div>
+<script>
+const D=[["Link rule",1.2,"#64748b"],["Jinx",1.9,"#60a5fa",1],["INTRUDE + time",2.0,"#64748b"],["Simili-bot",4.5,"#f472b6"],["PRSense",4.7,"#f472b6"],["contrib-guard",5.5,"#f472b6"]];
+const r=document.getElementById('rows');D.forEach(([n,v,c,me],i)=>{const d=.7+i*.25;r.insertAdjacentHTML('beforeend',`<div class="row"><div class="n ${me?'me':''} a" style="animation:fade .3s ${d}s forwards">${n}</div><div class="bar" style="width:${v/5.5*1050}px;background:${c};animation-delay:${d}s;${me?'box-shadow:0 0 30px #60a5fa':''}"></div><div class="v" style="animation-delay:${d+.8}s;color:${me?'#60a5fa':'#e2e8f0'}">${v.toFixed(1)}</div></div>`)});
+</script></body></html>
