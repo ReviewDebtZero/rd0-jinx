@@ -4,7 +4,7 @@
 
 <p align="center">
   <b>Jinx stops your team from reviewing the same pull request twice.</b><br>
-  <sub>The first tool in <a href="https://rd0.ai"><b>rd0</b></a> — review debt, to zero.</sub>
+  <sub>The first tool in <a href="https://rd0-jinx.netlify.app"><b>rd0</b></a> — review debt, to zero.</sub>
 </p>
 
 <p align="center">
@@ -49,7 +49,7 @@ pip install "git+https://github.com/harshuljain13/rd0-jinx#subdirectory=packages
 
 The PyPI release (`pip install rd0-jinx`) is not out yet; until then, install from GitHub as above.
 
-**Website:** [rd0.ai](https://rd0.ai) — the same story with an interactive comparison, built from [`web/`](web/). **Papers:** [empirical study](research/paper/empirical/main.pdf) · [tool demo](research/paper/tooldemo/main.pdf)
+**Website:** [rd0-jinx.netlify.app](https://rd0-jinx.netlify.app) — the same story with an interactive comparison, built from [`web/`](web/). **Papers:** [empirical study](research/paper/empirical/main.pdf) · [tool demo](research/paper/tooldemo/main.pdf)
 
 ## What it looks like
 
@@ -267,7 +267,7 @@ study of 66 strategies is in [`research/experiments/`](research/experiments/) an
 
 ```
 packages/rd0-jinx/   Jinx: the installable library, CLI and tests
-web/                 the rd0.ai website (Next.js static export)
+web/                 the website, rd0-jinx.netlify.app (Next.js static export)
 research/            experiments, papers and design docs
 action.yml           the GitHub Action (must live at the root)
 ```

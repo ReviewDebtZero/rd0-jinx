@@ -9,7 +9,7 @@ import "./globals.css";
  * reads --font-jetbrains and --font-inter.
  */
 
-const SITE = "https://rd0.ai";
+const SITE = "https://rd0-jinx.netlify.app";
 const TITLE = "Jinx — duplicate PR warnings for coding agents";
 const DESCRIPTION =
   "Jinx checks every new pull request against the ones already open and comments when it finds a likely duplicate, with the reasons. Runs on CPU in 6 ms. No LLM, no API key.";
