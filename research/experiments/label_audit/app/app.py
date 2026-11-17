@@ -75,7 +75,8 @@ def render_task(name, idx):
         "  ·  ✅ already labeled" if prev else ""
     )
     links = f"[Older PR]({task['older_pr']})  ·  [Newer PR]({task['newer_pr']})"
-    context = f"Linking comment: *{task['linking_comment']}*\n\n---\n\n" + task["context"].replace(
+    comment = task["linking_comment"].replace("<", "&lt;")
+    context = f"Linking comment: *{comment}*\n\n---\n\n" + task["context"].replace("<", "&lt;").replace(
         "## OLDER PR", "### OLDER PR"
     ).replace("## NEWER PR", "### NEWER PR")
     jump_max = len(TASKS)
