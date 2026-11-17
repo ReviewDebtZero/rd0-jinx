@@ -21,7 +21,8 @@ def load_labels(p):
     """
     if p.endswith(".jsonl"):
         rows = [json.loads(l) for l in pathlib.Path(p).read_text().splitlines()]
-        return pd.DataFrame(rows).set_index("id").label.map(M)
+        # Revisiting a pair appends a second row; the last save wins.
+        return pd.DataFrame(rows).drop_duplicates("id", keep="last").set_index("id").label.map(M)
     return pd.read_excel(p, sheet_name="Pairs").set_index("id").label.map(M)
 
 
