@@ -11,7 +11,21 @@ import pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
 M = json.loads(pathlib.Path(HERE, "label_map.json").read_text())
 key = pd.read_csv(os.path.join(HERE, "key_do_not_open.csv"))
-a, b = (pd.read_excel(p, sheet_name="Pairs").set_index("id").label.map(M) for p in sys.argv[1:3])
+
+
+def load_labels(p):
+    """Read a label source into an id-indexed series of audit classes.
+
+    Accepts a labeller sheet (.xlsx, 'Pairs' sheet, 'label' column) or an
+    answers file from app/ (.jsonl, one {"id", "label", "note"} per line).
+    """
+    if p.endswith(".jsonl"):
+        rows = [json.loads(l) for l in pathlib.Path(p).read_text().splitlines()]
+        return pd.DataFrame(rows).set_index("id").label.map(M)
+    return pd.read_excel(p, sheet_name="Pairs").set_index("id").label.map(M)
+
+
+a, b = (load_labels(p) for p in sys.argv[1:3])
 
 
 def kappa(x, y):
@@ -35,8 +49,10 @@ out = {
     "kappa_A_B": kappa(a, b),
     "kappa_A_haiku": kappa(a, hk),
     "kappa_B_haiku": kappa(b, hk),
-    "precision_strict_A": prec(a, strict), "precision_strict_B": prec(b, strict),
-    "precision_loose_A": prec(a, loose), "precision_loose_B": prec(b, loose),
+    "precision_strict_A": prec(a, strict),
+    "precision_strict_B": prec(b, strict),
+    "precision_loose_A": prec(a, loose),
+    "precision_loose_B": prec(b, loose),
     "haiku_strict_same_rows": prec(hk, strict),
 }
 print(json.dumps(out, indent=1))

@@ -9,6 +9,10 @@
 - `pairs.csv`: the same 100 rows as plain CSV.
 - `key_do_not_open.csv`: the Claude Haiku audit label for each row. Labellers should not open it.
 
+Prefer an interactive app to spreadsheets? `../app/` serves the same 100 pairs one at
+a time (full PR context + GitHub links) and writes `answers/<name>.jsonl`, which
+`agreement.py` reads interchangeably with the sheets.
+
 Label independently, then run:
 
 ```bash
