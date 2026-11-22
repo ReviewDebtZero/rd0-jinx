@@ -88,7 +88,7 @@ jobs:
   jinx:
     runs-on: ubuntu-latest
     steps:
-      - uses: harshuljain13/rd0-jinx@v1
+      - uses: harshuljain13/rd0-jinx@v0.1.0
         with:
           embed: "false"   # "true" adds MiniLM
 \end{verbatim}
@@ -97,12 +97,12 @@ jobs:
 \emph{Limits.} The Action looks only at the 200 most recent open PRs; in the benchmark this hid the true duplicate in \capCross{} cross-author cases. Locally, the \texttt{jinx check} and \texttt{jinx learn-templates} commands read PRs from JSON files.
 
 \section{Evaluation}
-\begin{table}[t]\centering\caption{Cross-author duplicate pairs on open-only queues ($n=\nCross$, historical AIDev data~\cite{jinxstudy}). Flagged: true duplicate ranked first and above the method's threshold. False alarms on \nNeg{} PRs without a duplicate, 95\% CIs.}\label{tab:tool}
+\begin{table}[t]\centering\caption{Cross-author duplicate pairs on open-only queues ($n=\nCross$, historical AIDev data~\cite{jinxstudy}). Flagged: true duplicate ranked first and above the method's threshold. False alarms on \nNeg{} PRs with no known duplicate, 95\% CIs.}\label{tab:tool}
 \footnotesize\setlength{\tabcolsep}{3pt}\input{../generated/tab_tool}\end{table}
 
-We used the AIDev dataset~\cite{li2026aidev}: \nPairs{} pairs of agent PRs that a comment marks as duplicate or superseded, each scored against the PRs that were open in the repository when the newer PR was created, plus \nNeg{} PRs with no duplicate. Weights are trained with five repository-grouped folds for evaluation; the shipped weights are retrained on all data with the same recipe.
+We used the AIDev dataset~\cite{li2026aidev}: \nPairs{} pairs of agent PRs that a comment marks as duplicate or superseded, each scored against the PRs that were open in the repository when the newer PR was created, plus \nNeg{} \emph{silver negatives}: merged PRs with no duplicate-like comment, which does not guarantee that no duplicate existed, so false-alarm numbers here are silver-negative benchmark rates. All reported numbers come from five repository-grouped folds evaluated on held-out repositories; the shipped weights are then retrained on all 4{,}280 open-only-queue queries with the same recipe, so the released model has seen every benchmark query.
 
-Table~\ref{tab:tool} compares the shipped modes with a classic detector (INTRUDE~\cite{ren2019intrude} with a time feature~\cite{wang2019time}), the best existing bot and a link rule. Jinx's ranking is statistically tied with the classic detector and the link rule; we do not claim better ranking. Its false alarms are below the best bot's (difference \dFARcg{} points, CI \dFARcgLo{} to \dFARcgHi) and close to INTRUDE + time and the link rule. What Jinx adds over these is packaging and explanation: unlike the link rule and the bot, it explains code-level matches (shared files, identical lines), and unlike the research detector it ships as an installable Action. On the \nNoLink{} cross-author pairs with no link at all, no method is clearly better (Jinx \ROnejinxNoLink).
+Table~\ref{tab:tool} compares the shipped modes with a classic detector (our re-implementation of INTRUDE~\cite{ren2019intrude} with a time feature~\cite{wang2019time}), the best existing bot (contrib-guard, an exact port of its released code) and a link rule. Jinx's ranking is statistically tied with the classic detector and the link rule; we do not claim better ranking. Its false alarms are below the best bot's (difference \dFARcg{} points, CI \dFARcgLo{} to \dFARcgHi) and close to INTRUDE + time and the link rule. What Jinx adds over these is packaging and explanation: unlike the link rule and the bot, it explains code-level matches (shared files, identical lines), and unlike the research detector it ships as an installable Action. On the \nNoLink{} cross-author pairs with no link at all, no method is clearly better (Jinx \ROnejinxNoLink).
 
 \begin{figure}[t]
 \small
@@ -122,15 +122,15 @@ $ jinx check new.json --open-queue open.jsonl
 
 \emph{Reading a warning.} Fig.~\ref{fig:cli} shows a true duplicate, where five reasons agree. Fig.~\ref{fig:fa} shows a warning that is wrong: a follow-up PR stacked on the same author's earlier PR. Because each reason is listed, a maintainer can see what triggered the warning without opening both diffs. Stacked PRs are a known source of false alarms for any code-overlap signal. Fig.~\ref{fig:action} shows the Action's comment from a live run on the public Jinx repository, where we opened four demonstration PRs, three of them for the same issue. Jinx commented on the PR that redid an open PR's change (score 1.00) and stayed quiet on an unrelated documentation PR. A third PR for the same issue, written with different wording and a different implementation, scored 0.30 and got no comment at the default threshold; that is the kind of duplicate a lower threshold would catch, at the cost of more false alarms. These were our own test PRs, not a maintainer deployment.
 
-\begin{figure}[t]\centering
-\includegraphics[width=\columnwidth]{fig_action_comment.png}
-\caption{The Jinx Action's comment on a live demonstration PR (harshuljain13/rd0-jinx \#15), which redoes open PR \#12 for the same issue \#11.}\Description{A GitHub PR comment by github-actions listing one likely duplicate, PR 12, with score 1.00 and its reasons: same linked issue, shared files, overlapping line ranges, identical added lines and similar text.}\label{fig:action}\end{figure}
+\begin{figure*}[t]\centering
+\includegraphics[width=0.9\textwidth]{fig_action_comment.png}
+\caption{The Jinx Action's comment on a live demonstration PR (harshuljain13/rd0-jinx \#15), which redoes open PR \#12 for the same issue \#11.}\Description{A GitHub PR comment by github-actions listing one likely duplicate, PR 12, with score 1.00 and its reasons: same linked issue, shared files, overlapping line ranges, identical added lines and similar text.}\label{fig:action}\end{figure*}
 
 \section{Limitations}
 Jinx often misses duplicates that change different files to reach the same goal (\ROnejinxClassD{} Recall@1 on such cross-author pairs). Labels come from PR comments; an LLM audit judged \auditOpenStrict\% of the cross-author labels to be true duplicates or replacements, and a human check is pending. Apart from the demonstration run, we have evaluated Jinx on historical data only; no maintainer has used it yet, and a run on live repositories is future work. In the companion study, asking Claude Haiku 4.5 to check Jinx's top five candidates cut false alarms from \FARsubjinx\% to \FARsubhaiku\% for about \costHaikuPerPR{} US cents per PR~\cite{jinxstudy}; Jinx does not offer this optional check yet.
 
 \section{Availability}
-Jinx is open source under the MIT licence at \url{https://github.com/harshuljain13/rd0-jinx} and installs from PyPI with \texttt{pip install rd0-jinx}; the Action is used as \texttt{harshuljain13/rd0-jinx@main}. An 80-second demo video is at \url{https://rd0-jinx.netlify.app/jinx_demo.mp4}.
+Jinx is open source under the MIT licence at \url{https://github.com/harshuljain13/rd0-jinx} and installs from PyPI with \texttt{pip install rd0-jinx}; the Action is used as \texttt{harshuljain13/rd0-jinx@v0.1.0}. An 81-second demo video is at \url{https://rd0-jinx.netlify.app/jinx_demo.mp4}.
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{../refs}
 \end{document}

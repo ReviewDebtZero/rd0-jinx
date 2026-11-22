@@ -12,9 +12,9 @@ Claude Haiku 4.5 + Jinx & \textbf{0.936} & \textbf{0.990} & 0.8$^{\ddagger}$$^{*
 \midrule
 \multicolumn{5}{@{}l}{\emph{Baselines}}\\
 Link rule, TF-IDF tie-break & \textbf{0.936} & 0.978 & \textbf{1.2} & +1.0 [-2.7, +4.3] \\
-INTRUDE + time~\cite{ren2019intrude,wang2019time} & 0.914 & 0.987 & 2.0 & -1.3 [-3.1, +0.7] \\
-contrib-guard (bot) & 0.914 & 0.981 & 5.5$^{\dagger}$ & -1.3 [-4.7, +2.7] \\
-TF-IDF~\cite{li2017detecting} & 0.911 & 0.981 & 3.5$^{\dagger}$ & -1.6 [-4.9, +2.2] \\
+INTRUDE + time (re-impl.)~\cite{ren2019intrude,wang2019time} & 0.914 & 0.987 & 2.0 & -1.3 [-3.1, +0.7] \\
+contrib-guard (bot, exact port) & 0.914 & 0.981 & 5.5$^{\dagger}$ & -1.3 [-4.7, +2.7] \\
+TF-IDF (re-impl.)~\cite{li2017detecting} & 0.911 & 0.981 & 3.5$^{\dagger}$ & -1.6 [-4.9, +2.2] \\
 BGE-small embedding & 0.907 & 0.981 & 2.3 & -1.9 [-4.6, +1.1] \\
 Link rule, no tie-break & 0.690 & 0.808 & 2.3 & -23.6 [-30.3, -16.7] \\
 \bottomrule\end{tabular}

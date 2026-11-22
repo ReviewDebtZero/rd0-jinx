@@ -25,9 +25,9 @@ M = {"jinx": "Jinx + MiniLM, LR (current tool)", "jinxlex": "Jinx lexical, LR", 
      "casc": "Cascade: Jinx + BGE-reranker + Qwen2.5-7B (stacked LR)", "links": "Links only (same issue / #ref)", "linksraw": "Links only, no tie-break (same issue / #ref)",
      "tfidf": "TF-IDF raw text (Li et al. 2017)", "bge": "BGE-small template-stripped",
      "qwen14": "LLM judge Qwen2.5-14B + Jinx (avg) top-5"}
-SHOW = {"jinx": "Jinx (with MiniLM)", "jinxlex": "Jinx without MiniLM", "all": "All signals, LR", "intrude": "INTRUDE + time~\\cite{ren2019intrude,wang2019time}",
-        "cg": "contrib-guard (bot)", "haiku": "Claude Haiku 4.5 + Jinx", "haikuonly": "Claude Haiku 4.5 alone on Jinx top-5",
-        "casc": "Jinx + BGE re-ranker + Qwen-7B", "links": "Link rule, TF-IDF tie-break", "linksraw": "Link rule, no tie-break", "tfidf": "TF-IDF~\\cite{li2017detecting}",
+SHOW = {"jinx": "Jinx (with MiniLM)", "jinxlex": "Jinx without MiniLM", "all": "All signals, LR", "intrude": "INTRUDE + time (re-impl.)~\\cite{ren2019intrude,wang2019time}",
+        "cg": "contrib-guard (bot, exact port)", "haiku": "Claude Haiku 4.5 + Jinx", "haikuonly": "Claude Haiku 4.5 alone on Jinx top-5",
+        "casc": "Jinx + BGE re-ranker + Qwen-7B", "links": "Link rule, TF-IDF tie-break", "linksraw": "Link rule, no tie-break", "tfidf": "TF-IDF (re-impl.)~\\cite{li2017detecting}",
         "bge": "BGE-small embedding", "qwen14": "Qwen2.5-14B + Jinx"}
 for _k, v in M.items():
     assert v in set(S.method), v
@@ -152,7 +152,7 @@ print("wrote", sorted(os.listdir(OUT)))
 
 # Tool-demo table: shipped modes vs the main baselines, with flagged share at each method's threshold
 FAc = FA.set_index("method")
-TT = [("jinxlex", "Jinx, default (lexical)"), ("jinx", "Jinx with MiniLM"), ("intrude", "INTRUDE + time"), ("cg", "contrib-guard (bot)"),
+TT = [("jinxlex", "Jinx, default (lexical)"), ("jinx", "Jinx with MiniLM"), ("intrude", "INTRUDE + time (re-impl.)"), ("cg", "contrib-guard (bot, exact port)"),
       ("links", "Link rule")]
 rows = []
 for k, lab in TT:
